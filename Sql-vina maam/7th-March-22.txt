@@ -1,0 +1,82 @@
+Date functions
+Table  : date
+displaying the date in dift formats  - 
+add extra months
+greatest date, least date
+date: month : last day
+no of month coming betn 2 dates
+next day
+round year, month, week, day
+sysdate
+
+to_char, to_date
+
+select * from employee1;
+update employee1 set join_date='2-MAY-1990' where employee_id=121;
+select join_date from employee1;   // format : DD-MON-YY
+select to_char(join_date, 'DD-MM-YYYY' ) from employee1;
+select to_char(join_date, 'DD-MM-YY' ) from employee1;
+select to_char(join_date, 'DD-MM-Y' ) from employee1;
+select to_char(join_date, 'DD-M-Y' ) from employee1; // wrong query M : such format not available
+select employee_id, to_char(join_date, 'DD-MM-YY' ) from employee1;
+select to_char(join_date ,'DAY MONTH YEAR') from employee1;
+ select to_char(join_date ,'DY-DD MON, YYYY') from employee1;   // join_date  column name : DATE
+ 
+ select to_char(to_date('3-FEB-2004'), 'DD MONTH, YY') from dual;  // 1st arugment should be always of date type : to-date  : DD-MON-YYYY/ DD-MON-YY
+ 
+ // random date should be converted to date using to_date
+ to represent the date in dift formats u need to convert using to_char
+ any random value as date : to_date
+ any date to display in format : to_char
+ 
+ select sysdate from dual;   // DD-MON-YY
+
+select * from employee1;
+
+HH, HH24, HH12, MI, SS     
+Q. display joining time only
+select  to_char ( join_date, 'HH:MI:SS' ) from employee1;   // hrs format to display :  12 hrs 
+select  to_char ( join_date, 'HH24:MI:SS' ) from employee1;  
+select  to_char ( join_date, 'HH:MI:SS A.M.' ) from employee1;  // 1 to 11:59 : am   12 to   : pm
+select  to_char ( join_date, 'HH:MI:SS P.M.' ) from employee1;
+
+select  to_char ( to_date('00:00:00','HH24:MI:SS'), 'HH:MI:SS P.M.' ) from dual;    
+for 24 hrs clock midnight 12 will be : 00:00:00 
+for 12 hrs clock midnigh 12 will be 12:00:00 A.M.
+
+Q. Display the date like this "Kishori joined on 14th of September, 2000"
+
+select first_name || ' joined on ' || to_char (join_date, 'DDTH "of" MONTH, YYYY') "employee joining " from employee1 ;
+select first_name || ' joined on ' || to_char (join_date, 'DDTH "of" fmMONTH, YYYY') "employee joining " from employee1 ;
+
+Note : MONTH : all month will have same width  : extra padding will be added if required
+NOVEMBER, DECEMBER : 8 characters long
+JUNE : 4 + 4 spaces : 8 characters
+
+fmMONTH : Month will have their own width, no padding will be added
+fmDay
+fmYear
+
+select first_name || ' joined on ' || to_char (join_date, 'fmDAY DDth "of" fmMONTH, YYYY') "employee joining " from employee1 ;
+select first_name || ' joined on ' || to_char (join_date, 'fmDAY DDth "of"') || to_char(join_date, 'fmMONTH, YYYY') "employee joining " 
+from employee1 ;
+select first_name || ' joined on ' || to_char (join_date, 'fmDAY fmDDth "of" fmMONTH, YYYY') "employee joining " from employee1 ;
+
+Q. Employee joined on which day number of that week
+Select employee_id, join_date, to_char(join_date, 'DAY, D') "Day number" from employee1; // Sunday : 1st day of week, Saturday : 7th day of week
+
+D: that day having which number in that week
+
+Q. Employee joined in which week number in that year
+Select employee_id, join_date, to_char(join_date, 'WW') "Week number of year" , 
+to_char(join_date, 'W') "Week number of month" from employee1;
+
+
+
+
+
+
+
+
+
+

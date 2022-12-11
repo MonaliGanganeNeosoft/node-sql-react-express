@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Form Fileds</title>
+    </head>
+    <body>
+        <h2> Form Fields</h2>
+        <form method="post">
+        <!-- textbox-->
+        Name : <input type="text" name="nam" id="nam" placeholder="Enter Name"/> <br/>
+        <!-- password field-->
+        Password : <input type="password" name="password" placeholder="Enter Password"/><br/>
+        <!-- radio button (only 1 select at a time, all radio button names are same )-->
+        Gender : <input type="radio" name="gen" value="male"/> Male
+        <input type="radio" name="gen" value="female"/> Female <br/>
+        <!-- checkbox (multiple select)-->
+        Hobbies : <input type="checkbox" name="c1" value="tt"/> TT 
+        <input type="checkbox" name="c1" value="cricket"/> Cricket 
+        <input type="checkbox" name="c1" value="football"/> Football 
+        <input type="checkbox" name="c1" value="baseball"/> Baseball <br/>
+        <!-- select dropdown-->
+        City : <select name="city">
+             <option value="noida"> Noida</option>
+             <option value="delhi" selected> Delhi</option>
+             <option value="mumbai"> Mumbai</option>
+        </select> <br/>
+        <!-- file field for attachment-->
+        Image <input type="file" name="att"/><br/>
+        <!-- textarea-->
+        Feedback <textarea name="feedback" cols=20 rows=5></textarea><br/>
+        <!-- submit and rest button-->
+        <input type="submit" value="Submit"/>
+        <input type="reset" value="Reset"/>
+        <!-- normal button | image as a button-->
+        <input type="button" value="Button"/>
+        <input type="image" src="images/submit.jpg"/>
+       </form>
+    </body>
+</html>

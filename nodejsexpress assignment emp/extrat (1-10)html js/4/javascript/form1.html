@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title> Create Element Demo</title>
+    <script>
+        function fact(){
+            var num=Number(document.getElementById("t1").value);
+            var fact=1;
+            for(i=num;i>=1;i--){
+                fact*=i;
+            }
+            document.getElementById("result").value=fact;
+        }
+    </script>
+    </head>
+    <body>
+        <h2> Factorial</h2>
+        No1 <input type="text" id="t1"/><br/>
+        Result : <input type="text" id="result"/><br/>
+        <button onclick="fact()"> Click Here</button>
+    </body>
+</html>

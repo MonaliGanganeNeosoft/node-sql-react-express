@@ -1,0 +1,13 @@
+
+Q. Display Employees living in same state where employee with id 333 living.
+Q. Display from which city the employees are more in their own department.
+
+
+Q. Display the date in following format
+
+Example 
+"Shivani Patil joined on Friday, 25th February,twenty twenty two having time 10:50:00 AM."
+
+All day, month and year should have same width
+Time should be displayed in 12 hrs clock
+

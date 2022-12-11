@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var num1 = parseInt(prompt("sub 1"));
+      var num2 = parseInt(prompt("sub 2"));
+      var num3 = parseInt(prompt("sub 3"));
+      var num4 = parseInt(prompt("sub 4"));
+      var num5 = parseInt(prompt("sub 5"));
+      var sum = num1 + num2 + num3 + num4 + num5;
+      var per = (sum * 100) / 500;
+      alert("The Total is " + sum + " and your percentage is " + per + "%");
+      if (per > 80) {
+        alert("Your Grade is A");
+      } else if (per < 80 && per > 60) {
+        alert("Your Grade is B");
+      } else if (per < 60 && per > 45) {
+        alert("Your Grade is C");
+      } else {
+        alert("Fail");
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title> Create Element Demo</title>
+    <script>
+        function vali(){
+            var name=document.getElementById("t1").value;
+            var mobile=document.getElementById("t2").value;
+            var expName=/^[a-zA-Z ]{2,100}$/;
+            var expMobile=/^[6-9][0-9]{9}$/;
+            if(!(expName.test(name)))
+            {
+                document.getElementById("t1").focus();
+                alert("Only alphabate allow");
+            }
+            else if(!(expMobile.test(mobile)))
+            {
+                document.getElementById("t2").focus();
+                alert("Only 10 digit allow");
+            }
+            else {
+                alert("Form Submit");
+            }
+        }
+    </script>
+    </head>
+    <body>
+        <h2> Validation</h2>
+         Name : <input type="text" id="t1"/><br/>
+         Mobile : <input type="text" id="t2"/><br/>
+        <button onclick="vali()"> Click Here</button>
+    </body>
+</html>

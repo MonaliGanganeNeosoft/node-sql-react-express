@@ -1,0 +1,36 @@
+select * from employee   // 22 rows
+Q. Show sum of salary of all employees regardless of deparment
+select sum(salary) "SUM of SALARY" from employee;
+
+Q. Show Sum of salary of employees department wise // group by clause
+select dept_code,sum(salary) from employee group by dept_code;
+
+Q. Show number of employees and their average salary department wise
+select dept_code,count(employee_id), round(avg(salary)) from employee group by dept_code;
+
+Q. How many employees are there from same city. also display city name?
+select city, count(employee_id) "total employees" from employee group by city;
+
+
+Q. How many employees are there from same city and same department?
+select city, dept_code,count(employee_id) "total employees" from employee group by city,dept_code order by city;
+First employees are grouped using city. that will be a main group, from this main group again employees are grouped using 
+dept code so sub group will be create within a main group
+
+Q. How many employees from same department are coming from same city.
+select dept_code,city,count(employee_id) "total employees" from employee group by dept_code,city order by dept_code;
+
+select * from employee order by dept_code;
+
+Q. Show number of employees from same department
+select dept_code, count(employee_id) from employee group by dept_code;
+
+Q. Show number of employees from same department having salary>70000
+select dept_code, count(employee_id) from employee where salary>70000 group by dept_code;
+
+if before making the group we want to filter the rows then where clause is used
+Q. Show which deparments have minimum 4 employees having salary>70000. also display count. Order the count in ascending
+(dont show the count if it is below 4)
+select dept_code, count(employee_id) from employee where salary>70000 group by dept_code having count(employee_id)>=4 order by 2;
+if after making the group we want to filter the groups/ rows then having clause is used
+order by clause should be placed last in the query

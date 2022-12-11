@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function watch() {
+        d = new Date();
+        hr = d.getHours();
+        min = d.getMinutes();
+        sec = d.getSeconds();
+        document.getElementById("clock").innerHTML = hr + ":" + min + ":" + sec;
+      }
+      function start() {
+        interval = setInterval(watch, 1000);
+      }
+    </script>
+  </head>
+  <body onload="start()">
+    <p id="clock"></p>
+  </body>
+</html>

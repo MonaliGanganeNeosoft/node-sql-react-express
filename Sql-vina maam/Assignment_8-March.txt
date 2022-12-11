@@ -1,0 +1,18 @@
+employee1
+
+Q. Who is new comer in every department
+
+
+Q. Who is oldest employee in every department
+
+Q. Display employee's first name, joining date and years completed in company
+if months <12  then do not convert into years
+Exmaple how last column should be displayed
+22 years
+12 years
+6 months
+1 month
+
+
+Q. When Sunday will come after today.
+

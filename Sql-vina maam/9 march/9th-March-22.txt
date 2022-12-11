@@ -1,0 +1,115 @@
+Set Operators
+UNION, INTERSECT, MINUS
+
+select * from employee;
+Q. Show employee names with deparment code from department SM and HR
+select first_name, last_name, dept_code from employee where dept_code in ('SM', 'HR') order by dept_code;
+
+
+Q. select employees from SM department, select employees of HR department. Show the result by making UNION of result
+select first_name, last_name, dept_code from employee where dept_code='SM'
+UNION
+select first_name, last_name, dept_code from employee where dept_code='HR';
+
+select first_name, last_name, dept_code from employee where dept_code='SM'   3 colums selected
+UNION
+select first_name, dept_code from employee where dept_code='HR'; 2 columns selected  // wrong query : rule : number of columns should match
+
+select first_name, last_name, dept_code from employee where dept_code='SM'  // 1st col dt: varchar
+UNION
+select employee_id, last_name, dept_code from employee where dept_code='HR'; 1st col dt: number// wrong query : rule : data types also match for columns selected
+
+select first_name "fname or city", last_name, dept_code from employee where dept_code='SM' 
+UNION
+select city , last_name, dept_code from employee where dept_code='HR' order by dept_code;  // write query colms selected can differ
+// headings of columns are taken from first query 
+
+
+Q. show employee ids whose salary is 60000, or who live in Satara id, salary, city
+select employee_id, salary,city from employee where salary=60000                         
+UNION 
+select employee_id, salary, city from employee where lower(city)=lower('Satara');        
+
+// duplicates will get selected only once
+
+select employee_id, salary,city from employee where salary=60000                         
+UNION 
+select employee_id, commission, city from employee where lower(city)=lower('Satara');  
+
+Q. show all salaries from LD and HR department. (UNION)
+select dept_code, salary from employee where dept_code='LD'
+UNION
+select dept_code, salary from employee where dept_code='HR' order by salary;   // duplicates removed
+select dept_code, salary from employee where dept_code='LD'
+UNION ALL
+select dept_code, salary from employee where dept_code='HR' order by salary;   // duplicates removed
+
+select salary from employee where dept_code='LD'
+UNION
+select salary from employee where dept_code='HR' order by salary;   // 8 rows selected
+select salary from employee where dept_code='LD'
+UNION ALL
+select salary from employee where dept_code='HR' order by salary;   // 12 rows selected
+
+Q. What are common salaries from LD and HR   : result : 65000,70000   (INTERSECT)
+
+select salary from employee where dept_code='LD'
+INTERSECT
+select salary from employee where dept_code='HR' order by salary; 
+ 
+Q. Show employees from department LD and SM  who are coming from same state 
+subquery:
+select  state_code from employee where dept_code = 'LD'  
+INTERSECT 
+select state_code  from employee  where dept_code = 'SM'  
+
+select first_name, last_name, state_code, dept_code from employee 
+where state_code in 
+(select  state_code from employee where dept_code = 'LD'  
+INTERSECT 
+select  state_code  from employee  where dept_code = 'SM')
+and dept_code in ('LD','SM');
+
+Q. Show which employees are taking common (same) salary from department LD and HR
+ select employee_id,first_name,dept_code,salary from employee
+where salary in (
+select salary from employee where dept_code='LD'
+INTERSECT
+select salary from employee where dept_code='HR') and dept_code in ('LD','HR')
+order by salary;
+
+
+
+Q. Show uncommon salaries from deparment LD and HR
+LD-HR : uncommon from LD department
+select salary from employee where dept_code='LD'
+MINUS
+select salary from employee where dept_code='HR';
+
+HR-LD : uncommon from HR deparment
+select salary from employee where dept_code='HR'
+MINUS
+select salary from employee where dept_code='LD';
+
+Final query 1:
+select salary from employee where dept_code='LD'
+MINUS
+select salary from employee where dept_code='HR'
+UNION
+(select salary from employee where dept_code='HR'
+MINUS
+select salary from employee where dept_code='LD')
+
+Final query 2:
+select salary from employee where dept_code = 'LD'
+union all
+select salary from employee where dept_code = 'HR'
+minus
+(select salary from employee where dept_code = 'HR'
+intersect
+select salary from employee where dept_code = 'LD'
+);
+
+
+
+

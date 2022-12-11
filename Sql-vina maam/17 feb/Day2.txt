@@ -1,0 +1,101 @@
+selecr employee_id
+from employee
+
+select employee_id, city
+from employee
+
+select employee_id, city, first_name, age, last_name
+from employee
+
+
+select * from employee
+=, <, >, <=, >=, != / <>
+
+
+select * from employee
+where age!=40
+
+select * from employee
+where age=40
+
+select * from employee
+where age<>40
+
+select * from employee
+where age>=45
+select * from employee
+where age>45
+
+select * from employee
+where age<46
+
+select * from employee
+where age<46
+
+select first_name,city from employee
+where city='Mumbai'
+
+select first_name,city from employee
+where city>='Mumbai' 
+
+select first_name,city from employee
+where city='Mumbai' 
+
+select first_name as "ename",city as "living in"  
+from employee
+where city>='Mumbai' 
+
+
+
+select first_name  "ename",city  "living in"  
+from employee
+where city>='Mumbai' 
+
+logical keywords
+and, or, not
+
+C1 and C2
+T and T --> T  row gets selected
+T and F --> F  row gets rejected
+F and T --> F   row gets rejected
+F and F --> F   row gets rejected
+
+C1 or C2
+T or T --> T  row gets selected
+T or F --> F  row gets selected
+F or T --> F   row gets selected
+F or F --> F   row gets rejected
+
+not C1
+not T --> F row rejected
+not F --> T row selected
+
+Q. Display employees who live in Delhi with age = 40
+select * from employee
+where city='Delhi' and age=40; 
+
+Q. Display employees who live in Delhi  or having age = 40
+select * from employee where city='Delhi' or age=40; 
+
+Q. select employees other than city Pune
+select * from employee where city!='Pune'
+
+select * from employee where  not city='Pune'  
+
+Always check whether total condition is becoming T or not to select the row
+
+Assignment_Day2
+
+Q. Display trainer names
+Q. Display trainer names with which technology they teach
+Q. Display all records of trainer
+Q. Display trainers from CSE deparment
+Q. Display trainers having experience greater than 11
+Q. Display trainers from CSE having experience more than 10
+Q. Display trainers from MECH and CIVIL who teaches same technology CAD
+Q. Display trainers from other than IT department
+Q. Display trainer who teach JAVA Technology
+
+
+
+

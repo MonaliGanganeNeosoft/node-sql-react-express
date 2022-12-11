@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      async function fetchh() {
+        try {
+          await fetch("https://jsonplaceholder.typicode.com/users").then(
+            (res) => {
+              res.json().then((data) => {
+                data.filter((users) => {
+                  let div = document.createElement("div");
+                  console.log(data);
+                  div.innerHTML = `Name :${users.name}<br>
+                            Email : ${users.email} <br>
+                            Phone : ${users.phone}<br>
+                            Website : ${users.website}<br><hr>`;
+                  document.getElementById("target").appendChild(div);
+                });
+              });
+            }
+          );
+        } catch {
+          console.log("error");
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>User details</h1>
+    <button id="btn" onclick="fetchh()">click here</button>
+    <div id="target"></div>
+  </body>
+</html>

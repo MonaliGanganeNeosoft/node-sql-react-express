@@ -1,0 +1,152 @@
+--> prototype :- with the help of prototype we can add properties and methods later on in the program.
+  eg:
+  function Employee(name)
+  {
+      this.name=name;
+  }
+
+  Employee -----prototype---> constructor ----> Employee 
+   -> Environmental Setup of node js 
+   -> Download and install node.js 
+   https://nodejs.org/en/download/ 
+   -> To check node is install or not 
+     -> open cmd or terminal 
+       node -v 
+       -> when node is install npm is also install with it (node package manager)
+       npm -v
+  -> scenerio 
+    Car class 
+      -> speed : 50 
+      -> method : 
+        acc :- +60 
+        checkspeed :- display the current speed 
+  -> module pattern (IIFE :- Immediatly Invoke Function Expression)
+   (function(){
+       //code 
+   })();
+   eg:
+   var calc=function(){
+       return {
+           add:function(a,b){
+               return (a+b)
+           },
+           sub:function(a,b){
+               return (a-b)
+           }
+       }
+   }();
+   console.log(calc.add(10,5))
+    console.log(calc.sub(10,5))
+-> Hoisting :- It is a internal mechanism in javascript , if we define any variables or functions anwhere in our program it automatically assign to the top of a program before code execution.
+  -> variable and function hoisting
+ -> Closures : - Inner function always has access to the variables and parameters of the outer function , even after the outer function has returned.(Inner function is known as a closure).
+  eg:
+    function Outer(){
+        var count=0;
+        console.log(count)
+        function Inner(){
+           count++;
+           return count;
+        }
+        return Inner;
+    }
+    var counter=Outer();
+    console.log(counter());//1
+    console.log(counter());//2
+    console.log(counter());//3
+    console.log(counter());//4
+-> Es 6 /7 :-  new features are introduced in javascript.
+  -> let keyword :- we can define the local scope of a variable within a scope.
+    es5 : 
+    function abc(){
+        var a=10; //local variable
+    }
+    es6 :- 
+      for(let i=1;i<=5;i++){
+          console.log(i);//1 2 3 4 5
+      }
+      console.log(i);//i is not defined
+    -> constant :- It is a value that never be changed , it is read only.
+    const MAIN_URL="abc.com";
+    MAIN_URL="bca.com";//not possible 
+    *** in case of array elements and object properties we can the const variables.
+    -> Template Literals :- used to bind the string and variable within the string . backtricks symbols (``)
+      eg:
+        let a=10;
+        let b=20;
+        let sum=a+b;
+        console.log(`The sum of ${a} and ${b} is ${sum}`);
+        //es5
+        console.log("The sum of "+a+" and "+b+" is "+sum);
+    -> Arrow function :- => , code is sort and concise.
+      eg:
+      let add=(a,b)=> (a+b);
+      let add=(a,b)=>{
+          return (a+b);
+      } 
+    -> class and object 
+     class Car
+     {
+         constructor(){
+             this.speed=50;
+         }
+         acc(){
+             this.speed+=60;
+         }
+         checkspeed(){
+             console.log(`The speed is ${this.speed}`)
+         }
+     }
+     const obj=new Car;
+     obj.checkspeed();
+     obj.acc();
+     obj.checkspeed();
+-> Inheritance :- reusability , to access the parent class properties in a child class. 
+  -> extends keyword is used for inheritance 
+ class A 
+ {
+     abc(){
+         return "Sumit";
+     }
+ }
+ class B extends A 
+ {
+     bca(){
+         let fname="Amit";
+         let pname=super.abc();//Sumit 
+         console.log(`${fname} and ${pname} are good friends`)
+     }
+ }
+ const obj=new B;
+ obj.bca();
+
+ let 
+ const 
+ arrow 
+ template literals 
+ class and object 
+ inheritance 
+ Task 
+  -> DIgital CLock 
+   -> create a clock class and define render , start , stop method 
+
+   -> 
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+}
+class Rabbit extends Animal {
+  constructor(name) {
+    this.name = name;
+    this.created = Date.now();
+  }
+}
+let rabbit = new Rabbit("White Rabbit"); // Error: this is not defined
+alert(rabbit.name);
+
+
+
+
+
+    

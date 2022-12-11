@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .xyz{
+            background-color: chartreuse;
+        }
+        .xcv{
+            border:2px solid green;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            $("#btn").click(function(){
+                //$("li").parent().addClass('xyz');
+               //$("li").parents("div").addClass('xcv');
+               //$("ul").children().addClass('xyz');
+               //$("div").find("li").addClass('xyz');
+              //$("p").siblings().addClass('xcv');
+             // $("p").prev().addClass('xcv');
+            // $("ul li").eq(3).addClass('xyz');
+            $("ul li").slice(0,2).addClass('xyz');
+            })
+           
+        });
+    </script>
+ </head>
+<body>
+    <div class="container">
+        <h2> Hello</h2>
+    <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, repellat eveniet, laborum, a iure nihil sint autem tempora ut nobis eaque. Veniam pariatur, provident cum obcaecati laudantium hic distinctio illo!</p>
+     <ul>
+         <li> One</li>
+         <li> One</li>
+         <li> Two</li>
+         <li> One</li>
+         <li> Two</li>
+     </ul>
+     <h4> Siblings</h4>
+     </div>
+    <input type="button" value="Click Here" id="btn"/>
+
+</body>
+</html>

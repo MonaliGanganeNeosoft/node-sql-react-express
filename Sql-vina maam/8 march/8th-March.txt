@@ -1,0 +1,98 @@
+Date functions
+add_months, greatest, least, last_day, months_between, next_day, round
+
+select employee_id,join_date from employee1;
+Q. display date after 3 months and before 3 months from given date
+select join_date, add_months(join_date,3),  add_months(join_date,-3) from employee1;
+Q. display date after 2 months and before 2 months from given date
+select join_date, add_months(join_date,2),  add_months(join_date,-2) from employee1;
+
+//Feb 28 days, march 31 days : 2022 :: same date but months added/ subtracted
+Q. Show greatest date from given dates
+select greatest ('8-March-2022','12-March-2022','4-Feb-2022','4-March-2021') from dual;
+
+select greatest (to_date('8-March-2022'),to_date('12-March-2022'),to_date('4-Feb-2022'),to_date('4-March-2021')) from dual;
+
+select   to_char(greatest (to_date('8-March-2022 16:30:00','DD-MON-YYYY HH24:MI:SS'),to_date('8-March-2022 13:00:00','DD-MON-YYYY HH24:MI:SS'),
+to_date('4-Feb-2022'),to_date('4-March-2021')), 'DD-MON-YYY HH24:MI:SS' )"greatest date" from dual;
+
+// date-1 year> date-2 year => date-1
+date-1 and date-2 from same year but date-1 month>date-2 month => date-1
+date-1 and date-2 from same year, same month but date-1 day>date-2 day => date-1
+date-1 and date-2 from same year, same month, same day but date-1 time>date-2 time => date-1
+
+Q. Show least date from given dates
+select least (to_date('8-March-2022'),to_date('12-March-2022'),to_date('4-Feb-2022'),to_date('4-March-2021')) "least date" from dual;
+
+select to_char(least (to_date('8-March-2022 16:30:00','DD-MON-YYYY HH24:MI:SS'),to_date('8-March-2022 13:00:00','DD-MON-YYYY HH24:MI:SS'),
+to_date('4-Feb-2022'),to_date('4-March-2021')), 'DD-MON-YYY HH24:MI:SS' )"least date" from dual;
+
+select to_char(least (to_date('8-March-2022 16:30:00','DD-MON-YYYY HH24:MI:SS'),to_date('8-March-2022 13:00:00','DD-MON-YYYY HH24:MI:SS'),
+to_date('8-March-2022 9:00:00','DD-MON-YYYY HH24:MI:SS'),to_date('8-March-2022 10:00:00','DD-MON-YYYY HH24:MI:SS')), 'DD-MON-YYY HH24:MI:SS' ) "least date" from dual;
+
+Q. what is new comer's joining date in company?
+select max(join_date) from employee1;
+Q. what is old employee's joining date of company?
+select min(join_date) from employee1;
+Q. Who is new comer in company
+select * from employee1 where join_date= (select max(join_date) from employee1);
+Q. Who is old employee of company
+select * from employee1 where join_date= (select min(join_date) from employee1);
+Q. Show new comers'date from every deparment;
+select dept_code, max(join_date) from employee1 group by dept_code;
+Q. show last day of month of joining date
+ select join_date, last_day(join_date) from employee1;   // last day of same month of given date
+Q. show last day of month of system date
+ select last_day(sysdate) from dual;
+ Q. Show total months completed for every employee in company.
+ select join_date, months_between(sysdate, join_date) "employee's months company" from employee1;
+  select first_name, join_date,  months_between(sysdate, join_date)/12 "employee's years in company" from employee1;
+ select first_name, join_date, round( months_between(sysdate, join_date)/12) "employee's years in company" from employee1;
+ Q. Display like following
+ Kishor who is joined on 14-6-2000, has completed 22 years in company.
+
+ select first_name || ' who is joined on ' || to_char(join_date,'DD-MM-YYYY') || ', has completed ' || 
+round(months_between(sysdate, join_date)/12) || ' years in company' "completed years" from employee1
+
+select next_day(sysdate, 'MONDAY') from dual;
+select next_day(sysdate, 'TUESDAY') from dual;
+select next_day(sysdate, 'WEDNESDAY') from dual;  // on which date the given day will come after given date
+select next_day(to_date('31-Mar-2022'), 'WEDNESDAY') from dual;  // on which date the given day will come after given date
+
+Round: bydefault on day 
+00 to 11:59:59 : 1st half of day : round : same day start time
+12 to 23:59:59 : next half of the day :round : next day start time
+select round(sysdate) from dual;
+select round(sysdate,'DAY') from dual;
+select round (to_date('8-Mar-2022 12:00:00', 'DD-MON-YYYY HH24:MI:SS')) "rounded date" from dual;
+select round (to_date('8-Mar-2022 11:59:00', 'DD-MON-YYYY HH24:MI:SS')) "rounded date" from dual;
+select round (to_date('8-Mar-2022 11:59:59', 'DD-MON-YYYY HH24:MI:SS')) "rounded date" from dual;
+select round (to_date('8-Mar-2022 01:00:00', 'DD-MON-YYYY HH24:MI:SS')) "rounded date" from dual;
+select to_char (round (to_date('8-Mar-2022 15:00:00', 'DD-MON-YYYY HH24:MI:SS')),'DD-MON-YYYY HH12:MI:SS AM') "rounded date" from dual;
+select to_char (round (to_date('8-Mar-2022 15:00:00', 'DD-MON-YYYY HH24:MI:SS')),'DD-MON-YYYY HH24:MI:SS') "rounded date" from dual;
+select to_char (round (to_date('8-Mar-2022 11:00:00', 'DD-MON-YYYY HH24:MI:SS')),'DD-MON-YYYY HH24:MI:SS') "rounded date" from dual;
+
+Round on Month
+select round(sysdate, 'MONTH') from dual;
+In Month how many average days : 30
+30/2=15
+1 to 15 : date is coming in 1st 15 days then it is rounded to 1st day of same month
+16 to 30 : date is coming in 2nd 15 days then it is rounded to 1st day of next month
+select round(to_date('15-Mar-2022'),'MONTH') "rouded date by month" from dual;
+select round(to_date('16-Mar-2022'),'MONTH') "rouded date by month" from dual;
+select round(to_date('16-Mar-2022'),'MM') "rouded date by month" from dual;
+
+Round on Year
+select round(sysdate, 'YEAR') from dual;
+12 month
+12/2 =6
+JAN,FEB,MARCH,APR,MAY,JUN : if date is coming in 1st 6 months of year then it is rounded to 1st day of 1st month of same year
+JUL,AUG,SEPT,OCT,NOV,DEC : if date is coming in next 6 months of year then it is rounded to 1st day of 1st month of next year
+
+select round(to_date('1-JUN-2022'),'YEAR') "rouded date by year" from dual;
+select round(to_date('25-JUN-2022'),'YEAR') "rouded date by year" from dual;
+select round(to_date('1-AUG-2022'),'YEAR') "rouded date by year" from dual;
+select round(to_date('25-AUG-2022'),'YEAR') "rouded date by year" from dual;
+select round(to_date('25-AUG-2022'),'YY') "rouded date by year" from dual;
+
+

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function fact(x) {
+        if (x == 0) {
+          return 1;
+        } else {
+          return x * fact(x - 1);
+        }
+      }
+      const num = parseInt(prompt("enter no:"));
+      if (num >= 0) {
+        const result = fact(num);
+        console.log(result);
+      } else {
+        console.log("Enter a positive no");
+      }
+    </script>
+  </body>
+</html>

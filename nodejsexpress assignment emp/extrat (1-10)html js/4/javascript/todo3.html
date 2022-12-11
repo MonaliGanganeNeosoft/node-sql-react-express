@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>To do list</h2>
+    <br />
+    Task Name: <input type="text" name="task" id="task" /><br /><br />
+    <button onclick="additem(index)">Add Item</button>
+    <h3>Pending Tasks</h3>
+    <ol id="list"></ol>
+    <script>
+      var arr = [];
+      function additem() {
+        var list = document.getElementById("list");
+        var li = document.createElement("li");
+        var itemName = document.getElementById("task").value;
+        arr.push(itemName);
+        arr.forEach((element, index) => {
+          li.innerHTML =
+            element + `<button onclick="remove(this,index)">delete</button>`;
+          list.appendChild(li);
+        });
+        document.getElementById("task").value = null;
+      }
+
+      function remove(element, index) {
+        var list = document.getElementById("list");
+
+        arr.splice(index, 1);
+        console.log(arr);
+        element.parentElement.remove();
+      }
+    </script>
+  </body>
+</html>

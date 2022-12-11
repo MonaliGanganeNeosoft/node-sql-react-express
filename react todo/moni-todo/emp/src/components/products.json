@@ -1,0 +1,19 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "pname": "A",
+      "price": 200
+    },
+    {
+      "pname": "moni",
+      "price": "2",
+      "id": 3
+    },
+    {
+      "pname": "b11",
+      "price": "122",
+      "id": 4
+    }
+  ]
+}

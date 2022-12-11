@@ -1,0 +1,45 @@
+Q. Show employees whose age is either greater than or eq to 45 and less than or eq to 56
+select * from employee where age<=56 and  age>=45;
+select * from employee where age between 45 and 56
+
+
+Q. Show employees having id either 114, 102, 131, 111, 666
+select * from employee where employee_id=114 or  employee_id=102 or  employee_id=131 or 
+employee_id=111 or employee_id=666;
+select * from employee where employee_id in (114,102,131,111,666)
+
+Q. Show employees greater than employee 'Kishor'
+Q. Show employees between employee 'Kishor' and 'Ishwari'
+
+Q. Show employees whose city name is not mentioned
+select * from employee where city  is null;
+Q. Show employees whose last name is not mentioned
+select * from employee where last_name is null;
+
+Q. show employee name with their city name
+select first_name, last_name, city from employee
+
+Q. show employee name with their city name ( do not include null cities)
+select first_name, last_name, city from employee where city is not null
+
+Q. Show employees starting with letter A in firstname
+like operator , symbols % , _
+% : any 0 or more characters
+_ : any single character
+
+Anu
+Amol
+Amit
+Amarendra
+A
+Ap
+
+A(0 to n characters)
+A%
+
+select * from employee where first_name like 'A%'
+
+Q. Show employees having 4 characters in firstname
+select * from employee where first_name like '____';
+
+

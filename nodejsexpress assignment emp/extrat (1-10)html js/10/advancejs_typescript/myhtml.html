@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <html>
+        <head>
+            <title> Jsonplaceholder Data</title>
+        </head>
+        <body>
+            <h1> User Details</h1>
+            <button onclick="xyz()"> CLick Here</button>
+            <ul id="target">
+
+            </ul>
+            <script>
+                function xyz(){
+                    const URL="https://jsonplaceholder.typicode.com/users";
+                    fetch(URL)
+                    .then(res=> res.json())
+                    .then(data=>{
+                        data.forEach((val)=>{
+                            let li=document.createElement('li');
+                            li.innerHTML=val.email;
+                            document.getElementById("target").appendChild(li);
+                        })
+                    })
+                }
+            </script>
+        </body>
+</html>

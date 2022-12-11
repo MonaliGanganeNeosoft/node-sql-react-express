@@ -1,0 +1,136 @@
+primary key : unique and not null
+only one column allowed as a primary key, table can have only one primary key 
+more columns as a primary key :  composite key
+more than one column with unique constraint is allowed
+
+Column level constraints : constraints come immediately after column definition
+Table  level constraints : constraints come in the end after  all column definitions
+
+create table sample (aadharid number(15) primary key, empid number(10) unique, voterid number(30) unique);
+create table sample1 (aadharid number(15) primary key, empid number(10) primary key, voterid number(30) unique); // wrong query
+create table student (
+    std varchar(5), 
+    division varchar(5), 
+    rollno number(3), 
+    stdname varchar(30) not null, 
+    primary key(std, division, rollno)    );  // composit key
+
+insert into student values ('N','A',1, 'Pooja');
+insert into student values ('N','A',2, 'Krupa');
+insert into student values ('N','B',1, 'Sameer');
+insert into student values ('N','B',2, 'Suman');
+insert into student values ('N','B',2, 'Prateek'); // unique issue
+insert into student values ('N','A',null, 'Prateek'); // null issue
+
+composut key : multi column primary key. individual column value can be repeated but
+collective value should not be repeated. any column should not be null
+
+
+drop table sample;
+create table sample ( id char(6), name varchar(6));
+insert into sample values('b1');   // not enough values
+insert into sample(id) values('b1');   // bydefault null will be inserted
+insert into sample(id) values('b1');   // bydefault null will be inserted
+select * from sample;
+
+create table sample ( id char(6), name varchar(6) default 'XYZ');
+insert into sample(id) values('b2');
+insert into sample(id) values('b5');
+insert into sample(id) values('b3');
+insert into sample(id) values('b6');
+
+Q. create table neoemployee having empid, salary and commission column.
+empid: primary key
+salary : not null
+commission : if no commission to insert then default commission 1000  should  be  inserted
+create table neoemployee(
+ empId number(5) primary key,
+ salary number(10) not null,
+ commission number(10) default 1000 );
+
+Q. Insert employee records with commision 4000
+insert employee records with no commission (default commssion should be inserted)
+insert into neoemployee values(1,56000,4000);
+insert into neoemployee(empId,salary) values(2, 45000)
+
+insert into neoemployee values(101, 50000,4000);
+insert into neoemployee(empid,salary) values(102, 50000);
+select * from neoemployee;
+
+insert into neoemployee values(106, 50000, null); // can insert null
+
+when no column is selected in insert query then only default value will be added
+
+create table neoemployee1(
+ empId number(5) primary key,
+ salary number(10) not null,
+ commission number(10) not null default 1000 );
+
+insert into neoemployee1 values(106, 50000, null); // can not insert null
+
+
+
+create table voter (voterid  number(5) primary key, voterage number(10) not null check (voterage>=18));
+provide a condition for which values are valid
+insert into voter values(4444,56);
+insert into voter values(3333,12);  // will not be inserted
+insert into voter values(5678,18);
+insert into voter values(1212,17); // will not be inserted
+create table sample2 (empid number(10) primary key,empname  varchar(15) check (empname like 'A%') );
+insert into sample2 values(567,'Anurag');
+insert into sample2 values(567,'Bnurag');
+
+drop table student;
+
+
+create table student (sid number(10) primary key , stdname varchar(30), stdstandard varchar (50));
+insert into student values(123,'Poonam','1st');
+insert into student values(124,'Kripa','1st');
+insert into student values(125,'Sanju','1st');
+select * from student;
+create table marks1( studid  number(10) references student(sid) , phmarks number(5) not null, chmarks number(5) not null);
+insert into marks1 values (123,78,89);  // 123 is present in parent  table
+insert into marks1 values (555,56,90);  // wrong query   // 555 not present in parent table 
+values for foreign key must be present in the parent table
+delete from student where sid=123;  // can not delete
+if value to be deleted from parent table is present in child table then we can not delete it from parent table
+soln:
+first delete from child then delete from parent
+delete from marks1 where sid=123; 
+delete from student where sid=123; 
+
+create table marks2( studid  number(10) references student(sid) on delete cascade, phmarks number(5) not null, chmarks number(5) not null);
+// if record is deleted from parent table then the same record will be deleted from child table also
+insert into marks2 values (123,78,89);  
+insert into marks2 values (124,56,90); 
+insert into marks2 values (125,58,92); 
+select * from student;
+select * from marks2;
+delete from student where sid=123;  // deleteting record from parent table
+
+create table marks3( studid  number(10) references student(sid) on delete set null, 
+phmarks number(5) not null, chmarks number(5) not null);
+// if record is deleted from parent table then the same record will be set to null in child table 
+insert into marks3 values (123,78,89);  
+insert into marks3 values (124,56,90); 
+insert into marks3 values (125,58,92);
+
+delete from student where sid=123; //deleteting record from parent table
+select * from marks3;
+
+create table marks4( sid  number(10) references student on delete set null, 
+phmarks number(5) not null, chmarks number(5) not null);
+// if foreign key col name and primary key col name are same the above create table command works
+
+create table voter (voterid  number(5) primary key, voterage number(10) not null check (voterage>=18) DISABLE);
+insert into voter values(4444,56);
+insert into voter values(3333,12);  // will  be inserted bcz check constraints are disabled
+insert into voter values(5678,18);
+insert into voter values(1212,17); // will  be inserted
+select * from voter;
+
+
+
+
+
+

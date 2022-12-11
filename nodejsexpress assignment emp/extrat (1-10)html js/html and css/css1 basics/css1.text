@@ -1,0 +1,831 @@
+https://cssgradient.io/
+https://www.google.com/search?q=color-picker&rlz=1C1JJTC_enIN980IN980&oq=color+pic&aqs=chrome.1.69i57j35i39j0i131i433i512j0i512j0i433i512l2j0i512j0i433i512l3.5128j0j7&sourceid=chrome&ie=UTF-8
+https://css-tricks.com/the-shapes-of-css/
+
+1]
+->various ways of css
+->normalizing css=>zero space in browser site=> https://necolas.github.io/normalize.css/
+->selectors
+->colors
+->Gradients
+->Borders
+->Shadows
+
+2]
+->Embedded
+->external
+->inline
+
+-->Separation of concerns
+
+3]Normalization css -->[browser web page 0 margin]
+<link rel="stylesheet" href="CSS/normalize.css" />
+<link rel="stylesheet" href="CSS/style.css" />
+
+-->for normal
+body {
+  margin: 10px;
+}
+4]Basic selectors-->type,id,class,attribute,
+section#products
+article#product*3
+article.product*3
+
+a[target="_blank"] {
+  color: pink;
+}
+ <div>
+      <h1>anchor tag</h1>
+      <a href="http://google.com" target="_blank">Google</a>
+</div>
+
+a[href*="google"] {
+  color: red;
+}
+<div>
+    <h1>anchor tag</h1>
+    <a href="http://google.com/ass/ss" target="_blank">Google</a>
+</div>
+
+a[href^="https"] [href$=".com"] {
+  color: black;
+}
+<div>
+      <h1>anchor tag</h1>
+      <a href="http://google.com" target="_blank">Google</a>
+</div>
+
+
+
+5]relational selectors
+
+<h1>Basic relation selector</h1>
+    <section id="products">
+      <p>Lorem ipsum dolor sit amet consecte</p>
+      <article>
+        <p>Lorem ipsum dolor sit amet.</p>
+      </article>
+    </section>
+  <p>Lorem ipsum dolor sit amet.</p>
+  <p>Lorem ipsum dolor sit amet.</p>
+
+#products > p {
+  color: orange;
+}
+
+
+#products + p {
+  color: orange;
+}
+
+#products ~ p {
+  color: orange;
+}
+
+->cleaner markup
+->can be fragile
+->not as fast as basic selectors
+
+6]pseudo class selectors[:]
+<div>
+      <h1>pseudo class selectors</h1>
+      <article>
+        <p class="first">Lorem ipsum dolor sit amet.</p>
+        <p>Lorem ipsum dolor sit amet.</p>
+      </article>
+</div>
+
+p.first {
+  font-size: 140%;
+  font-style: italic;
+}
+
+-->a
+<h1>pseudo class selectors</h1>
+    <article>
+      <p>Lorem ipsum dolor sit amet.</p>
+      <p>Lorem ipsum dolor sit amet.</p>
+    </article>
+
+article :first-child {
+  font-size: 140%;
+  font-style: italic;
+}
+
+-->b
+<h1>pseudo class selectors</h1>
+    <article>
+      <h1>Lorem, ipsum.</h1>
+      <p>Lorem ipsum dolor sit amet.</p>
+      <p>Lorem ipsum dolor sit amet.</p>
+    </article>
+
+article :first-child {
+  font-size: 140%;
+  font-style: italic;
+}
+
+-->c
+article :first-of-type {
+  font-size: 140%;
+  font-style: italic;
+}
+-->d
+article p:first-of-type {
+  font-size: 140%;
+  font-style: italic;
+}
+
+-->e
+article p:last-of-type {
+  font-weight: bold;
+}
+//-->same result
+article p:last-child {
+  font-weight: bold;
+}
+
+-->f
+<h1>pseudo class selectors</h1>
+    <article>
+      <h1>Lorem, ipsum.</h1>
+      <p>Lorem ipsum dolor sit amet.</p>
+      <p>Lorem ipsum dolor sit amet.</p>
+      <a href="#">Link</a>
+    </article>
+
+article :last-child {
+  font-weight: bold;
+}
+
+-->g
+ul>li*5{Item $}
+
+-->h
+
+<ul>
+        <li>item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+        <li>item 4</li>
+        <li>item 5</li>
+      </ul>
+
+
+ul li:nth-child(odd) {
+  color: deeppink;
+}
+ -->or 
+
+ul li:nth-child(even) {
+  color: deeppink;
+}
+
+-->or
+ul li:nth-child(3n) {
+  color: deeppink;
+}
+
+-->i
+
+<h1>pseudo class selectors</h1>
+    <article>
+      <h1>Lorem, ipsum.</h1>
+      <p>Lorem ipsum dolor sit amet.</p>
+      <p>Lorem ipsum dolor sit amet.</p>
+      <a href="#">Link</a>
+
+      <ul>
+        <li>item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+        <li>item 4</li>
+        <li>item 5</li>
+      </ul>
+    </article>
+
+
+a:visited {
+  color: dodgerblue;
+}
+
+-->j
+
+<h1>pseudo class selectors</h1>
+    <article>
+      <h1>Lorem, ipsum.</h1>
+      <p>Lorem ipsum dolor sit amet.</p>
+      <p>Lorem ipsum dolor sit amet.</p>
+      <a href="www.google.com">Link</a>
+
+      <ul>
+        <li>item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+        <li>item 4</li>
+        <li>item 5</li>
+      </ul>
+    </article>
+
+
+a:visited,
+a:link {
+  color: dodgerblue;
+}
+
+-->or
+a:hover {
+  color: deeppink;
+}
+
+-->or
+a:hover,
+a:focus {
+  color: deeppink;
+}
+
+
+7]pseudo element selector[::]
+->a
+ <p>
+      <span class="first-letter">L</span>orem ipsum dolor sit amet consectetur
+      adipisicing elit. Aut non corrupti eligendi distinctio asperiores quos cum
+      dolorem consequatur ex, recusandae molestias officiis doloremque
+      consequuntur vel vitae tenetur sapiente a voluptatum?
+    </p>
+.first-letter {
+  font-size: 140%;
+  font-weight: bold;
+}
+
+-->or
+<p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut non corrupti
+      eligendi distinctio asperiores quos cum dolorem consequatur ex, recusandae
+      molestias officiis doloremque consequuntur vel vitae tenetur sapiente a
+      voluptatum?
+    </p>
+
+p::first-letter {
+  font-size: 140%;
+  font-weight: bold;
+}
+
+-->or
+
+p::first-line {
+  font-size: 140%;
+  font-weight: bold;
+}
+
+
+-->or
+p::selection {
+  background-color: pink;
+}
+
+
+-->or
+<h1>Moni pls select to pink bc</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut non corrupti
+      eligendi distinctio asperiores quos cum dolorem consequatur ex, recusandae
+      molestias officiis doloremque consequuntur vel vitae tenetur sapiente a
+      voluptatum?
+    </p>
+
+::selection {
+  background-color: pink;
+}
+
+-->or
+
+p::before {
+  content: "...";
+}
+
+-->or
+p::before {
+  content: "...";
+  display: block;
+}
+
+
+-->or
+p::after {
+  content: "...";
+  display: block;
+}
+
+
+8]selector specificity[id,classand attribute,elecment]
+-->a
+ <p>selector specificity</p>
+    <article>
+      <h1 class="highlight">Heading</h1>
+    </article>
+
+h1 {
+  color: dodgerblue;
+}
+.highlight {
+  color: deeppink;
+}
+
+-->b
+
+ <p>selector specificity</p>
+    <article>
+      <h1 id="products" class="highlight">Heading</h1>
+    </article>
+
+#products {
+  color: green;
+}
+
+
+-->or brown last color id applied
+#products {
+  color: green;
+}
+
+#products {
+  color: brown;
+}
+
+Note=>Selector specificity:(0,0,1)[id,class and attribute,elecment]
+!important
+
+-->c
+ <p>selector specificity</p>
+    <article>
+      <h1 id="products" class="highlight">Heading</h1>
+    </article>
+
+body {
+  margin: 10px;
+}
+/*
+p {
+  color: orange;
+}
+
+a[href^="https"] [href$=".com"] {
+  color: black;
+} */
+
+/* #products ~ p {
+  color: orange;
+} */
+
+/* article p:first-of-type {
+  font-size: 140%;
+  font-style: italic;
+}
+
+article :last-child {
+  font-weight: bold;
+}
+
+ul li:nth-child(3n) {
+  color: deeppink;
+}
+
+a:visited,
+a:link {
+  color: dodgerblue;
+}
+
+a:hover,
+a:focus {
+  color: deeppink;
+} */
+
+/* .first-letter {
+  font-size: 140%;
+  font-weight: bold;
+} */
+
+/* p::first-line {
+  font-size: 140%;
+  font-weight: bold;
+}
+
+::selection {
+  background-color: pink;
+}
+
+p::after {
+  content: "...";
+  display: block;
+} */
+
+h1 {
+  color: dodgerblue;
+}
+.highlight {
+  color: deeppink;
+}
+#products {
+  color: green;
+}
+
+#products {
+  color: brown;
+}
+
+.highlight#products {
+  color: dodgerblue;
+}
+-->[beacuse specificity(1,0,0)]
+
+-->or
+.highlight#products {
+  color: dodgerblue;
+}
+#products.highlight {
+  color: rgb(30, 255, 79);
+}
+
+last is appy aolor beacuse[(1,1,0)]
+
+--->or
+simply
+
+h1#products {
+  color: dodgerblue;
+}
+
+specificity(1,0,1)
+
+-->or
+ <p>selector specificity</p>
+    <article class="fetured">
+      <h1 id="products" class="highlight">Heading</h1>
+    </article>
+
+
+.fetured #products {
+  color: dodgerblue;
+}
+
+specificity(1,1,0)
+
+9]Inheritance
+-->a
+<h1>Inheritance</h1>
+    <p>Lorem ipsum <strong>dolor</strong> sit amet consectetur adipisicing.</p>
+
+p {
+  color: dodgerblue;
+}
+
+-->or
+p {
+  color: dodgerblue;
+}
+
+strong {
+  color: initial;
+}
+
+
+-->or
+p {
+  color: dodgerblue;
+  border: 1px solid black;
+}
+
+strong {
+  color: initial;
+  border: inherit;
+}
+
+10]colors[search=>color-picker]
+->Named colors
+->rgb
+->hsl
+->hexadecimal
+
+-->a
+
+<h1>Colors</h1>
+    <div class="box"></div>
+
+.box {
+  width: 200px;
+  height: 200px;
+  background-color: rgb(245, 206, 66);
+}
+
+-->b
+.box {
+  width: 200px;
+  height: 200px;
+  background-color: rgba(245, 206, 66, 0.5);
+}
+
+-->c
+=>Number systems
+->binary(0,1)           eg 101101
+->Decimal(0-9)          eg 159
+->hexadecimal(0-9,a-f)  eg 9F
+
+
+-->d[hex=>no transparant color]
+.box {
+  width: 200px;
+  height: 200px;
+  background-color: #f5ce42;
+}
+
+-->or
+.box {
+  width: 200px;
+  height: 200px;
+  background-color: hsl(47, 100%, 90%);
+}
+
+
+-->or
+.box {
+  width: 200px;
+  height: 200px;
+  background-color: hsla(47, 100%, 90%, 0.5);
+}
+
+11]Gradients
+-->a
+<h1>Gradients</h1>
+    <div class="box"></div>
+
+.box {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(dodgerblue, yellow);
+}
+
+-->or
+
+.box {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(to right, dodgerblue, yellow);
+}
+
+
+-->or
+.box {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(to bottom right, dodgerblue, yellow);
+}
+
+-->or
+.box {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(45deg, dodgerblue, yellow);
+}
+
+-->or
+.box {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(45deg, dodgerblue, yellow 30%);
+}
+
+-->or
+.box {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(45deg, dodgerblue, yellow 90%);
+}
+
+-->or
+
+.box {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(45deg, dodgerblue, yellow 90%, tomato);
+}
+
+-->or
+.box {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(45deg, dodgerblue, yellow, tomato);
+}
+
+
+->b
+.box {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(white, yellow);
+}
+
+->c(not circle)
+.box {
+  width: 600px;
+  height: 200px;
+  background: radial-gradient(white, yellow);
+}
+
+->d
+.box {
+  width: 600px;
+  height: 200px;
+  background: radial-gradient(circle, white, yellow);
+}
+
+-->or
+.box {
+  width: 600px;
+  height: 200px;
+  background: radial-gradient(circle at top left, white, yellow);
+}
+
+-->by using css gradient
+.box {
+  width: 600px;
+  height: 200px;
+  background: rgb(194, 192, 41);
+  background: radial-gradient(
+    circle,
+    rgba(194, 192, 41, 1) 38%,
+    rgba(0, 212, 255, 1) 67%
+  );
+}
+
+12]Borders
+
+<h1>Borders</h1>
+    <div class="box"></div>
+
+.box {
+  width: 600px;
+  height: 200px;
+  background: dodgerblue;
+  border: 10px solid royalblue;
+}
+
+-->or
+.box {
+  width: 600px;
+  height: 200px;
+  background: dodgerblue;
+  border: 10px dotted royalblue;
+}
+
+-->or
+.box {
+  width: 600px;
+  height: 200px;
+  background: dodgerblue;
+  border: 10px dashed royalblue;
+}
+
+-->or
+.box {
+  width: 600px;
+  height: 200px;
+  background: dodgerblue;
+  border: 10px dashed royalblue;
+  border-top: 20px solid royalblue;
+}
+
+-->or [t,r,b,l](order of border shape)
+
+.box {
+  width: 600px;
+  height: 200px;
+  background: dodgerblue;
+  border: 10px solid royalblue;
+  border-width: 10px 20px 10px 20px;
+}
+
+-->or same
+.box {
+  width: 600px;
+  height: 200px;
+  background: dodgerblue;
+  border: 10px solid royalblue;
+  border-width: 10px 20px;
+}
+
+-->
+.box {
+  width: 600px;
+  height: 200px;
+  background: dodgerblue;
+  border: 10px solid royalblue;
+  border-width: 10px 20px;
+  border-radius: 10px;
+}
+
+-->
+.box {
+  width: 200px;
+  height: 200px;
+  background: dodgerblue;
+  border: 10px solid royalblue;
+  border-width: 10px 20px;
+  border-radius: 50px;
+}
+
+-->or
+.box {
+  width: 200px;
+  height: 200px;
+  background: dodgerblue;
+  border: 10px solid royalblue;
+  border-width: 10px;
+  border-radius: 100%;
+}
+
+13]Shadows
+<h1>Shadows</h1>
+    <div class="box"></div>
+
+
+.box {
+  width: 200px;
+  height: 200px;
+  background: dodgerblue;
+  box-shadow: 10px 10px;
+}
+
+-->left box shadow
+.box {
+  width: 200px;
+  height: 200px;
+  background: dodgerblue;
+  box-shadow: -10px 10px;
+}
+
+-->or
+.box {
+  width: 200px;
+  height: 200px;
+  background: dodgerblue;
+  box-shadow: 10px 10px gray;
+}
+
+-->shadow softner
+.box {
+  width: 200px;
+  height: 200px;
+  background: dodgerblue;
+  box-shadow: 10px 10px 10px gray;
+}
+
+-->
+.box {
+  width: 200px;
+  height: 200px;
+  background: dodgerblue;
+  box-shadow: 10px 10px 30px gray;
+}
+
+
+-->
+.box {
+  width: 200px;
+  height: 200px;
+  background: dodgerblue;
+  box-shadow: 0 0 30px gray;
+}
+
+-->or
+<h1>Shadows</h1>
+    <div class="box">
+      <h1>Heading</h1>
+    </div>
+
+
+.box {
+  width: 200px;
+  height: 200px;
+  background: dodgerblue;
+  box-shadow: 0 0 30px gray;
+}
+
+h1 {
+  color: white;
+  text-shadow: 3px 3px 3px grey;
+}
+
+
+-->or
+.box {
+  width: 200px;
+  height: 200px;
+  background: dodgerblue;
+  box-shadow: 0 0 30px gray;
+}
+
+h1 {
+  color: white;
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+}

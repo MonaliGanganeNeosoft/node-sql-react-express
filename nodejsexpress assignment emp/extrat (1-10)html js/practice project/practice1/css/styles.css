@@ -1,0 +1,45 @@
+body {
+  background-color: gray;
+}
+header {
+  color: white;
+  text-align: center;
+}
+.navbar {
+  background-color: deeppink;
+  height: 50px;
+  padding-top: 1px;
+}
+.navbar ol li {
+  list-style: none;
+  display: inline;
+  padding-left: 100px;
+}
+
+article {
+  background-color: #fff;
+  width: 800px;
+}
+article :hover {
+  background-color: aqua;
+}
+aside {
+  background-color: deeppink;
+  margin-left: 10px;
+  width: 300px;
+}
+
+.div1 {
+  display: flex;
+  margin-top: 10px;
+}
+footer {
+  margin-top: 10px;
+  background-color: #fff;
+  height: 50px;
+  padding-top: 1px;
+}
+.btn1 {
+  background-color: black;
+  color: white;
+}

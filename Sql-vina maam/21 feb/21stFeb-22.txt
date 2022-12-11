@@ -1,0 +1,42 @@
+Q. Show employees whose last name ends with i 
+select * from employee where last_name like '%i';
+Q. show all employees whose first name contains letter 's'
+select * from employee where first_name like '%s%' or first_name like '%S%';
+Q. From which diffrt cities the employee are?
+select distinct city from employee;
+Q. Show diffrnt department codes available in company
+select d_code from department;
+select distinct dept_code from employee;
+
+
+select * from employee
+Q. Show employees in ascending order of their id
+select * from employee order by employee_id asc ;
+select * from employee order by employee_id  ;   // asc: optional
+Q. Show employees from WD department in descending order of their first name
+select * from employee where dept_code='WD' order by first_name desc; // desc: compulsory for descending order
+// order by clause should be at the end in the query
+// it is not compulsory to select the column for projection used in order by clause
+Q. Show employees from HR department in asending order of their age. result should be ordered again with first name ascending 
+where age is same
+select * from employee where dept_code='HR' order by age, first_name;
+select * from employee order by first_name, age;
+show employees in descending order of their city and asending order of their last name if they are from same city
+select *  from employee order by city desc, last_name 
+desc employee
+1. employee_id, 2. first_name, 3. last_name 4. city 5. age 6. salary 7 dept_code
+select *  from employee order by 4 desc, 3    
+// when no column name in select clause then order is taken as order in table other wise order number is taken from select clause
+Q. Display ids and names of employees in asceding order of id 
+select first_name,last_name,employee_id from employee order by 3;
+
+select sum(salary) from employee;
+select salary from employee
+select avg(salary) from employee;
+select round(avg(salary)) from employee;
+
+select first_name, length(first_name) "length" from employee;
+22 rows, 22 rows
+
+select salary, sum(salary) from employee;   // this query wont get executed
+22 rows, 1 row

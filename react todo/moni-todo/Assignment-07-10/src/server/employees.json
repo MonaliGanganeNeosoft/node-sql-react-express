@@ -1,0 +1,12 @@
+{
+  "employees": [
+    {
+      "ename": "Neil Irani",
+      "age": "22",
+      "city": "Thane",
+      "gender": "female",
+      "salary": "8877",
+      "id": 1
+    }
+  ]
+}

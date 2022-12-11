@@ -1,0 +1,13 @@
+.card--popular {
+  border: 0;
+  border-radius: 30px;
+  padding: 1rem 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.btn-primary {
+  background: gold;
+}
+.btn-secondary {
+  background: dodgerblue;
+}

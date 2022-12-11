@@ -1,0 +1,310 @@
+--> prototype :- with the help of prototype we can add properties and methods later on in the program.
+  eg:
+  function Employee(name)
+  {
+      this.name=name;
+  }
+
+  Employee -----prototype---> constructor ----> Employee 
+   -> Environmental Setup of node js 
+   -> Download and install node.js 
+   https://nodejs.org/en/download/ 
+   -> To check node is install or not 
+     -> open cmd or terminal 
+       node -v 
+       -> when node is install npm is also install with it (node package manager)
+       npm -v
+  -> scenerio 
+    Car class 
+      -> speed : 50 
+      -> method : 
+        acc :- +60 
+        checkspeed :- display the current speed 
+  -> module pattern (IIFE :- Immediatly Invoke Function Expression)
+   (function(){
+       //code 
+   })();
+   eg:
+   var calc=function(){
+       return {
+           add:function(a,b){
+               return (a+b)
+           },
+           sub:function(a,b){
+               return (a-b)
+           }
+       }
+   }();
+   console.log(calc.add(10,5))
+    console.log(calc.sub(10,5))
+-> Hoisting :- It is a internal mechanism in javascript , if we define any variables or functions anwhere in our program it automatically assign to the top of a program before code execution.
+  -> variable and function hoisting
+ -> Closures : - Inner function always has access to the variables and parameters of the outer function , even after the outer function has returned.(Inner function is known as a closure).
+  eg:
+    function Outer(){
+        var count=0;
+        console.log(count)
+        function Inner(){
+           count++;
+           return count;
+        }
+        return Inner;
+    }
+    var counter=Outer();
+    console.log(counter());//1
+    console.log(counter());//2
+    console.log(counter());//3
+    console.log(counter());//4
+-> Es 6 /7 :-  new features are introduced in javascript.
+  -> let keyword :- we can define the local scope of a variable within a scope.
+    es5 : 
+    function abc(){
+        var a=10; //local variable
+    }
+    es6 :- 
+      for(let i=1;i<=5;i++){
+          console.log(i);//1 2 3 4 5
+      }
+      console.log(i);//i is not defined
+    -> constant :- It is a value that never be changed , it is read only.
+    const MAIN_URL="abc.com";
+    MAIN_URL="bca.com";//not possible 
+    *** in case of array elements and object properties we can the const variables.
+    -> Template Literals :- used to bind the string and variable within the string . backtricks symbols (``)
+      eg:
+        let a=10;
+        let b=20;
+        let sum=a+b;
+        console.log(`The sum of ${a} and ${b} is ${sum}`);
+        //es5
+        console.log("The sum of "+a+" and "+b+" is "+sum);
+    -> Arrow function :- => , code is sort and concise.
+      eg:
+      let add=(a,b)=> (a+b);
+      let add=(a,b)=>{
+          return (a+b);
+      } 
+    -> class and object 
+     class Car
+     {
+         constructor(){
+             this.speed=50;
+         }
+         acc(){
+             this.speed+=60;
+         }
+         checkspeed(){
+             console.log(`The speed is ${this.speed}`)
+         }
+     }
+     const obj=new Car;
+     obj.checkspeed();
+     obj.acc();
+     obj.checkspeed();
+-> Inheritance :- reusability , to access the parent class properties in a child class. 
+  -> extends keyword is used for inheritance 
+ class A 
+ {
+     abc(){
+         return "Sumit";
+     }
+ }
+ class B extends A 
+ {
+     bca(){
+         let fname="Amit";
+         let pname=super.abc();//Sumit 
+         console.log(`${fname} and ${pname} are good friends`)
+     }
+ }
+ const obj=new B;
+ obj.bca();
+
+ let 
+ const 
+ arrow 
+ template literals 
+ class and object 
+ inheritance 
+ Task 
+  -> DIgital CLock 
+   -> create a clock class and define render , start , stop method 
+
+   -> 
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+}
+class Rabbit extends Animal {
+  constructor(name) {
+    this.name = name;
+    this.created = Date.now();
+  }
+}
+let rabbit = new Rabbit("White Rabbit"); // Error: this is not defined
+alert(rabbit.name);
+
+-> let , const , arrow , template literal , class , inheritance 
+  eg:
+    function add(a,b)
+    {
+      return (a+b);
+    }
+    let add=(a,b)=> (a+b);
+    let add=(a,b)=>{
+      return (a+b);
+    }
+    let arr=[2,3,4,5];
+    arr.forEach(function(val)
+    {
+      console.log(val)
+    })
+    arr.forEach(val=> console.log(val));
+-> **** Rest parameter and spread operators 
+ -> Rest parameter :- A function can be called with any number of arguments, no matter how it is defined.
+   It is defined with (...)
+   eg:
+     function sum(a,b){
+        return (a+b);
+     }
+     console.log(sum(2,3,5,6));//5
+      eg:
+      function mysum(...args)
+      {
+         let sum=0;
+         for(let arg of args){
+           sum+=arg;
+         }
+         return sum;
+      }
+      console.log(mysum(2,3,4,5));//14
+      console.log(mysum(2,3))//5
+      console.log(mysum(2,3,4))//9
+      *** rest parameter is the last formal parameter of the function 
+    -> Spread operator or syntex :- It is used to spread or copy the array or object in another array or object.
+      eg:
+      let arr1=[2,3,4,5];
+      let arr2=[5,6,7,8];
+      let merged=[10,...arr1,...arr2,9]; 10 2 3 4 5 5 6 7 8 9
+      eg:
+      let obj={a:1,b:2,c:3}
+      let objCopy={...obj,d:4}
+  -> Destructuring :- It is a special syntax that allows us to destructure or "unpack" array or objects into a bunch of variables.
+    -> array Destructuring
+    -> object Destructuring 
+     eg:
+     let arr=["sumit","joshi"];
+     let [fname,lname]=arr;
+     console.log(fname);
+     console.log(lname);
+     eg:
+     let obj={fname:"sumit",lname:"joshi",city:"noida"}
+     let {fname,lname,city}=obj;
+  Task :
+   let salaries={
+     "anuj":20000,
+     "sunil":30000,
+     "rahul":25000
+   }
+    -> create toSalary(salaries) that return the name of the top paid salary person.
+      -> if salary is empty , it return null
+    -> modules :- It is just a file where we can put our reusable code .
+      -> It is just like a library also .
+      -> Modules can load with export and import keyword to interchange functionality.
+        eg:
+        mymodule.js 
+        export function Abc(user){
+          return (`Hello ,${user}!');
+        }
+        export class Neosoft(){
+          details(){
+            return "Welcome to Neosoft";
+          }
+        }
+        export const URL="abc.com";
+
+        usemymodule.js 
+        import {Abc,Neosoft,URL} from './mymodule';
+      Task 
+        create a module file and define functions for add,sub,mul,div 
+        -> use this module in your html file 
+           when click on the button you need to input 2 values in a prompt and then find the result.
+            Add Sub Mul Div 
+    -> map,filter, reduce methods 
+      -> map():- map return an array .It give us all the elements of the array which we map and we can return the values as per or requirement and return it into array.
+      eg:
+        let arr=[2,3,4,5];
+        let newArray=arr.map(val=> val*2);//4 6 8 10 
+      eg:
+       const tasks=[
+         {
+           "name":"Task1",
+           "duration":120
+         },
+          {
+           "name":"Task2",
+           "duration":70
+         },
+          {
+           "name":"Task3",
+           "duration":80
+         }
+       ]
+  const task_names=tasks.map((task)=>{
+    return task.name;
+  })
+  console.log(task_names)
+    ** in react if we want to render array or object we can use map 
+    -> filter :- return an array as per the conditions 
+     const tasks=[
+         {
+           "name":"Task1",
+           "duration":120
+         },
+          {
+           "name":"Task2",
+           "duration":70
+         },
+          {
+           "name":"Task3",
+           "duration":80
+         }
+       ]
+       const mytasks=tasks.filter((task)=> tasks.duration>=80)
+       console.log(mytasks)
+    -> reduce :- It takes all of the elements in an array and reduces then into a single value.
+     eg:
+     let arr=[1,2,3,4,5];
+     const total=arr.reduce((prev,current)=>{
+       console.log(prev+"---"+current)
+         return prev_current;
+     },0)
+     console.log(total)
+     -> Generator function :- we can pause the function in midway and then continue from where it paused.
+        -> return multiple values 
+        eg:
+        function abc(){
+          console.log("I");
+          console.log("Cannot");
+          console.log("Pause");
+        }
+        abc();
+        output :-
+        I 
+        Cannot
+        Pause 
+        -> 
+        function * generate(){
+           console.log("Invoke first");
+           yield 1;
+           console.log("Invoke second");
+           yield 2;
+        }
+        -> * indicates that a function is a generator function 
+        -> yield return a value and pause the execution of the function.
+        let gen=generate();
+         -> generator object returns another object with two properties : done and value (iterable)
+         -> we can acheive that object with the help of next();
+
+      -> callback , promise , async, await , typescript 

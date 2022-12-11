@@ -1,0 +1,8 @@
+Show the results by using UNION / INTERSECT/MINUS operator
+
+Q1. Display employee ids having commission >2000 and also employees having salary >60000  (do not show duplicates)
+Q2. Display employee ids having commission >2000 and also employees having salary >60000  (show duplicates)
+
+Q3. Show same salaries accross all departments.  (Insert required records if no data found) 
+Q4. Show employees taking same salary accross all departments.
+Q5. Show employees taking commission from department LD other than then commission present in department SM

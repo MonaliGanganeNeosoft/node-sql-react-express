@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Result</h2>
+    English <input type="text" id="t1" /><br />
+    Hindi <input type="text" id="t2" /><br />
+    Science <input type="text" id="t3" /><br />
+    Maths <input type="text" id="t4" /><br />
+    Sst <input type="text" id="t5" /><br />
+    total <input type="text" id="result1" /><br />
+    percentage <input type="text" id="result2" /><br />
+
+    <button onclick="show()">Click btn</button>
+
+    <script>
+      function show() {
+        var num1 = Number(document.getElementById("t1").value);
+        var num2 = Number(document.getElementById("t1").value);
+        var num3 = Number(document.getElementById("t1").value);
+        var num4 = Number(document.getElementById("t1").value);
+        var num5 = Number(document.getElementById("t1").value);
+
+        var total = num1 + num2 + num3 + num4 + num5;
+        var per = (total * 100) / 500;
+        document.getElementById("result1").value = total;
+        document.getElementById("result2").value = per;
+      }
+    </script>
+  </body>
+</html>

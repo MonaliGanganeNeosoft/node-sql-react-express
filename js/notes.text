@@ -1,0 +1,4666 @@
+first part
+1.1]welcome
+2.2]What is javascript
+3.3]setting up the envirnment
+
+ <body>
+    <h1>Hello world</h1>
+  </body>
+
+4.4]js in browsers
+<body>
+    <h1>Hello world</h1>
+    <script>
+      //This is my first javascript code
+      console.log("Hello worlds");
+    </script>
+  </body>
+
+5.5]sepearation of concenrs
+
+index.html
+
+ <body>
+    <h1>Hello world</h1>
+    <script src="index.js"></script>
+  </body>
+
+index.js
+
+//This is my first javascript code
+console.log("Hello worlds");
+
+6.6]js in node
+
+PS C:\Users\Neosoft\Desktop\js\js-basics> node index.js
+Hello worlds
+
+second part
+
+1.1]variables
+
+let name;
+console.log(name);//undefined
+
+-->
+let name = "Moni";
+console.log(name);//Moni
+
+-->
+
+//cannot be a reserved keyword
+//should be meaningful
+//cannot start with a number(1name)
+//cannot contain a space or hyphen(-)
+//case-sensitive
+
+let firstname;
+let firstName;
+
+let firstName,lastname;
+let firstName = 'Moni',lastname;
+
+-->best way
+let firstName = 'Moni';
+let lastName = 'goli';
+
+
+
+2.2]constants
+
+let interestRate = 3.0;
+interestRate = 1;
+console.log(interestRate);//1
+
+-->
+const interestRate = 3.0;//Uncaught TypeError: Assignment to constant variable.
+interestRate = 1;
+console.log(interestRate);//error
+
+3.3]Primitive types/value
+->String
+->Number
+->Boolean
+->undefined
+->null
+
+-->
+let name = "Moni"; //String literal
+let age = 30; //Number literal
+let isApprved = true; //Boolen Literal
+let firstName = undefined;
+let lastName = null;
+-->eg
+let selectedColor = null;
+or
+let selectedColor='red';
+
+
+4.4]Dynamic types
+->static =>not changed
+->Dynamic =>changed in runtime
+
+-->
+typeof name
+'string'
+
+name = 1
+1
+
+typeof name
+'number'
+
+typeof age
+'number'
+
+age = 30.1
+30.1
+
+typeof age
+'number'
+
+typeof isApprved
+'boolean'
+
+typeof firstName
+'undefined'
+
+typeof selectedColor
+'object'
+
+
+5.5]Objects
+
+-->reference types
+->Object
+->Array
+->Function
+
+-->
+let name = "Moni"; //String literal
+let age = 30; //Number literal
+
+let person = {
+  name: "Moni",
+  age: 30,
+};
+
+-->
+let person = {
+  name: "Moni",
+  age: 30,
+};
+console.log(person);//{name: 'Moni', age: 30}
+
+-->dot notation
+
+let person = {
+  name: "Moni",
+  age: 30,
+};
+//Dot notation
+person.name = "goli";
+console.log(person.name);//goli
+
+-->Bracket notation
+
+let person = {
+  name: "Moni",
+  age: 30,
+};
+//Bracket notation
+person["name"] = "Goli";
+console.log(person.name);//Goli
+
+-->
+
+let person = {
+  name: "Moni",
+  age: 30,
+};
+//Dot notation
+person.name = "Piyu";
+//Bracket notation
+person["name"] = "Goli";
+console.log(person.name);//Goli
+
+-->
+let person = {
+  name: "Moni",
+  age: 30,
+};
+//Bracket notation
+let selection = "name";
+person[selection] = "Marry";
+console.log(person.name);//Marry
+
+6.6]Arrays
+
+let selectedColors = ["red", "pink"];
+console.log(selectedColors);//['red', 'pink']
+
+-->
+let selectedColors = ["red", "pink"];
+console.log(selectedColors[0]);//red
+
+-->
+let selectedColors = ["red", "pink"];
+selectedColors[2] = 1;
+console.log(selectedColors);//(3) ['red', 'pink', 1]
+
+//
+typeof selectedColors
+'object'
+
+-->
+let selectedColors = ["red", "pink"];
+selectedColors[2] = 1;
+console.log(selectedColors.length);//3
+
+
+7.7]functions
+
+function greet() {
+  console.log("Hello world");
+}
+greet();//Hello world
+
+-->
+function greet(name) {
+  console.log("Hello " + name);
+}
+greet("Moni");//Hello Moni
+
+-->
+function greet(name) {
+  console.log("Hello " + name);
+}
+greet("Moni");//Hello Moni
+greet("Marry");//Hello Marry
+
+-->
+function greet(name, lastname) {
+  console.log("Hello " + name + " " + lastname);
+}
+greet("Moni");//Hello Moni undefined
+greet("Marry");//Hello Marry undefined
+
+-->
+function greet(name, lastname) {
+  console.log("Hello " + name + " " + lastname);
+}
+greet("Moni", "smith");//Hello Moni smith
+
+8]types of functions
+
+//performing task
+function greet(name, lastname) {
+  console.log("Hello " + name + " " + lastname);
+}
+
+//calculating a value
+function square(number) {
+  return number * number;
+}
+
+let number = square(2);
+console.log(number);//4
+
+-->
+//performing task
+function greet(name, lastname) {
+  console.log("Hello " + name + " " + lastname);
+}
+
+//calculating a value
+function square(number) {
+  return number * number;
+}
+
+console.log(square(2));//4
+
+third part=>
+1]javascript operators
+->Arithmetic
+->Assignment
+->Comparison
+->Logical
+->Bitwisw
+
+2]Arithmetic 
+
+let x = 10;
+let y = 20;
+
+console.log(x + y); //30
+console.log(x - y); //-10
+console.log(x * y); //200
+console.log(x / y); //0.5
+console.log(x % y); //10
+console.log(x ** y); //100000000000000000000
+
+//Increment (++)
+console.log(++x); //11
+console.log(x); //11
+console.log(x++); //11
+console.log(x); //12
+//decrement(--)
+console.log(--x); //11
+console.log(x); //11
+console.log(x--); //11
+console.log(x); //10
+
+3]Assignment operators
+
+let x = 10;
+
+x++;
+x = x + 1;
+
+-->
+let x = 10;
+
+x = x + 5;
+x += 5;
+
+x = x * 3;
+x *= 3;
+
+4]Comparison
+let x = 1;
+console.log(x > 0);//true
+
+-->relation operators
+let x = 1;
+console.log(x > 0); //true
+console.log(x >= 1); //true
+console.log(x < 1); //false
+console.log(x <= 1); //true
+
+-->Equality
+console.log(x === 1); //true
+console.log(x !== 1); //false
+
+5]Equality 
+//strict equality(type+value)
+console.log(1 === 1); //true
+console.log("1" === 1); //false
+//lose equality(value)
+console.log(1 == 1); //true
+console.log("1" == 1); //true
+console.log(true == 1); //true
+
+6]ternary operators
+//if customer has 100 point
+//then gold
+//otherwise silver
+
+let points = 110;
+let type = points > 100 ? "gold" : "silver";
+console.log(type); //gold
+
+-->
+//if customer has 100 point
+//then gold
+//otherwise silver
+
+let points = 98;
+let type = points > 100 ? "gold" : "silver";
+console.log(type); //silver
+
+7]Logical operators
+
+//and (&&)
+//tt->t
+console.log(true && true);
+//ft->f
+console.log(false && true);
+//tf->f
+console.log(true && false);
+//ff->f
+console.log(false && false);
+
+-->
+let highIncome = true;
+let goodCreditScore = true;
+let eligibleForLoan = highIncome && goodCreditScore;
+console.log(eligibleForLoan);//true
+
+-->logical OR (||)
+//if one of operands is true->task
+
+let highIncome = true;
+let goodCreditScore = true;
+let eligibleForLoan = highIncome || goodCreditScore;
+console.log(eligibleForLoan);//true
+
+-->
+let highIncome = false;
+let goodCreditScore = true;
+let eligibleForLoan = highIncome || goodCreditScore;
+console.log(eligibleForLoan);//true
+
+-->not operator (!)
+
+let highIncome = false;
+let goodCreditScore = true;
+let eligibleForLoan = highIncome || goodCreditScore;
+let applicationRefused = !eligibleForLoan;
+console.log(applicationRefused);//false
+
+-->
+let highIncome = false;
+let goodCreditScore = false;
+let eligibleForLoan = highIncome || goodCreditScore;
+console.log("eligible", eligibleForLoan); //false
+let applicationRefused = !eligibleForLoan;
+console.log("Application refused", applicationRefused); //true
+
+8]logical
+
+false || true
+true
+
+
+//Falsy(false)
+->undefined
+->null
+->0
+->false
+->''
+->NaN
+
+//anything that is not Falsy ->Truthy
+false || 'Moni'
+'Moni'
+
+false || 1
+1
+
+-->Short-circuting
+
+false || 1 || 2
+1
+
+-->
+let userColor = "red";
+let defaultColor = "blue";
+let currentColor = userColor || defaultColor;
+console.log(currentColor);//red
+
+-->
+let userColor = undefined;
+let defaultColor = "blue";
+let currentColor = userColor || defaultColor;
+console.log(currentColor);//blue
+
+9]Bitwise operator
+//-->1bit->1 byte-->1->00000001
+//2 ->00000010
+//R = 00000011=>3
+
+console.log(1 | 2);//Bitwise OR
+console.log(1 | 2);//3
+
+-->bitwise and
+
+console.log(1 & 2); //0
+
+-->
+
+console.log(1 & 3); //1
+//00000001
+//00000011
+
+
+-->
+//read,write,execute
+//00000100
+//00000010
+//00000001
+
+let readPermission = 4;
+let writePermission = 2;
+let executePermission = 1;
+
+let myPermission = readPermission | writePermission;
+console.log(myPermission);//6
+
+-->
+
+//read,write,execute
+//00000100
+//00000010
+//00000001
+
+let readPermission = 4;
+let writePermission = 2;
+let executePermission = 1;
+
+let myPermission = readPermission | writePermission | executePermission;
+console.log(myPermission); //7
+
+-->
+//read,write,execute
+//00000100
+//00000010
+//00000001
+
+let readPermission = 4;
+let writePermission = 2;
+let executePermission = 1;
+
+let myPermission = readPermission | writePermission | executePermission;
+console.log(myPermission); //7
+let message = myPermission & readPermission ? "Yes" : "No";
+console.log(message); //yes
+
+-->
+//read,write,execute
+//00000100
+//00000010
+//00000001
+
+let readPermission = 4;
+let writePermission = 2;
+let executePermission = 1;
+
+let myPermission = writePermission | executePermission;
+console.log(myPermission); //3
+let message = myPermission & readPermission ? "Yes" : "No";
+console.log(message); //No
+
+
+10]operator precedence
+
+let x = 2 + 3 * 4;
+console.log(x); //14
+
+-->
+let x = (2 + 3) * 4;
+console.log(x); //20
+
+11 as 12]exersize
+let a = "red";
+let b = "blue";
+console.log(a); //red
+console.log(b); //blue
+
+-->
+let a = "red";
+let b = "blue";
+let c = a;
+a = b;
+b = c;
+console.log(a); //blue
+console.log(b); //red
+
+fourth parent->conditional statements
+->if-else
+->switch case
+
+1]if-else
+
+//hour
+//if hour is between 6am and 12 pm :Good morning
+//if hour between 12pm and 6pm :good afternoon
+//otherwise : good evening
+
+if (condition) {
+  statement;
+} else if (anothercondition) {
+  statement;
+} else if (yetAnothercondition) statement;
+else statement;
+
+-->
+//hour
+//if hour is between 6am and 12 pm :Good morning
+//if hour between 12pm and 6pm :good afternoon
+//otherwise : good evening
+
+//->Good morning
+
+let hour = 10;
+if (hour >= 6 && hour < 12) console.log("Good morning");
+else if (hour >= 12 && hour < 18) console.log("Good afternoon");
+else console.log("good evening");
+
+-->good afternoon
+//hour
+//if hour is between 6am and 12 pm :Good morning
+//if hour between 12pm and 6pm :good afternoon
+//otherwise : good evening
+
+let hour = 13;
+if (hour >= 6 && hour < 12) console.log("Good Morning");
+else if (hour >= 12 && hour < 18) console.log("good afternoon");
+else console.log("good evening");
+
+-->good evening
+//hour
+//if hour is between 6am and 12 pm :Good morning
+//if hour between 12pm and 6pm :good afternoon
+//otherwise : good evening
+
+let hour = 20;
+if (hour >= 6 && hour < 12) console.log("Good Morning");
+else if (hour >= 12 && hour < 18) console.log("good afternoon");
+else console.log("good evening");
+
+
+2]Switch case
+
+//->unknown user
+
+let role;
+switch (role) {
+  case "guest":
+    console.log("guest");
+    break;
+  case "moderator":
+    console.log("Moderator");
+    break;
+  default:
+    console.log("unknown user");
+}
+
+-->
+//->guest
+
+let role = "guest";
+switch (role) {
+  case "guest":
+    console.log("guest");
+    break;
+  case "moderator":
+    console.log("Moderator");
+    break;
+  default:
+    console.log("unknown user");
+}
+
+-->
+
+//->unknow user
+
+let role;
+if (role === "guest") console.log("guest");
+else if (role === "moderator") console.log("moderator");
+else console.log("unknown user");
+
+3]for 
+
+-->loops
+->for
+->while
+->do-while
+->for-in
+->for-of
+
+-->for loops
+
+for (let i = 0; i < 5; i++) {
+  console.log("Hello world");
+}
+
+//->5index.js:2 Hello world
+
+-->
+
+for (let i = 0; i < 5; i++) {
+  console.log("Hello world", i);
+}
+
+//->
+Hello world 0
+index.js:2 Hello world 1
+index.js:2 Hello world 2
+index.js:2 Hello world 3
+index.js:2 Hello world 4
+
+-->
+for (let i = 1; i <= 5; i++) {
+  console.log("Hello world", i);
+}
+//->
+Hello world 1
+index.js:2 Hello world 2
+index.js:2 Hello world 3
+index.js:2 Hello world 4
+index.js:2 Hello world 5
+
+-->
+for (let i = 1; i <= 5; i++) {
+  if (i % 2 !== 0) console.log("odd number", i);
+}
+//->
+odd number 1
+index.js:2 odd number 3
+index.js:2 odd number 5
+
+
+-->
+for (let i = 5; i >= 1; i--) {
+  if (i % 2 !== 0) console.log("odd number", i);
+}
+
+//->
+odd number 5
+index.js:2 odd number 3
+index.js:2 odd number 1
+
+4]While loops
+
+for (let i = 1; i <= 5; i++) {
+  if (i % 2 !== 0) console.log("odd number", i);
+}
+
+let i = 0;
+while (i <= 5) {
+  if (i % 2 !== 0) console.log("odd", i);
+  i++;
+}
+
+//->
+odd number 1
+index.js:2 odd number 3
+index.js:2 odd number 5
+index.js:7 odd 1
+index.js:7 odd 3
+index.js:7 odd 5
+
+5]Do-while loops
+
+-->output nathing in while
+let i = 9;
+while (i <= 5) {
+  if (i % 2 !== 0) console.log("odd", i);
+  i++;
+}
+
+-->have at least one time exection
+
+let i = 9;
+do {
+  if (i % 2 !== 0) console.log(i);
+  i++;
+} while (i <= 5);
+
+6]infinite loops
+
+let i = 0;
+while (i < 5) {
+  console.log(i);
+//   i++;
+}
+
+7]for-in
+
+const person = {
+  name: "Moni",
+  age: 24,
+};
+for (let key in person) 
+  console.log(key);
+
+//->
+name
+index.js:5 age
+
+-->
+const person = {
+  name: "Moni",
+  age: 24,
+};
+for (let key in person) console.log(key, person[key]);
+
+//->
+name Moni
+index.js:5 age 24
+
+-->
+const colors = ["red", "green", "blue"];
+for (let index in colors) 
+  console.log(index, colors[index]);
+
+//->
+0 red
+index.js:2 1 green
+index.js:2 2 blue
+
+8]for-of
+const colors = ["red", "green", "blue"];
+for (color of colors) 
+  console.log(color);
+
+//->
+red
+index.js:2 green
+index.js:2 blue
+
+9]Break and continue
+
+let i = 0;
+while (i <= 10) {
+  console.log(i);
+  i++;
+}
+
+//->
+0
+index.js:3 1
+index.js:3 2
+index.js:3 3
+index.js:3 4
+index.js:3 5
+index.js:3 6
+index.js:3 7
+index.js:3 8
+index.js:3 9
+index.js:3 10
+
+-->
+let i = 0;
+while (i <= 10) {
+  if (i === 5) break;
+  console.log(i);
+  i++;
+}
+
+//->
+0
+index.js:4 1
+index.js:4 2
+index.js:4 3
+index.js:4 4
+
+-->
+let i = 0;
+while (i <= 10) {
+  if (i % 2 === 0) {
+    i++;
+    continue;
+  }
+  console.log(i);
+  i++;
+}
+
+//->
+1
+index.js:7 3
+index.js:7 5
+index.js:7 7
+index.js:7 9
+
+10]exersize=>write function that takes two numbers and return the maximum of the two
+
+function max(a, b) {
+  if (a > b) return a;
+  else return b;
+}
+let number = max(4, 8);
+console.log(number); //8
+
+-->
+function max(a, b) {
+  if (a > b) return a;
+  return b;
+}
+let number = max(8, 3);
+console.log(number); //8
+
+-->
+function max(a, b) {
+  return a > b ? a : b;
+}
+let number = max(8, 3);
+console.log(number); //8
+
+11]exersize landscape
+
+function isLandscape(width, height) {
+  return width > height;
+}
+console.log(isLandscape(800, 600));//true
+
+ -->
+
+function isLandscape(width, height) {
+  return width > height;
+}
+console.log(isLandscape(200, 600));//false
+
+12]exersize fizzbuzz
+
+//div by 3 => Fizz
+//div by 5 => Buzz
+//div by both 3 and 5 => FizzBuzz
+//Not div by 3 or 5 => input
+//Not a number => 'Not a number'
+
+-->Not a number
+
+//div by 3 => Fizz
+//div by 5 => Buzz
+//div by both 3 and 5 => FizzBuzz
+//Not div by 3 or 5 => input
+//Not a number => 'Not a number'
+
+const output = fizzBuzz(false);
+console.log(output);
+function fizzBuzz(input) {
+  if (typeof input !== "number") return "Not a number";
+  if (input % 3 === 0) return "Fizz";
+  if (input % 5 === 0) return "Buzz";
+  if (input % 3 === 0 && input % 5 === 0) return "FizzBuzz";
+  return input;
+}
+
+-->Fizz
+const output = fizzBuzz(3);
+console.log(output);
+function fizzBuzz(input) {
+  if (typeof input !== "number") return "Not a number";
+  if (input % 3 === 0) return "Fizz";
+  if (input % 5 === 0) return "Buzz";
+  if (input % 3 === 0 && input % 5 === 0) return "FizzBuzz";
+  return input;
+}
+
+-->Buzz
+const output = fizzBuzz(5);
+console.log(output);
+function fizzBuzz(input) {
+  if (typeof input !== "number") return "Not a number";
+  if (input % 3 === 0) return "Fizz";
+  if (input % 5 === 0) return "Buzz";
+  if (input % 3 === 0 && input % 5 === 0) return "FizzBuzz";
+  return input;
+}
+
+-->FizzBuzz
+const output = fizzBuzz(15);
+console.log(output);
+function fizzBuzz(input) {
+  if (typeof input !== "number") return "Not a number";
+  if (input % 3 === 0 && input % 5 === 0) return "FizzBuzz";
+  if (input % 3 === 0) return "Fizz";
+  if (input % 5 === 0) return "Buzz";
+  return input;
+}
+-->17
+const output = fizzBuzz(17);
+console.log(output);
+function fizzBuzz(input) {
+  if (typeof input !== "number") return "Not a number";
+  if (input % 3 === 0 && input % 5 === 0) return "FizzBuzz";
+  if (input % 3 === 0) return "Fizz";
+  if (input % 5 === 0) return "Buzz";
+  return input;
+}
+
+-->NaN
+const output = fizzBuzz(false);
+console.log(output);
+function fizzBuzz(input) {
+  if (typeof input !== "number") return NaN;
+  if (input % 3 === 0 && input % 5 === 0) return "FizzBuzz";
+  if (input % 3 === 0) return "Fizz";
+  if (input % 5 === 0) return "Buzz";
+  return input;
+}
+
+13]exersize
+
+//speed limit = 70;
+//5 -> 1 point
+//Math.floor(1.3)
+//12 point ->suspended
+
+cheekSpeed(70);
+
+function cheekSpeed(speed) {
+  const speedLimit = 70;
+  const kmPerPoint = 5;
+  if (speed <= speedLimit) console.log("OK");
+  else {
+    const points = Math.floor((speed - speedLimit) / kmPerPoint);
+    if (points >= 12) console.log("License suspended");
+    else console.log("Points", points);
+  }
+}
+
+//->OK
+
+-->
+//speed limit = 70;
+//5 -> 1 point
+//Math.floor(1.3)
+//12 point ->suspended
+
+cheekSpeed(71);
+
+function cheekSpeed(speed) {
+  const speedLimit = 70;
+  const kmPerPoint = 5;
+  if (speed < speedLimit + kmPerPoint) console.log("OK");
+  else {
+    const points = Math.floor((speed - speedLimit) / kmPerPoint);
+    if (points >= 12) console.log("License suspended");
+    else console.log("Points", points);
+  }
+}
+
+//->OK
+
+-->
+//speed limit = 70;
+//5 -> 1 point
+//Math.floor(1.3)
+//12 point ->suspended
+
+cheekSpeed(77);
+
+function cheekSpeed(speed) {
+  const speedLimit = 70;
+  const kmPerPoint = 5;
+  if (speed < speedLimit + kmPerPoint) console.log("OK");
+  else {
+    const points = Math.floor((speed - speedLimit) / kmPerPoint);
+    if (points >= 12) console.log("License suspended");
+    else console.log("Points", points);
+  }
+}
+
+//->Points 1
+
+-->
+//speed limit = 70;
+//5 -> 1 point
+//Math.floor(1.3)
+//12 point ->suspended
+
+cheekSpeed(80);
+
+function cheekSpeed(speed) {
+  const speedLimit = 70;
+  const kmPerPoint = 5;
+  if (speed < speedLimit + kmPerPoint) console.log("OK");
+  else {
+    const points = Math.floor((speed - speedLimit) / kmPerPoint);
+    if (points >= 12) console.log("License suspended");
+    else console.log("Points", points);
+  }
+}
+
+//->Points 2
+
+-->
+//speed limit = 70;
+//5 -> 1 point
+//Math.floor(1.3)
+//12 point ->suspended
+
+cheekSpeed(130);
+
+function cheekSpeed(speed) {
+  const speedLimit = 70;
+  const kmPerPoint = 5;
+  if (speed < speedLimit + kmPerPoint) console.log("OK");
+  else {
+    const points = Math.floor((speed - speedLimit) / kmPerPoint);
+    if (points >= 12) console.log("License suspended");
+    else console.log("Points", points);
+  }
+}
+
+//->License suspended
+
+-->
+//speed limit = 70;
+//5 -> 1 point
+//Math.floor(1.3)
+//12 point ->suspended
+
+cheekSpeed(130);
+
+function cheekSpeed(speed) {
+  const speedLimit = 70;
+  const kmPerPoint = 5;
+  if (speed < speedLimit + kmPerPoint) {
+    console.log("OK");
+    return;
+  }
+  const points = Math.floor((speed - speedLimit) / kmPerPoint);
+  if (points >= 12) console.log("License suspended");
+  else console.log("Points", points);
+}
+
+//->License suspended
+
+14]Execsize even and odd number
+
+showNumbers(10);
+function showNumbers(limit) {
+  for (let i = 0; i <= limit; i++) {
+    if (i % 2 === 0) console.log(i, "EVEN");
+    else console.log(1, "ODD");
+  }
+}
+
+//->
+0 'EVEN'
+index.js:5 1 'ODD'
+index.js:4 2 'EVEN'
+index.js:5 1 'ODD'
+index.js:4 4 'EVEN'
+index.js:5 1 'ODD'
+index.js:4 6 'EVEN'
+index.js:5 1 'ODD'
+index.js:4 8 'EVEN'
+index.js:5 1 'ODD'
+index.js:4 10 'EVEN'
+
+-->
+showNumbers(10);
+function showNumbers(limit) {
+  for (let i = 0; i <= limit; i++) {
+    const message = i % 2 === 0 ? "EVEN" : "ODD";
+    console.log(i, message);
+  }
+}
+
+//->
+0 'EVEN'
+index.js:5 1 'ODD'
+index.js:5 2 'EVEN'
+index.js:5 3 'ODD'
+index.js:5 4 'EVEN'
+index.js:5 5 'ODD'
+index.js:5 6 'EVEN'
+index.js:5 7 'ODD'
+index.js:5 8 'EVEN'
+index.js:5 9 'ODD'
+index.js:5 10 'EVEN'
+
+15]Count Truthy
+//falsy
+->undefined
+->null
+->''
+->false
+->0
+->NaN
+
+const array = [0, null, undefined, "", 1, 2, 3];
+console.log(countTruthy(array));
+function countTruthy(array) {
+  let count = 0;
+  for (let value of array) 
+  if (value) 
+    count++;
+  return count;
+}
+
+//->3
+
+16]String
+
+const movie = {
+  title: "a",
+  releaseYear: 2018,
+  rating: 4.5,
+  director: "b",
+};
+
+showPropertise(movie);
+
+function showPropertise(obj) {
+  for (let key in obj) console.log(key);
+}
+
+//->
+title
+index.js:11 releaseYear
+index.js:11 rating
+index.js:11 director
+
+-->
+const movie = {
+  title: "a",
+  releaseYear: 2018,
+  rating: 4.5,
+  director: "b",
+};
+
+showPropertise(movie);
+
+function showPropertise(obj) {
+  for (let key in obj)
+    if (typeof obj[key] === "string") 
+      console.log(key, obj[key]);
+}
+
+//->
+title a
+index.js:12 director b
+
+-->
+const movie = {
+  title: "a",
+  releaseYear: 2018,
+  rating: 4.5,
+  director: "b",
+};
+
+showPropertise(movie);
+
+function showPropertise(obj) {
+  for (let key in obj) {
+    if (typeof obj[key] === "string") 
+      console.log(key, obj[key]);
+  }
+}
+
+//->
+
+title a
+index.js:12 director b
+
+17]sum and multi
+console.log(sum(10));
+
+//multiple of 3:3,6,9
+//Multiple of 5:5,10
+
+function sum(limit) {}
+
+-->
+console.log(sum(10));
+
+//multiple of 3:3,6,9
+//Multiple of 5:5,10
+
+function sum(limit) {
+  let sum = 0;
+  for (let i = 0; i <= limit; i++) 
+    if (i % 3 === 0 || i % 5 === 0) 
+      sum += i;
+  return sum;
+}
+
+//->33
+
+18]Grade
+
+const marks = [80, 80, 50];
+//avg = 70
+//0-59:F
+//60-69:D
+//70-79:C
+//80-89:B
+//90-100-A
+
+console.log(calculateGrade(marks));
+
+function calculateGrade(marks) {}
+
+-->
+
+const marks = [80, 89, 44];
+//avg = 70
+//0-59:F
+//60-69:D
+//70-79:C
+//80-89:B
+//90-100-A
+
+console.log(calculateGrade(marks));
+
+function calculateGrade(marks) {
+  let sum = 0;
+  for (let mark of marks) 
+    sum += mark;
+  let average = sum / marks.length;
+  // if(average >= 0 && average <= 59) return 'F';
+
+  if (average < 60) return "F";
+  if (average < 70) return "D";
+  if (average < 80) return "C";
+  if (average < 90) return "B";
+  return "A";
+}
+
+//->C
+
+-->
+const marks = [80, 89, 44];
+//avg = 70
+//0-59:F
+//60-69:D
+//70-79:C
+//80-89:B
+//90-100-A
+
+console.log(calculateGrade(marks));
+
+function calculateGrade(marks) {
+  const average = calculateAverage(marks);
+
+  if (average < 60) return "F";
+  if (average < 70) return "D";
+  if (average < 80) return "C";
+  if (average < 90) return "B";
+  return "A";
+}
+function calculateAverage(array) {
+  let sum = 0;
+  for (let mark of array) 
+    sum += mark;
+  return sum / array.length;
+}
+
+//->c
+
+19]Stars
+
+showStars(5);
+function showStars(rows) {}
+
+-->
+showStars(5);
+function showStars(rows) {
+  for (let row = 1; row <= rows; row++) {
+    let pattern = "";
+    for (let i = 0; i < row; i++)     
+      pattern += "*";
+    console.log(pattern);
+  }
+}
+
+//->
+*
+index.js:6 **
+index.js:6 ***
+index.js:6 ****
+index.js:6 *****
+
+20]exersize prime numbers
+showPrimes(20);
+//Prime (whose factors are only 1 and itself)
+//Composite
+//can divded evenly by its factors
+//12 = 1,2,3,4,6,12
+
+//11 = 1,11
+//13 = 1,13
+
+function showPrimes(limit) {}
+
+-->
+showPrimes(10);
+
+function showPrimes(limit) {
+  for (let number = 2; number <= limit; number++) {
+    let isPrime = true;
+    for (let factor = 2; factor < number; factor++) {
+      if (number % factor === 0) {
+        isPrime = false;
+        break;
+      }
+    }
+
+    if (isPrime) console.log(number);
+  }
+}
+
+//->
+2
+index.js:13 3
+index.js:13 5
+index.js:13 7
+
+-->
+showPrimes(10);
+
+function showPrimes(limit) {
+  for (let number = 2; number <= limit; number++)
+    if (isPrime(number)) console.log(number);
+}
+
+function isPrime(number) {
+  for (let factor = 2; factor < number; factor++)
+    if (number % factor === 0) 
+      return false;
+
+  return true;
+}
+
+//->
+2
+index.js:5 3
+index.js:5 5
+index.js:5 7
+
+
+fifth part
+
+1]object
+
+let radius = 1;
+let x = 1;
+let y = 1;
+
+-->
+const circle = {
+  radius: 1,
+  location:{
+    x:1,
+    y:1
+  },
+  isVisible :true
+
+};
+
+function draw(){
+
+}
+function move(){
+  
+}
+
+-->
+
+const circle = {
+  radius: 1,
+  location:{
+    x:1,
+    y:1
+  },
+  isVisible :true,
+  draw:function(){
+    console.log('draw');
+  }
+
+};
+
+function draw(){
+
+}
+function move(){
+
+}
+
+-->
+
+const circle = {
+  radius: 1,
+  location: {
+    x: 1,
+    y: 1,
+  },
+  isVisible: true,
+  draw: function () {
+    console.log("draw");
+  },
+};
+circle.draw();
+
+//->draw
+
+-->
+//Object-oriented Programming(OOP)
+const circle = {
+  radius: 1,
+  location: {
+    x: 1,
+    y: 1,
+  },
+  isVisible: true,
+  draw: function () {
+    console.log("draw");
+  },
+};
+circle.draw(); //Method
+
+//->draw
+
+2]Factory functions
+const circle = {
+  radius: 1,
+  location: {
+    x: 1,
+    y: 1,
+  },
+  isVisible: true,
+  draw: function () {
+    console.log("draw");
+  },
+};
+
+const circle2 = {
+  radius: 1,
+  location: {
+    x: 1,
+    y: 1,
+  },
+  isVisible: true,
+  draw: function () {
+    console.log("draw");
+  },
+};
+circle.draw(); //Method
+circle2.draw();
+
+//->
+draw
+index.js:21 draw
+
+-->
+//Factory functions
+
+function createCircle() {
+  const circle = {
+    radius: 1,
+    location: {
+      x: 1,
+      y: 1,
+    },
+    isVisible: true,
+    draw: function () {
+      console.log("draw");
+    },
+  };
+  return circle;
+}
+
+-->
+//Factory functions
+
+function createCircle(radius) {
+  return {
+    radius,
+    draw() {
+      console.log("draw");
+    },
+  };
+}
+
+const circle1 = createCircle(1);
+console.log(circle1);
+
+//->
+{radius: 1, draw: ƒ}
+draw: ƒ draw()
+length: 0
+name: "draw"
+arguments: (...)
+caller: (...)
+
+-->
+circle1.draw()
+index.js:7 draw
+
+-->
+//Factory functions
+
+function createCircle(radius) {
+  return {
+    radius,
+    draw() {
+      console.log("draw");
+    },
+  };
+}
+
+const circle1 = createCircle(1);
+console.log(circle1);
+
+const circle2 = createCircle(2);
+console.log(circle2);
+
+//->
+{radius: 1, draw: ƒ}
+{radius: 2, draw: ƒ}
+
+3]constructor functions
+
+//Factory functions
+//Camel Notation : oneTwoThree
+//Pascal Notation: OneTwoThree
+
+function createCircle(radius) {
+  return {
+    radius,
+    draw() {
+      console.log("draw");
+    },
+  };
+}
+const myCircle = createCircle(1);
+console.log(myCircle);
+
+//Constructor functions
+
+function Circle(radius) {
+  this.radius = radius;
+  this.draw = function () {
+    console.log("Draw");
+  };
+}
+const circle = new Circle(1);
+console.log(circle);
+
+//->
+{radius: 1, draw: ƒ}draw: ƒ draw()length: 0name: "draw"arguments: (...)caller: (...)[[FunctionLocation]]: index.js:8[[Prototype]]: ƒ ()[[Scopes]]: Scopes[2]radius: 1[[Prototype]]: Object
+index.js:25 Circle {radius: 1, draw: ƒ}
+
+4]Dynamic nature of object
+
+const circle = {
+  radius: 1,
+};
+console.log(circle);
+
+//->
+{radius: 1}
+
+-->
+const circle = {
+  radius: 1,
+};
+circle.color = "red";
+console.log(circle);
+
+//->{radius: 1, color: 'red'}
+
+-->
+const circle = {
+  radius: 1,
+};
+circle.color = "red";
+circle.draw = function () {};
+console.log(circle);
+
+//->
+{radius: 1, color: 'red', draw: ƒ}
+color: "red"
+draw: ƒ ()
+radius: 1
+
+-->
+const circle = {
+  radius: 1,
+};
+circle.color = "red";
+circle.draw = function () {};
+
+delete circle.color;
+delete circle.draw;
+console.log(circle);
+
+//->
+{radius: 1}
+
+-->
+const circle = {
+  radius: 1,
+};
+
+circle = {};
+
+circle.color = "red";
+circle.draw = function () {};
+
+delete circle.color;
+delete circle.draw;
+console.log(circle);
+
+//->Uncaught TypeError: Assignment to constant variable.at index.js:5:8
+
+5]Constructor property
+let x = {};
+//let x = new Object();
+-->
+new String();//'',"",``
+new Boolean();//true,false
+new Number();//1,2,3
+
+-->
+//factory functions
+function creatCircle(radius) {
+  return {
+    radius,
+    draw: function () {
+      console.log("draw");
+    },
+  };
+}
+const circle = creatCircle(1);
+console.log(circle);
+
+//Constructor functions
+
+function Circle(radius) {
+  this.radius = radius;
+  this.draw = function () {
+    console.log("draw");
+  };
+}
+const another = new Circle(1);
+console.log(another);
+
+//->
+{radius: 1, draw: ƒ}
+index.js:22 Circle {radius: 1, draw: ƒ}
+
+-->
+{radius: 1, draw: ƒ}
+index.js:22 Circle {radius: 1, draw: ƒ}
+
+another.constructor
+
+ƒ Circle(radius) {
+  this.radius = radius;
+  this.draw = function () {
+    console.log("draw");
+  };
+}
+
+circle.constructor
+ƒ Object() { [native code] }
+
+6]functions are Objects
+
+function Circle(radius) {
+  this.radius = radius;
+  this.draw = function () {
+    console.log("draw");
+  };
+}
+const another = new Circle(1);
+console.log(another);
+
+//->
+Circle {radius: 1, draw: ƒ}
+draw: ƒ ()
+radius: 1
+
+-->
+Circle.name
+'Circle'
+
+Circle.length
+1
+
+Circle.constructor
+ƒ Function() { [native code] }
+
+-->
+function Circle(radius) {
+  this.radius = radius;
+  this.draw = function () {
+    console.log("draw");
+  };
+}
+const Circle1 = new Function(
+  "radius",
+  `
+this.radius = radius;
+  this.draw = function () {
+    console.log("draw");
+  };
+`
+);
+
+const circle = new Circle1(1);
+
+const another = new Circle(1);
+console.log(another);
+
+
+//->
+Circle {radius: 1, draw: ƒ}draw: ƒ ()radius: 1[[Prototype]]: Object
+
+circle
+{radius: 1, draw: ƒ}draw: ƒ ()radius: 1[[Prototype]]: Object
+
+-->
+function Circle(radius) {
+  this.radius = radius;
+  this.draw = function () {
+    console.log("draw");
+  };
+}
+Circle.call({}, 1);
+console.log(Circle);
+const another = new Circle(1);
+console.log(another);
+
+//->
+ƒ Circle(radius) {
+  this.radius = radius;
+  this.draw = function () {
+    console.log("draw");
+  };
+}
+index.js:10 Circle {radius: 1, draw: ƒ}
+
+-->same
+
+function Circle(radius) {
+  this.radius = radius;
+  this.draw = function () {
+    console.log("draw");
+  };
+}
+Circle.call(window, 1);
+console.log(Circle);
+const another = new Circle(1);
+console.log(another);
+
+//->
+ƒ Circle(radius) {
+  this.radius = radius;
+  this.draw = function () {
+    console.log("draw");
+  };
+}
+index.js:10 Circle {radius: 1, draw: ƒ}
+
+-->
+function Circle(radius) {
+  this.radius = radius;
+  this.draw = function () {
+    console.log("draw");
+  };
+}
+Circle.call({}, 1);
+console.log(Circle);
+Circle.apply({}, [1, 2, 3]);
+console.log(Circle);
+const another = new Circle(1);
+console.log(another);
+
+//->
+ƒ Circle(radius) {
+  this.radius = radius;
+  this.draw = function () {
+    console.log("draw");
+  };
+}
+index.js:10 ƒ Circle(radius) {
+  this.radius = radius;
+  this.draw = function () {
+    console.log("draw");
+  };
+}
+index.js:12 Circle {radius: 1, draw: ƒ}
+
+7]Value vs Reference types
+->Value types[Number,String,Boolean,Symbol,undefined,null]
+->Reference types[Object,Function,Array]
+
+let x = 10;
+let y = x;
+
+x = 20;
+
+//->
+x
+20
+
+y
+10
+
+-->
+let x = { value: 10 };
+let y = x;
+
+x.value = 20;
+
+//->
+x
+{value: 20}
+y
+{value: 20}
+
+-->
+Primative->copied by ->value
+Objects ->copied by ->reference
+
+-->
+let number = 10;
+function increase(number) {
+  number++;
+}
+increase(number);
+console.log(number);
+
+//->10
+
+-->
+let obj = { value: 10 };
+function increase(obj) {
+  obj.value++;
+}
+increase(obj);
+console.log(obj);
+
+//->{value: 11}
+
+8]Enumerating properties  of a object
+
+const circle = {
+  redius: 1,
+  draw() {
+    console.log("Draw");
+  },
+};
+
+for (let key in circle) {
+  console.log(key);
+}
+
+//->
+redius
+index.js:9 draw
+
+-->
+const circle = {
+  redius: 1,
+  draw() {
+    console.log("Draw");
+  },
+};
+
+for (let key in circle) {
+  console.log(key, circle[key]);
+}
+
+//->
+redius 1
+index.js:9 draw ƒ draw() {
+    console.log("Draw");
+  }
+
+-->
+const circle = {
+  redius: 1,
+  draw() {
+    console.log("Draw");
+  },
+};
+
+for (let key in circle) {
+  console.log(key, circle[key]);
+}
+for (let key of circle) {
+  console.log(key);
+}
+//-> for-of=>used for array and map methods
+redius 1
+index.js:9 draw ƒ draw() {
+    console.log("Draw");
+  }
+Uncaught TypeError: circle is not iterable
+    at index.js:11:17
+(anonymous) @ index.js:11
+
+-->
+const circle = {
+  redius: 1,
+  draw() {
+    console.log("Draw");
+  },
+};
+
+for (let key in circle) {
+  console.log(key, circle[key]);
+}
+for (let key of Object.keys(circle)) {
+  console.log(key);
+}
+
+//->
+redius 1
+index.js:9 draw ƒ draw() {
+    console.log("Draw");
+  }
+index.js:12 redius
+index.js:12 draw
+
+-->
+const circle = {
+  redius: 1,
+  draw() {
+    console.log("Draw");
+  },
+};
+
+for (let key in circle) {
+  console.log(key, circle[key]);
+}
+for (let key of Object.keys(circle)) {
+  console.log(key);
+}
+for (let entry of Object.entries(circle)) {
+  console.log(entry);
+}
+
+//->
+redius 1
+index.js:9 draw ƒ draw() {
+    console.log("Draw");
+  }
+index.js:12 redius
+index.js:12 draw
+index.js:15 (2) ['redius', 1]0: "redius"1: 1length: 2[[Prototype]]: Array(0)
+index.js:15 (2) ['draw', ƒ]0: "draw"1: ƒ draw()length: 2[[Prototype]]: Array(0)
+
+-->
+const circle = {
+  redius: 1,
+  draw() {
+    console.log("Draw");
+  },
+};
+
+for (let key in circle) {
+  console.log(key, circle[key]);
+}
+for (let key of Object.keys(circle)) {
+  console.log(key);
+}
+for (let entry of Object.entries(circle)) {
+  console.log(entry);
+}
+if ("redius" in circle) {
+  console.log("Yes");
+}
+
+//->
+redius 1
+index.js:9 draw ƒ draw() {
+    console.log("Draw");
+  }
+index.js:12 redius
+index.js:12 draw
+index.js:15 (2) ['redius', 1]
+index.js:15 (2) ['draw', ƒ]
+index.js:18 Yes
+
+
+9]Cloning an object
+
+const circle = {
+  redius: 1,
+  draw() {
+    console.log("Draw");
+  },
+};
+const another = {};
+
+for (let key in circle) {
+  another[key] = circle[key];
+  console.log(another);
+}
+
+//->
+{redius: 1}draw: ƒ draw()redius: 1[[Prototype]]: Object
+index.js:11 {redius: 1, draw: ƒ}
+
+-->
+const circle = {
+  redius: 1,
+  draw() {
+    console.log("Draw");
+  },
+};
+// const another = {};
+
+// for (let key in circle) {
+//   another[key] = circle[key];
+//   console.log(another);
+// }
+
+const another = Object.assign({}, circle);
+console.log(another);
+
+//->{redius: 1, draw: ƒ}
+
+-->
+const circle = {
+  redius: 1,
+  draw() {
+    console.log("Draw");
+  },
+};
+// const another = {};
+
+// for (let key in circle) {
+//   another[key] = circle[key];
+//   console.log(another);
+// }
+
+const another = Object.assign(
+  {
+    color: "red",
+  },
+  circle
+);
+console.log(another);
+
+//->{color: 'red', redius: 1, draw: ƒ}
+
+-->
+const circle = {
+  redius: 1,
+  draw() {
+    console.log("Draw");
+  },
+};
+// const another = {};
+
+// for (let key in circle) {
+//   another[key] = circle[key];
+//   console.log(another);
+// }
+
+// const another = Object.assign({}, circle);
+
+const another = { ...circle };
+console.log(another);
+
+//->{redius: 1, draw: ƒ}
+
+10]Garbage Collections
+
+let circle = {};
+console.log(circle);
+
+//->{}
+
+11]Math=>https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+Math.random()
+0.11935792056052685
+
+Math.random()
+0.8417482160547336
+
+Math.random()
+0.17320977414407834
+
+Math.round(1.9)
+2
+
+Math.max(1,2,3)
+3
+
+Math.min(1,2,3)
+1
+
+12]String
+//String primitive
+const message = "hi";
+
+//String object
+const another = new String("h1");
+
+//->
+ypeof message
+'string'
+
+typeof another
+'object'
+
+-->
+//String primitive
+const message = "This is my first message";
+
+//String object
+const another = new String("h1");
+
+//->
+message.length
+24
+message[0]
+'T'
+message.includes('my')
+true
+message.includes('not')
+false
+message.startsWith("This")
+true
+message.startsWith("this")
+false
+message.endsWith("message")
+true
+message.endsWith("e")
+true
+message.endsWith("a")
+false
+message.indexOf('my')
+8
+message.replace('first','second')
+'This is my second message'
+message
+'This is my first message'
+message.toUpperCase()
+'THIS IS MY FIRST MESSAGE'
+message.trim()
+'This is my first message'
+message.trimLeft()
+'This is my first message  '
+
+-->
+//String primitive
+const message = " This is my 'first message  ";
+
+//String object
+const another = new String("h1");
+
+//->
+
+message
+" This is my 'first message  "
+
+-->
+//String primitive
+const message = "This is  my\n first message";
+
+//String object
+const another = new String("h1");
+
+//->
+message
+'This is  my\n first message'
+
+message.split(' ')
+(6) ['This', 'is', '', 'my\n', 'first', 'message']0: "This"1: "is"2: ""3: "my\n"4: "first"5: "message"length: 6[[Prototype]]: Array(0)
+
+13]Template literal
+//String primitive
+const message = "This is  my\n" + "'first message";
+
+//String object
+const another = new String("h1");
+
+//->
+message
+"This is  my\n'first message"
+
+-->
+//String primitive
+const message = "This is  my\n" + "'first message";
+
+//String object
+const another = `This is my 
+first message`;
+
+//->
+message
+"This is  my\n'first message"
+another
+'This is my \nfirst message'
+
+-->
+//String primitive
+const name = "Moni";
+const message = "This is  my\n" + name + "'first message";
+
+//String object
+const another = `This is my  ${name}
+'first' message`;
+
+//->
+message
+"This is  my\nMoni'first message"
+another
+"This is my  Moni\n'first' message"
+
+14]Date
+
+const now = new Date();
+const date1 = new Date("May 11 2018 09:00");
+const date2 = new Date(2018, 11, 8, 9);
+now.setFullYear(2017);
+
+//->
+now.toDateString()
+'Thu Mar 16 2017'
+now.toISOString()
+'2017-03-16T10:49:40.824Z'
+now.toTimeString()
+'16:19:40 GMT+0530 (India Standard Time)'
+
+15]exersize
+//street
+//city
+//zipCode
+//showAddress(address)
+
+//street
+//city
+//zipCode
+//showAddress(address)
+
+let address = {
+  street: "a",
+  city: "b",
+  zipCode: "c",
+};
+function showAddress(address) {
+  for (let key in address) {
+    console.log(key, address[key]);
+  }
+}
+
+showAddress(address);
+
+//->
+street a
+index.js:13 city b
+index.js:13 zipCode c
+
+16]exersize factory and constructor
+
+let address = createAddress("a", "b", "c");
+console.log(address);
+//factory function
+
+function createAddress(street, city, zipCode) {
+  return {
+    street,
+    city,
+    zipCode,
+  };
+}
+
+//->
+index.js:2 {street: 'a', city: 'b', zipCode: 'c'}
+
+-->
+let address = new Address("a", "b", "c");
+console.log(address);
+//factory function
+
+function createAddress(street, city, zipCode) {
+  return {
+    street,
+    city,
+    zipCode,
+  };
+}
+
+//constructor function
+
+function Address(street, city, zipCode) {
+  this.street = street;
+  this.city = city;
+  this.zipCode = zipCode;
+}
+
+//->Address {street: 'a', city: 'b', zipCode: 'c'}
+
+16]exersize3 Object equality
+let address1 = new Address("a", "b", "c");
+let address2 = new Address("a", "b", "c");
+
+//constructor function
+
+function Address(street, city, zipCode) {
+  this.street = street;
+  this.city = city;
+  this.zipCode = zipCode;
+}
+function areEqual(address1,address2){
+
+}
+function areSame(address1,address2){
+  
+}
+-->
+let address1 = new Address("a", "b", "c");
+let address2 = new Address("a", "b", "c");
+
+console.log(areEqual(address1, address2));
+console.log(areSame(address1, address2));
+
+//constructor function
+function Address(street, city, zipCode) {
+  this.street = street;
+  this.city = city;
+  this.zipCode = zipCode;
+}
+
+function areEqual(address1, address2) {
+  return (
+    address1.street === address2.street &&
+    address1.city === address2.city &&
+    address1.zipCode === address2.zipCode
+  );
+}
+
+function areSame(address1, address2) {
+  return address1 === address2;
+}
+
+//->
+true
+index.js:5 false
+
+-->
+let address1 = new Address("a", "b", "c");
+let address2 = new Address("a", "b", "c");
+let address3 = address1;
+
+console.log(areEqual(address1, address2));
+console.log(areSame(address1, address2));
+console.log(areSame(address1, address3));
+
+//constructor function
+function Address(street, city, zipCode) {
+  this.street = street;
+  this.city = city;
+  this.zipCode = zipCode;
+}
+
+function areEqual(address1, address2) {
+  return (
+    address1.street === address2.street &&
+    address1.city === address2.city &&
+    address1.zipCode === address2.zipCode
+  );
+}
+
+function areSame(address1, address2) {
+  return address1 === address2;
+}
+
+//->
+true
+index.js:6 false
+index.js:7 true
+
+18]Blog post object
+//title
+//body
+//author
+//views
+//comments
+//(author,body)
+//isLive
+
+let post = {
+  title: "a",
+  body: "b",
+  author: "c",
+  views: "10",
+  comments: [
+    { author: "a", body: "b" },
+    { author: "c", body: "d" },
+  ],
+  isLive: true,
+};
+console.log(post);
+
+//->
+{title: 'a', body: 'b', author: 'c', views: '10', comments: Array(2), …}
+author: "c"
+body: "b"
+comments: Array(2)
+0: {author: 'a', body: 'b'}
+1: {author: 'c', body: 'd'}
+length: 2
+[[Prototype]]: Array(0)
+isLive: true
+title: "a"
+views: "10"
+
+19]exersize5->constructor function
+
+let post = {
+  title: "a",
+  body: "b",
+  author: "c",
+  views: "10",
+  comments: [
+    { author: "a", body: "b" },
+    { author: "c", body: "d" },
+  ],
+  isLive: true,
+};
+
+function Post(title, body, author) {
+  this.title = title;
+  this.body = body;
+  this.author = author;
+  this.views = 0;
+  this.comments = [];
+  this.isLive = false;
+}
+
+-->
+let post = new Post("a", "b", "c");
+console.log(post);
+
+function Post(title, body, author) {
+  this.title = title;
+  this.body = body;
+  this.author = author;
+  this.views = 0;
+  this.comments = [];
+  this.isLive = false;
+}
+
+//->
+Post {title: 'a', body: 'b', author: 'c', views: 0, comments: Array(0), …}
+author: "c"
+body: "b"
+comments: []
+isLive: false
+title: "a"
+views: 0
+
+20]Price range Objects
+let priceRanges = [
+  { label: "$", tooltip: "InExpansive", minPerPereson: 0, maxPerPerson: 10 },
+  { label: "$$", tooltip: "Moderate", minPerPereson: 11, maxPerPerson: 20 },
+  { label: "$$$", tooltip: "Expansive", minPerPereson: 21, maxPerPerson: 50 },
+];
+console.log(priceRanges);
+let resturents = [{ averagepPerPersons: 5 }];
+console.log(resturents);
+
+//->
+(3) [{…}, {…}, {…}]
+0: {label: '$', tooltip: 'InExpansive', minPerPereson: 0, maxPerPerson: 10}
+1: {label: '$$', tooltip: 'Moderate', minPerPereson: 11, maxPerPerson: 20}
+2: {label: '$$$', tooltip: 'Expansive', minPerPereson: 21, maxPerPerson: 50}
+length: 3
+
+0: {averagepPerPersons: 5}
+length: 1
+
+six part =>Array
+1]Introduction
+->Adding new elements
+->finding elements
+->removing elements
+->Splitting Arrays
+->Combining Arrays
+
+2]Adding elements
+const numbers = [3, 4];
+//end
+numbers.push(5, 6);
+console.log(numbers);
+//begining
+//middle
+
+//->(4) [3, 4, 5, 6]
+-->
+const numbers = [3, 4];
+//end
+numbers.push(5, 6);
+console.log(numbers);
+//begining
+numbers.unshift(1, 2);
+console.log(numbers);
+//middle
+numbers.splice(2, 0, "a", "b");
+console.log(numbers);
+
+//->
+4) [3, 4, 5, 6]
+index.js:7 (6) [1, 2, 3, 4, 5, 6]
+index.js:10 (8) [1, 2, 'a', 'b', 3, 4, 5, 6]
+
+3]Finding elements
+const numbers = [1, 2, 3, 4];
+console.log(numbers.indexOf("a"));
+
+//->-1
+
+-->
+const numbers = [1, 2, 3, 4];
+console.log(numbers.indexOf(3));
+
+//->2
+
+-->
+const numbers = [1, 2, 3, 1, 4];
+console.log(numbers.indexOf("1"));
+console.log(numbers.indexOf(1));
+console.log(numbers.lastIndexOf(1));
+
+console.log(numbers.indexOf(1) !== -1);
+console.log(numbers.includes(1));
+
+//->
+-1
+index.js:3 0
+index.js:4 3
+index.js:6 true
+index.js:7 true
+
+4]Finding elements[reference types]
+const courses = [
+  { id: 1, name: "a" },
+  { id: 2, name: "b" },
+];
+console.log(courses.includes({ id: 1, name: "a" }));
+
+//->false
+-->
+const courses = [
+  { id: 1, name: "a" },
+  { id: 2, name: "b" },
+];
+const course = courses.find(function (course) {
+  return course.name === "a";
+});
+console.log(course);
+
+//->{id: 1, name: 'a'}
+
+-->
+const courses = [
+  { id: 1, name: "a" },
+  { id: 2, name: "b" },
+];
+const course = courses.findIndex(function (course) {
+  return course.name === "a";
+});
+console.log(course);
+
+//->0
+
+-->
+const courses = [
+  { id: 1, name: "a" },
+  { id: 2, name: "b" },
+];
+const course = courses.findIndex(function (course) {
+  return course.name === "abc";
+});
+console.log(course);
+
+//->-1
+
+5]Arrow functions
+const courses = [
+  { id: 1, name: "a" },
+  { id: 2, name: "b" },
+];
+const course = courses.find((course) => course.name === "a");
+console.log(course);
+
+//->{id: 1, name: 'a'}
+
+6]Remving elements
+const numbers = [1, 2, 3, 4, 5];
+numbers.push();
+numbers.unshift();
+numbers.splice();
+
+//end
+const last = numbers.pop();
+console.log(numbers);
+console.log(last);
+//begging
+const first = numbers.shift();
+console.log(first);
+console.log(numbers);
+//midddle
+
+//->
+(4) [1, 2, 3, 4]0: 21: 32: 4length: 3[[Prototype]]: Array(0)
+index.js:9 5
+index.js:12 1
+index.js:13 (3) [2, 3, 4]
+
+-->
+const numbers = [1, 2, 3, 4, 5];
+numbers.push();
+numbers.unshift();
+numbers.splice();
+
+//middle
+numbers.splice(2, 3);
+console.log(numbers);
+
+//->(2) [1, 2]
+
+7]Emptying an Array
+
+let numbers = [1, 2, 3, 4, 5];
+numbers = [];
+console.log(numbers);
+
+//->[]
+
+-->
+let numbers = [1, 2, 3, 4, 5];
+let another = numbers;
+//Solutions 1
+numbers = [];
+console.log(another);
+
+//->
+index.js:5 (5) [1, 2, 3, 4, 5]
+numbers
+[]
+
+-->
+let numbers = [1, 2, 3, 4, 5];
+let another = numbers;
+//Solutions 1
+// numbers = [];
+
+//Solution 2
+numbers.length = 0;
+
+console.log(numbers);
+console.log(another);
+
+//->
+[]
+index.js:10 []
+
+-->
+let numbers = [1, 2, 3, 4, 5];
+let another = numbers;
+//Solutions 1
+// numbers = [];
+
+//Solution 2
+numbers.length = 0;
+
+//Solution 3
+numbers.splice(0, numbers.length);
+
+console.log(numbers);
+console.log(another);
+
+//->
+[]
+index.js:13 []
+
+-->
+let numbers = [1, 2, 3, 4, 5];
+let another = numbers;
+//Solutions 1
+// numbers = [];
+
+//Solution 2
+//numbers.length = 0;
+
+//Solution 3
+//numbers.splice(0, numbers.length);
+
+//solution 4
+while (numbers.length > 0) {
+  numbers.pop();
+}
+console.log(numbers);
+console.log(another);
+
+//->
+[]
+index.js:17 []
+
+8]Combining and slicing Arrays
+
+const first = [1, 2, 3];
+const second = [4, 5, 6];
+const combined = first.concat(second);
+console.log(combined);
+
+//->(6) [1, 2, 3, 4, 5, 6]
+
+-->
+const first = [1, 2, 3];
+const second = [4, 5, 6];
+const combined = first.concat(second);
+const slice = combined.slice(2, 4);
+console.log(combined);
+console.log(slice);
+
+//->
+(6) [1, 2, 3, 4, 5, 6]
+index.js:6 (2) [3, 4]
+
+-->
+const first = [1, 2, 3];
+const second = [4, 5, 6];
+const combined = first.concat(second);
+const slice = combined.slice(2);
+console.log(combined);
+console.log(slice);
+
+//->
+(6) [1, 2, 3, 4, 5, 6]
+index.js:6 (4) [3, 4, 5, 6]
+
+-->
+const first = [{ id: 1 }];
+const second = [4, 5, 6];
+const combined = first.concat(second);
+first[0].id = 10;
+const slice = combined.slice();
+console.log(combined);
+console.log(slice);
+
+//->
+(4) [{…}, 4, 5, 6]0: {id: 10}1: 42: 53: 6length: 4[[Prototype]]: Array(0)
+index.js:7 (4) [{…}, 4, 5, 6]0: {id: 10}1: 42: 53: 6length: 4[[Prototype]]: Array(0)
+
+9]the spread operators
+
+const first = [1, 2, 3];
+const second = [4, 5, 6];
+
+// const combined = first.concat(second);
+const combined = [...first, "a", ...second, "b"];
+console.log(combined);
+
+// const copy = combined.slice();
+const copy = [...combined];
+console.log(copy);
+
+//->
+(8) [1, 2, 3, 'a', 4, 5, 6, 'b']
+index.js:10 (8) [1, 2, 3, 'a', 4, 5, 6, 'b']
+
+10]Iterating an Array
+
+const numbers = [1, 2, 3];
+for (let number of numbers) {
+  console.log(number);
+}
+
+//->
+1
+index.js:3 2
+index.js:3 3
+
+-->
+const numbers = [1, 2, 3];
+for (let number of numbers) {
+  console.log(number);
+}
+numbers.forEach(function (number) {
+  console.log(number);
+});
+
+//->
+1
+index.js:3 2
+index.js:3 3
+index.js:6 1
+index.js:6 2
+index.js:6 3
+
+-->
+const numbers = [1, 2, 3];
+for (let number of numbers) {
+  console.log(number);
+}
+numbers.forEach((number) => console.log(number));
+
+//->
+1
+index.js:3 2
+index.js:3 3
+index.js:5 1
+index.js:5 2
+index.js:5 3
+
+-->
+const numbers = [1, 2, 3];
+for (let number of numbers) {
+  console.log(number);
+}
+numbers.forEach((number, index) => console.log(index, number));
+
+//->
+1
+index.js:3 2
+index.js:3 3
+index.js:5 0 1
+index.js:5 1 2
+index.js:5 2 3
+
+11]joining Arrays
+const numbers = [1, 2, 3];
+const joined = numbers.join(",");
+console.log(joined);
+
+const message = "This is my first nmessage";
+const part = message.split(" ");
+console.log(part);
+
+const combined = part.join("-");
+console.log(combined);
+
+//->
+1,2,3
+index.js:7 (5) ['This', 'is', 'my', 'first', 'nmessage']
+index.js:10 This-is-my-first-nmessage
+
+12]sorting an Arrays
+const numbers = [2, 3, 1];
+numbers.sort();
+console.log(numbers);
+
+numbers.reverse();
+console.log(numbers);
+
+//->
+(3) [1, 2, 3]
+index.js:6 (3) [3, 2, 1]
+
+-->
+const course = [
+  { id: 1, name: "Node.js" },
+  { id: 2, name: "javascript" },
+];
+course.sort();
+console.log(course);
+
+//->
+(2) [{…}, {…}]
+0: {id: 1, name: 'Node.js'}
+1: {id: 2, name: 'javascript'}
+length: 2
+
+-->
+const course = [
+  { id: 1, name: "Node.js" },
+  { id: 2, name: "Javascript" },
+];
+course.sort(function (a, b) {
+  //a<b=>-1
+  //a>b=>1
+  //a===b=>0
+  if (a.name < b.name) return -1;
+  if (a.name > b.name) return 1;
+  return 0;
+});
+console.log(course);
+
+//->
+(2) [{…}, {…}]
+0: {id: 2, name: 'Javascript'}
+1: {id: 1, name: 'Node.js'}
+length: 2
+
+-->
+const course = [
+  { id: 1, name: "Node.js" },
+  { id: 2, name: "javascript" },
+];
+course.sort(function (a, b) {
+  //a<b=>-1
+  //a>b=>1
+  //a===b=>0
+  if (a.name < b.name) return -1;
+  if (a.name > b.name) return 1;
+  return 0;
+});
+console.log(course);
+
+//->
+(2) [{…}, {…}]
+0: {id: 1, name: 'Node.js'}
+1: {id: 2, name: 'javascript'}
+length: 2
+
+-->
+const course = [
+  { id: 1, name: "Node.js" },
+  { id: 2, name: "javascript" },
+];
+course.sort(function (a, b) {
+  //a<b=>-1
+  //a>b=>1
+  //a===b=>0
+  const nameA = a.name.toLowerCase();
+  const nameB = b.name.toLowerCase();
+  if (nameA < nameB) return -1;
+  if (nameA > nameB) return 1;
+  return 0;
+});
+console.log(course);
+
+//->
+(2) [{…}, {…}]
+0: {id: 2, name: 'javascript'}
+1: {id: 1, name: 'Node.js'}
+length: 2
+
+13]Testing the elements
+
+const numbers = [1, 2, 3];
+const allPositive = numbers.every(function (value) {
+  return value >= 0;
+});
+console.log(allPositive);
+
+//->true
+
+-->
+const numbers = [1, -1, 2, 3];
+const allPositive = numbers.every(function (value) {
+  return value >= 0;
+});
+console.log(allPositive);
+
+//->false
+
+-->
+const numbers = [1, -1, 2, 3];
+const stLeastOnePositive = numbers.some(function (value) {
+  return value >= 0;
+});
+console.log(stLeastOnePositive);
+
+//->true
+
+14]filtering an array
+const numbaers = [1, -1, 2, 3];
+const filtered = numbaers.filter(function (value) {
+  return value >= 0;
+});
+console.log(filtered);
+
+//->(3) [1, 2, 3]
+
+-->
+const numbaers = [1, -1, 2, 3];
+const filtered = numbaers.filter((n) => n >= 0);
+console.log(filtered);
+
+//->(3) [1, 2, 3]
+
+15]Mapping an array
+const numbaers = [1, -1, 2, 3];
+const filtered = numbaers.filter((n) => n >= 0);
+const items = filtered.map((n) => "<li>" + n + "</li>");
+console.log(items);
+
+//->(3) ['<li>1</li>', '<li>2</li>', '<li>3</li>']
+
+-->
+const numbaers = [1, -1, 2, 3];
+const filtered = numbaers.filter((n) => n >= 0);
+const items = filtered.map((n) => "<li>" + n + "</li>");
+const html = items.join();
+console.log(html);
+
+//-><li>1</li>,<li>2</li>,<li>3</li>
+
+-->
+const numbaers = [1, -1, 2, 3];
+const filtered = numbaers.filter((n) => n >= 0);
+const items = filtered.map((n) => "<li>" + n + "</li>");
+const html = "<ul>" + items.join("") + "</ul>";
+console.log(html);
+
+//-><ul><li>1</li><li>2</li><li>3</li></ul>
+
+-->
+const numbaers = [1, -1, 2, 3];
+const filtered = numbaers.filter((n) => n >= 0);
+const items = filtered.map((n) => {
+  const obj = { value: n };
+  return obj;
+});
+
+console.log(items);
+
+//->
+(3) [{…}, {…}, {…}]
+0: {value: 1}
+1: {value: 2}
+2: {value: 3}
+length: 3
+
+-->
+const numbaers = [1, -1, 2, 3];
+const filtered = numbaers.filter((n) => n >= 0);
+const items = filtered.map((n) => {
+  return { value: n };
+});
+
+console.log(items);
+
+//->
+(3) [{…}, {…}, {…}]
+0: {value: 1}
+1: {value: 2}
+2: {value: 3}
+length: 3
+
+-->
+const numbaers = [1, -1, 2, 3];
+const filtered = numbaers.filter((n) => n >= 0);
+const items = filtered.map((n) => {
+  value: n;
+});
+console.log(items);
+
+//->
+
+(3) [undefined, undefined, undefined]
+
+-->
+const numbaers = [1, -1, 2, 3];
+const filtered = numbaers.filter((n) => n >= 0);
+const items = filtered.map((n) => ({
+  value: n,
+}));
+console.log(items);
+
+//->
+(3) [{…}, {…}, {…}]
+0: {value: 1}
+1: {value: 2}
+2: {value: 3}
+length: 3
+
+-->
+const numbaers = [1, -1, 2, 3];
+const items = numbaers
+  .filter((n) => n >= 0)
+  .map((n) => ({ value: n }));
+console.log(items);
+
+//->
+(3) [{…}, {…}, {…}]
+0: {value: 1}
+1: {value: 2}
+2: {value: 3}
+length: 3
+
+-->
+const numbaers = [1, -1, 2, 3];
+const items = numbaers
+  .filter((n) => n >= 0)
+  .map((n) => ({ value: n }))
+  .filter((obj) => obj.value > 1);
+console.log(items);
+
+//->
+(2) [{…}, {…}]
+0: {value: 2}
+1: {value: 3}
+length: 2
+
+
+-->
+const numbaers = [1, -1, 2, 3];
+const items = numbaers
+  .filter((n) => n >= 0)
+  .map((n) => ({ value: n }))
+  .filter((obj) => obj.value > 1)
+  .map((obj) => obj.value);
+console.log(items);
+
+//->
+(2) [2, 3]
+0: 2
+1: 3
+length: 2
+
+16]Reducing an array
+
+const numbers = [1, -1, 2, 3];
+let sum = 0;
+for (let n of numbers) {
+  sum += n;
+}
+console.log(sum);
+
+//->5
+
+-->
+const numbers = [1, -1, 2, 3];
+
+//a=0,c=1=>a=1
+//a=1,c=-1=>a=0
+//a=0,c=2=>a=2
+//a=2,c=3=>a=5
+const sum = numbers.reduce((accumulator, currentValue) => {
+  return accumulator + currentValue;
+}, 0);
+
+console.log(sum);
+
+//->5
+
+-->
+const numbers = [1, -1, 2, 3];
+
+//a=0,c=1=>a=1
+//a=1,c=-1=>a=0
+//a=0,c=2=>a=2
+//a=2,c=3=>a=5
+
+//a=1,c=-1=>a=0
+//a=0,c=2=>a=2
+//a=2,c=3=>a=5
+
+const sum = numbers.reduce((accumulator, currentValue) => {
+  return accumulator + currentValue;
+});
+
+console.log(sum);
+
+//->5
+-->
+const numbers = [1, -1, 2, 3];
+
+//a=0,c=1=>a=1
+//a=1,c=-1=>a=0
+//a=0,c=2=>a=2
+//a=2,c=3=>a=5
+
+//a=1,c=-1=>a=0
+//a=0,c=2=>a=2
+//a=2,c=3=>a=5
+
+const sum = numbers.reduce(
+  (accumulator, currentValue) => accumulator + currentValue
+);
+
+console.log(sum);
+
+//->5
+
+17]exersize1 array
+const numbers = arrayFromRange(1, 12);
+console.log(numbers);
+function arrayFromRange(min, max) {}
+
+-->
+const numbers = arrayFromRange(1, 12);
+console.log(numbers);
+function arrayFromRange(min, max) {
+  const output = [];
+  for (let i = min; i <= max; i++) {
+    output.push(i);
+  }
+  return output;
+}
+
+//->(12) [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+
+18]exersize 2  includes
+
+const numbers = [1, 2, 3, 4, 5];
+console.log(numbers.includes(2));
+
+//->true
+
+-->
+const numbers = [1, 2, 3, 4, 5];
+console.log(includes(numbers, 5));
+
+function includes(array, searchElement) {
+  for (let element of array) {
+    if (element === searchElement) {
+      return true;
+    }
+  }
+  return false;
+}
+
+//->true
+
+19]exersize3 except
+
+const numbers = [1, 2, 3, 4, 5];
+const output = except(numbers, [1]);
+console.log(output);
+
+function except(array, excluded) {}
+
+-->
+const numbers = [1, 2, 3, 4, 5, 1, 1, 1];
+const output = except(numbers, [1, 2]);
+console.log(output);
+
+function except(array, excluded) {
+  const output = [];
+  for (let element of array) {
+    if (!excluded.includes(element)) {
+      output.push(element);
+    }
+  }
+  return output;
+}
+
+//->(3) [3, 4, 5]
+
+20]exersize4 Moving
+
+const numbers = [1, 2, 3, 4, 5];
+const output = move(numbers, 0, 0);
+console.log(output);
+
+function move(array, index, offset) {}
+
+-->
+const numbers = [1, 2, 3, 4, 5];
+const output = move(numbers, 1, 1);
+console.log(output);
+
+function move(array, index, offset) {
+  const position = index + offset;
+  if (position >= array.length || position < 0) {
+    console.error("Invalid offset");
+    return;
+  }
+  const output = [...array];
+  const element = output.splice(index, 1)[0];
+  output.splice(position, 0, element);
+  return output;
+}
+
+//->(5) [1, 3, 2, 4, 5]
+
+-->
+const numbers = [1, 2, 3, 4, 5];
+const output = move(numbers, 0, 4);
+console.log(output);
+
+function move(array, index, offset) {
+  const position = index + offset;
+  if (position >= array.length || position < 0) {
+    console.error("Invalid offset");
+    return;
+  }
+  const output = [...array];
+  const element = output.splice(index, 1)[0];
+  output.splice(position, 0, element);
+  return output;
+}
+
+//->(5) [2, 3, 4, 5, 1]
+
+21]exersize5 count occure
+
+const numbers = [1, 2, 3, 4, 1];
+const count = countOccurrences(numbers, -1);
+console.log(count);
+function countOccurrences(array, searchElement) {}
+
+-->
+const numbers = [1, 2, 3, 4, 1];
+const count = countOccurrences(numbers, 1);
+console.log(count);
+function countOccurrences(array, searchElement) {
+  let count = 0;
+  for (let element of array) {
+    if (element === searchElement) {
+      count++;
+    }
+  }
+  return count;
+}
+
+//->2
+
+-->
+const numbers = [1, 2, 3, 4, 1];
+const count = countOccurrences(numbers, 1);
+console.log(count);
+function countOccurrences(array, searchElement) {
+  // let count = 0;
+  // for (let element of array) {
+  //   if (element === searchElement) {
+  //     count++;
+  //   }
+  // }
+  // return count;
+  return array.reduce((accumulator, current) => {
+    const occurence = current === searchElement ? 1 : 0;
+    console.log(accumulator, current, searchElement);
+    return accumulator + occurence;
+  }, 0);
+}
+
+//->
+0 1 1
+index.js:14 1 2 1
+index.js:14 1 3 1
+index.js:14 1 4 1
+index.js:14 1 1 1
+index.js:3 2
+
+22]exersize6
+
+const numbers = [11, 2, 3, 4, 5];
+const max = getMax(numbers);
+console.log(max);
+function getMax(array) {}
+
+-->
+const numbers = [1, 2, 3, 4, 5];
+const max = getMax(numbers);
+console.log(max);
+function getMax(array) {
+  if (array.length === 0) return undefined;
+  let max = array[0];
+  for (let i = 1; i < array.length; i++) {
+    if (array[i] > max) {
+      max = array[i];
+    }
+  }
+  return max;
+}
+
+//->5
+
+-->
+const numbers = [1, 2, 3, 4, 5];
+const max = getMax([1, 2, 3, 5, 4, 3]);
+console.log(max);
+function getMax(array) {
+  if (array.length === 0) return undefined;
+  let max = array[0];
+  for (let i = 1; i < array.length; i++) {
+    if (array[i] > max) {
+      max = array[i];
+    }
+  }
+  return max;
+}
+
+//->5
+
+-->
+const numbers = [1, 2, 3, 4, 5];
+const max = getMax([1, 2, 3, 5, 4, 3]);
+console.log(max);
+function getMax(array) {
+  if (array.length === 0) return undefined;
+  // let max = array[0];
+  // for (let i = 1; i < array.length; i++) {
+  //   if (array[i] > max) {
+  //     max = array[i];
+  //   }
+  // }
+  // return max;
+
+  return array.reduce((a, b) => (a > b ? a : b));
+}
+
+//->5
+
+23]exersize7 movies
+
+const movies = [
+  { title: "a", year: 2018, rating: 4.5 },
+  { title: "b", year: 2018, rating: 4.7 },
+  { title: "c", year: 2018, rating: 3 },
+  { title: "d", year: 2017, rating: 4.5 },
+];
+
+//all the movies in 2018 with rating > 4
+//sort them by their rating
+//desending order
+//pick their title
+
+-->
+const movies = [
+  { title: "a", year: 2018, rating: 4.5 },
+  { title: "b", year: 2018, rating: 4.7 },
+  { title: "c", year: 2018, rating: 3 },
+  { title: "d", year: 2017, rating: 4.5 },
+];
+
+//all the movies in 2018 with rating > 4
+//sort them by their rating
+//desending order
+//pick their title
+
+const titles = movies
+  .filter((m) => m.year === 2018 && m.rating >= 4)
+  .sort((a, b) => a.rating - b.rating)
+  .reverse()
+  .map((m) => m.title);
+
+console.log(titles);
+
+//->
+(2) ['b', 'a']
+0: "b"
+1: "a"
+length: 2
+
+seventh part
+
+1]function declartions
+
+//function declarations
+function walk() {
+  console.log("walk");
+}
+
+//Named function expressions
+let run = function walk() {
+  console.log("run");
+};
+
+-->
+//function declarations
+function walk() {
+  console.log("walk");
+}
+
+//anonymous function expressions
+let run = function () {
+  console.log("run");
+};
+run();
+
+//->run
+
+-->
+//function declarations
+function walk() {
+  console.log("walk");
+}
+
+//anonymous function expressions
+let run = function () {
+  console.log("run");
+};
+let move = run;
+run();
+move();
+
+//->
+
+run
+index.js:8 run
+
+2]Hoisting
+
+//function declarations
+walk();
+function walk() {
+  console.log("walk");
+}
+
+//function expressions
+const run = function () {
+  console.log("run");
+};
+
+//->walk
+
+-->
+//function declarations
+walk();
+function walk() {
+  console.log("walk");
+}
+
+//function expressions
+run();
+
+const run = function () {
+  console.log("run");
+};
+
+//->
+walk
+index.js:8 Uncaught ReferenceError: Cannot access 'run' before initialization
+
+3]arguments
+
+let x = 1;
+x = "a";
+console.log(x);
+
+function sum(a, b) {
+  return a + b;
+}
+console.log(sum(1, 2));
+
+//->
+a
+index.js:8 3
+
+-->
+let x = 1;
+x = "a";
+console.log(x);
+
+function sum(a, b) {
+  return a + b; //1+undefined
+}
+console.log(sum(1));
+
+//->
+a
+index.js:8 NaN
+
+-->
+let x = 1;
+x = "a";
+console.log(x);
+
+function sum(a, b) {
+  return a + b;
+}
+console.log(sum(1, 2, 3, 4, 5));
+
+//->
+a
+index.js:8 3
+
+-->
+let x = 1;
+x = "a";
+console.log(x);
+
+function sum(a, b) {
+  console.log(arguments);
+  return a + b;
+}
+console.log(sum(1, 2, 3, 4, 5));
+
+//->
+a
+index.js:6 Arguments(5) [1, 2, 3, 4, 5, callee: ƒ, Symbol(Symbol.iterator): ƒ]0: 11: 22: 33: 44: 5callee: ƒ sum(a, b)length: 5Symbol(Symbol.iterator): ƒ values()[[Prototype]]: Object
+index.js:9 3
+
+-->
+let x = 1;
+x = "a";
+console.log(x);
+
+function sum(a, b) {
+  let total = 0;
+  for (let value of arguments) {
+    total += value;
+  }
+  return total;
+}
+console.log(sum(1, 2, 3, 4, 5));
+
+//->
+a
+index.js:12 15
+
+-->
+let x = 1;
+x = "a";
+console.log(x);
+
+function sum() {
+  let total = 0;
+  for (let value of arguments) {
+    total += value;
+  }
+  return total;
+}
+console.log(sum(1, 2, 3, 4, 5));
+
+//->
+a
+index.js:12 15
+
+4]The rest operators
+
+function sum(...args) {
+  console.log(args);
+}
+console.log(sum(1, 2, 3, 4, 5));
+
+//->
+(5) [1, 2, 3, 4, 5]
+index.js:4 undefined
+
+-->
+function sum(args) {
+  console.log(args);
+}
+console.log(sum(1, 2, 3, 4, 5));
+
+//->
+1
+index.js:4 undefined
+
+-->
+function sum(...args) {
+  return args.reduce((a, b) => a + b);
+}
+console.log(sum(1, 2, 3, 4, 5));
+
+//->15
+
+-->
+function sum(discount, ...price) {
+  const total = price.reduce((a, b) => a + b);
+  return total * (1 - discount);
+}
+console.log(sum(0.1, 20, 30));
+
+//->45
+
+-->
+function sum(discount, ...price,someValue) {
+  const total = price.reduce((a, b) => a + b);
+  return total * (1 - discount);
+}
+console.log(sum(0.1, 20, 30));
+
+//->Uncaught SyntaxError: Rest parameter must be last formal parameter
+
+5]default parameters
+
+function interest(principal, rate, years) {
+  return ((principal * rate) / 100) * years;
+}
+console.log(interest(10000, 3.5, 5));
+
+//->1750
+
+-->
+function interest(principal, rate, years) {
+  rate = rate || 3.5;
+  years = years || 5;
+  return ((principal * rate) / 100) * years;
+}
+console.log(interest(10000));
+
+//->1750
+
+-->
+function interest(principal, rate = 3.5, years = 5) {
+  return ((principal * rate) / 100) * years;
+}
+console.log(interest(10000));
+
+//->1750
+
+-->
+function interest(principal, rate = 3.5, years) {
+  return ((principal * rate) / 100) * years;
+}
+console.log(interest(10000));
+
+//NaN
+
+-->
+function interest(principal, rate = 3.5, years) {
+  return ((principal * rate) / 100) * years;
+}
+console.log(interest(10000, undefined, 5));
+
+//->1750
+
+-->
+function interest(principal, rate = 3.5, years = 5) {
+  return ((principal * rate) / 100) * years;
+}
+console.log(interest(10000, undefined, 5));
+
+//->1750
+
+6]Getters and setters
+
+const person = {
+  firstName: "Moni",
+  lastName: "Gangane",
+  fullName() {
+    return `${person.firstName} ${person.lastName}`;
+  },
+};
+console.log(person.fullName());
+
+//->Moni Gangane
+
+-->
+const person = {
+  firstName: "Moni",
+  lastName: "Gangane",
+  get fullName() {
+    return `${person.firstName} ${person.lastName}`;
+  },
+};
+//getters=>access properties
+//setters=>change (mutate) them
+console.log(person.fullName);
+
+//->Moni Gangane
+-->
+const person = {
+  firstName: "Moni",
+  lastName: "Gangane",
+  get fullName() {
+    return `${person.firstName} ${person.lastName}`;
+  },
+  set fullName(value) {
+    const parts = value.split(" ");
+    this.firstName = parts[0];
+    this.lastName = parts[1];
+  },
+};
+//getters=>access properties
+//setters=>change (mutate) them
+person.fullName = "Shreyu Ashtamkar";
+console.log(person);
+
+//->
+{firstName: 'Shreyu', lastName: 'Ashtamkar'}
+firstName: "Shreyu"
+fullName: "Shreyu Ashtamkar"
+lastName: "Ashtamkar"
+get fullName: ƒ fullName()
+set fullName: ƒ fullName(value)
+
+7]try and catch
+
+const person = {
+  firstName: "Moni",
+  lastName: "Gangane",
+  get fullName() {
+    return `${person.firstName} ${person.lastName}`;
+  },
+  set fullName(value) {
+    const parts = value.split(" ");
+    this.firstName = parts[0];
+    this.lastName = parts[1];
+  },
+};
+//getters=>access properties
+//setters=>change (mutate) them
+person.fullName = true;
+console.log(person);
+
+//->
+index.js:8 Uncaught TypeError: value.split is not a function
+    at Object.set fullName [as fullName] (index.js:8:25)
+    at index.js:15:17
+
+
+-->
+const person = {
+  firstName: "Moni",
+  lastName: "Gangane",
+  get fullName() {
+    if (typeof value !== "string") return;
+    const parts = value.split(" ");
+    this.firstName = parts[0];
+    this.lastName = parts[1];
+  },
+};
+//getters=>access properties
+//setters=>change (mutate) them
+person.fullName = true;
+console.log(person);
+
+//->{firstName: 'Moni', lastName: 'Gangane'}
+
+-->
+const person = {
+  firstName: "Moni",
+  lastName: "Gangane",
+  set fullName(value) {
+    if (typeof value !== "string") {
+      throw new Error("Value is not a string");
+    }
+
+    const parts = value.split(" ");
+    this.firstName = parts[0];
+    this.lastName = parts[1];
+  },
+};
+
+try {
+  person.fullName = null;
+} catch (e) {
+  alert(e);
+}
+console.log(person);
+
+//->Error: Value is not a string
+
+-->
+const person = {
+  firstName: "Moni",
+  lastName: "Gangane",
+  set fullName(value) {
+    if (typeof value !== "string") {
+      throw new Error("Value is not a string");
+    }
+
+    const parts = value.split(" ");
+    this.firstName = parts[0];
+    this.lastName = parts[1];
+  },
+};
+
+try {
+  person.fullName = "";
+} catch (e) {
+  alert(e);
+}
+console.log(person);
+
+//->{firstName: '', lastName: undefined}
+
+-->
+const person = {
+  firstName: "Moni",
+  lastName: "Gangane",
+  set fullName(value) {
+    if (typeof value !== "string") {
+      throw new Error("Value is not a string");
+    }
+
+    const parts = value.split(" ");
+    if (parts.length !== 2) {
+      throw new Error("Enter a first and last name");
+    }
+    this.firstName = parts[0];
+    this.lastName = parts[1];
+  },
+};
+
+try {
+  person.fullName = "";
+} catch (e) {
+  alert(e);
+}
+console.log(person);
+
+//->Error: Enter a first and last name
+
+
+8]Local vs global Scopes
+const message = "hi";
+console.log(message);
+
+//->hi
+-->
+{
+  const message = "hi";
+}
+console.log(message);
+
+//->index.js:4 Uncaught ReferenceError: message is not defined
+    at index.js:4:13
+
+-->
+function start() {
+  const message = "hi";
+}
+console.log(message);
+
+//->Uncaught ReferenceError: message is not defined
+
+-->
+function start() {
+  const message = "hi";
+  if (true) {
+    const another = "bye";
+  }
+  console.log(another);
+}
+start();
+
+//->index.js:6 Uncaught ReferenceError: another is not defined
+    at start (index.js:6:15)
+    at index.js:8:1
+
+-->
+function start() {
+  const message = "hi";
+  if (true) {
+    const another = "bye";
+  }
+  for (let i = 0; i < 5; i++) {
+    console.log(i);
+  }
+}
+start();
+
+//->
+0
+index.js:7 1
+index.js:7 2
+index.js:7 3
+index.js:7 4
+
+-->
+function start() {
+  const message = "hi";
+  if (true) {
+    const another = "bye";
+  }
+  for (let i = 0; i < 5; i++) {
+    console.log(i);
+  }
+  console.log(i);
+}
+start();
+
+//->
+0
+index.js:7 1
+index.js:7 2
+index.js:7 3
+index.js:7 4
+index.js:9 Uncaught ReferenceError: i is not defined
+    at start (index.js:9:15)
+    at index.js:11:1
+
+-->
+const color = "red";
+
+function start() {
+  const message = "hi";
+  console.log(color);
+}
+function stop() {
+  const message = "bye";
+}
+
+start();
+
+//->red
+
+-->
+const color = "red";
+
+function start() {
+  const message = "hi";
+  const color = "blue";
+  console.log(color);
+}
+function stop() {
+  const message = "bye";
+}
+
+start();
+
+//->blue
+
+9]lets vs var
+
+function start() {
+  for (let i = 0; i < 5; i++) {
+    console.log(i);
+  }
+}
+start();
+
+//->
+0
+index.js:3 1
+index.js:3 2
+index.js:3 3
+index.js:3 4
+
+-->
+function start() {
+  for (let i = 0; i < 5; i++) {
+    console.log(i);
+  }
+  console.log(i);
+}
+start();
+
+//->
+0
+index.js:3 1
+index.js:3 2
+index.js:3 3
+index.js:3 4
+index.js:5 Uncaught ReferenceError: i is not defined
+    at start (index.js:5:15)
+    at index.js:7:1
+
+-->
+function start() {
+  for (var i = 0; i < 5; i++) {
+    console.log(i);
+  }
+  console.log(i);
+}
+start();
+
+//->
+0
+index.js:3 1
+index.js:3 2
+index.js:3 3
+index.js:3 4
+index.js:5 5
+
+-->
+function start() {
+  for (var i = 0; i < 5; i++) {
+    if (true) {
+      var color = "red";
+    }
+  }
+  console.log(color);
+}
+//var=>function-scoped
+//ES6(es2015:let,const=>blocked scoped)
+start();
+
+//->red
+
+-->
+function start() {
+  for (var i = 0; i < 5; i++) {
+    if (true) {
+      let color = "red";
+    }
+  }
+  console.log(color);
+}
+//var=>function-scoped
+//ES6(es2015:let,const=>blocked scoped)
+start();
+
+//->index.js:7 Uncaught ReferenceError: color is not defined
+    at start 
+
+-->
+var color = "red";
+let age = 30;
+
+//->
+window.color
+'red'
+
+window.age
+undefined
+
+-->
+var color = "red";
+let age = 30;
+
+function sayHi() {
+  console.log("hi");
+}
+
+//->
+window.sayHi()
+index.js:5 hi
+
+10]the this keyword
+//method->obj
+//function->global (window,global)
+
+const video = {
+  title: "a",
+  play() {
+    console.log(this);
+  },
+};
+video.play();
+
+//->{title: 'a', play: ƒ}
+
+-->
+//method->obj
+//function->global (window,global)
+
+const video = {
+  title: "a",
+  play() {
+    console.log(this);
+  },
+};
+video.stop = function () {
+  console.log(this);
+};
+video.stop();
+
+//->
+ 
+{title: 'a', play: ƒ, stop: ƒ}
+play: ƒ play()
+stop: ƒ ()
+title: "a"
+[[Prototype]]: Object
+
+
+-->
+//method->obj
+//function->global (window,global)
+
+const video = {
+  title: "a",
+  play() {
+    console.log(this);
+  },
+};
+function playVideo() {
+  console.log(this);
+}
+playVideo();
+
+//->
+Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+
+-->
+//method->obj
+//function->global (window,global)
+
+const video = {
+  title: "a",
+  play() {
+    console.log(this);
+  },
+};
+function Video(title) {
+  this.title = title;
+  console.log(this);
+}
+const v = new Video("b");
+
+//->Video {title: 'b'}
+
+-->
+//method->obj
+//function->global (window,global)
+
+const video = {
+  title: "a",
+  tags: ["a", "b", "c"],
+  showTags() {
+    this.tags.forEach(function (tag) {
+      console.log(tag);
+    });
+  },
+};
+video.showTags();
+
+//->
+
+a
+index.js:9 b
+index.js:9 c
+
+-->
+//method->obj
+//function->global (window,global)
+
+const video = {
+  title: "a",
+  tags: ["a", "b", "c"],
+  showTags() {
+    this.tags.forEach(function (tag) {
+      console.log(this.title, tag);
+    });
+  },
+};
+video.showTags();
+
+//->
+undefined 'a'
+index.js:9 undefined 'b'
+index.js:9 undefined 'c'
+
+-->
+//method->obj
+//function->global (window,global)
+
+const video = {
+  title: "a",
+  tags: ["a", "b", "c"],
+  showTags() {
+    this.tags.forEach(function (tag) {
+      console.log(this, tag);
+    });
+  },
+};
+video.showTags();
+
+//->
+
+Window {window: Window, self: Window, document: document, name: '', location: Location, …} 'a'
+index.js:9 Window {window: Window, self: Window, document: document, name: '', location: Location, …} 'b'
+index.js:9 Window {window: Window, self: Window, document: document, name: '', location: Location, …} 'c'
+
+-->
+
+//method->obj
+//function->global (window,global)
+
+const video = {
+  title: "a",
+  tags: ["a", "b", "c"],
+  showTags() {
+    this.tags.forEach(
+      function (tag) {
+        console.log(this, tag);
+      },
+      { firstName: "Moni" }
+    );
+  },
+};
+video.showTags();
+
+//->
+{firstName: 'Moni'} 'a'
+index.js:10 {firstName: 'Moni'} 'b'
+index.js:10 {firstName: 'Moni'} 'c'
+
+-->
+//method->obj
+//function->global (window,global)
+
+const video = {
+  title: "a",
+  tags: ["a", "b", "c"],
+  showTags() {
+    this.tags.forEach(function (tag) {
+      console.log(this, tag);
+    }, this);
+  },
+};
+video.showTags();
+
+//->
+{title: 'a', tags: Array(3), showTags: ƒ}showTags: ƒ showTags()tags: (3) ['a', 'b', 'c']title: "a"[[Prototype]]: Object 'a'
+index.js:9 {title: 'a', tags: Array(3), showTags: ƒ} 'b'
+index.js:9 {title: 'a', tags: Array(3), showTags: ƒ} 'c'
+
+-->
+//method->obj
+//function->global (window,global)
+
+const video = {
+  title: "a",
+  tags: ["a", "b", "c"],
+  showTags() {
+    this.tags.forEach(function (tag) {
+      console.log(this.title, tag);
+    }, this);
+  },
+};
+video.showTags();
+
+//->
+a a
+index.js:9 a b
+index.js:9 a c
+
+11]changing this
+
+//method->obj
+//function->global (window,global)
+
+const video = {
+  title: "a",
+  tags: ["a", "b", "c"],
+  showTags() {
+    const self = this;
+    this.tags.forEach(function (tag) {
+      console.log(self.title, tag);
+    });
+  },
+};
+video.showTags();
+
+//->
+a a
+index.js:10 a b
+index.js:10 a c
+
+-->
+//method->obj
+//function->global (window,global)
+
+const video = {
+  title: "a",
+  tags: ["a", "b", "c"],
+  showTags() {
+    const self = this;
+    this.tags.forEach(function (tag) {
+      console.log(self.title, tag);
+    });
+  },
+};
+// video.showTags();
+
+function playVideo() {
+  console.log(this);
+}
+playVideo.call({ name: "moni" });
+playVideo();
+
+//->
+{name: 'moni'}
+index.js:17 Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+
+-->
+//method->obj
+//function->global (window,global)
+
+const video = {
+  title: "a",
+  tags: ["a", "b", "c"],
+  showTags() {
+    const self = this;
+    this.tags.forEach(function (tag) {
+      console.log(self.title, tag);
+    });
+  },
+};
+// video.showTags();
+
+function playVideo() {
+  console.log(this);
+}
+playVideo.call({ name: "moni" });
+playVideo.apply({ name: "moni" });
+playVideo();
+
+//->
+{name: 'moni'}
+index.js:17 {name: 'moni'}
+index.js:17 Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+
+-->
+//method->obj
+//function->global (window,global)
+
+const video = {
+  title: "a",
+  tags: ["a", "b", "c"],
+  showTags() {
+    const self = this;
+    this.tags.forEach(function (tag) {
+      console.log(self.title, tag);
+    });
+  },
+};
+// video.showTags();
+
+function playVideo(a, b) {
+  console.log(this);
+}
+playVideo.call({ name: "moni" }, 1, 2);
+playVideo.apply({ name: "moni" }, [1, 2]);
+const fn = playVideo.bind({ name: "moni" });
+fn();
+playVideo();
+
+//->
+{name: 'moni'}
+index.js:17 {name: 'moni'}
+index.js:17 {name: 'moni'}
+index.js:17 Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+
+-->
+//method->obj
+//function->global (window,global)
+
+const video = {
+  title: "a",
+  tags: ["a", "b", "c"],
+  showTags() {
+    const self = this;
+    this.tags.forEach(function (tag) {
+      console.log(self.title, tag);
+    });
+  },
+};
+// video.showTags();
+
+function playVideo(a, b) {
+  console.log(this);
+}
+playVideo.call({ name: "moni" }, 1, 2);
+playVideo.apply({ name: "moni" }, [1, 2]);
+playVideo.bind({ name: "moni" })();
+
+playVideo();
+
+//->
+index.js:17 {name: 'moni'}
+index.js:17 {name: 'moni'}
+index.js:17 {name: 'moni'}
+index.js:17 Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+
+-->
+//method->obj
+//function->global (window,global)
+
+const video = {
+  title: "a",
+  tags: ["a", "b", "c"],
+  showTags() {
+    this.tags.forEach(
+      function (tag) {
+        console.log(this.title, tag);
+      }.bind(this)
+    );
+  },
+};
+video.showTags();
+
+//->
+a a
+index.js:10 a b
+index.js:10 a c
+
+-->
+//method->obj
+//function->global (window,global)
+
+const video = {
+  title: "a",
+  tags: ["a", "b", "c"],
+  showTags() {
+    this.tags.forEach((tag) => {
+      console.log(this.title, tag);
+    });
+  },
+};
+video.showTags();
+
+//->
+a a
+index.js:9 a b
+index.js:9 a c
+
+12]exersize1 sum of arguments
+//sum([1,2,3,4])=>10
+Array.isArray();
+
+//->
+Array.isArray([])
+true
+Array.isArray({})
+false
+
+-->
+console.log(sum(1, 2, 3, 4));
+function sum(...items) {
+  return items.reduce((a, b) => a + b);
+}
+
+//->10
+
+-->
+console.log(sum([1, 2, 3, 4]));
+function sum(...items) {
+  console.log(items);
+  return items.reduce((a, b) => a + b);
+}
+
+//->
+[Array(4)]
+index.js:1 (4) [1, 2, 3, 4]
+
+-->
+console.log(sum([1, 2, 3, 4]));
+function sum(...items) {
+  if (items.length === 1 && Array.isArray(items[0])) {
+    items = [...items[0]];
+  }
+
+  return items.reduce((a, b) => a + b);
+}
+
+//->10
+
+-->
+console.log(sum(1, 2, 3, 4));
+function sum(...items) {
+  if (items.length === 1 && Array.isArray(items[0])) {
+    items = [...items[0]];
+  }
+
+  return items.reduce((a, b) => a + b);
+}
+
+//->10
+
+13]exersize2 Area of circle
+
+//circle.radius = 2;
+//console.log(circle.area);
+
+-->
+//circle.radius = 2;
+//console.log(circle.area);
+
+const circle = {
+  radius: 1,
+  get area() {
+    return Math.PI * this.radius * this.radius;
+  },
+};
+console.log(circle.area);
+
+//->3.141592653589793
+
+circle.radius = 2;
+2
+
+circle.area
+12.566370614359172
+
+circle.area = 20;
+20
+
+circle.area
+12.566370614359172
+
+14]exersize3 error handling
+
+const numbers = [1, 2, 3, 4];
+const count = countOccurances(true, 1);
+console.log(count);
+
+function countOccurances(array, searchElement) {
+  return array.reduce((accumulator, current) => {
+    const occurence = current === searchElement ? 1 : 0;
+    return accumulator + occurence;
+  }, 0);
+}
+
+//->
+Uncaught TypeError: array.reduce is not a function
+    at countOccurances (index.js:6:16)
+    at index.js:2:15
+
+-->
+try {
+  const numbers = [1, 2, 3, 4];
+  const count = countOccurances(true, 1);
+  console.log(count);
+} catch (e) {
+  console.log(e.message);
+}
+
+function countOccurances(array, searchElement) {
+  if (!Array.isArray(array)) {
+    throw new Error("Invalid  array");
+  }
+  return array.reduce((accumulator, current) => {
+    const occurence = current === searchElement ? 1 : 0;
+    return accumulator + occurence;
+  }, 0);
+}
+
+//->Invalid  array

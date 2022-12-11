@@ -1,0 +1,107 @@
+<!-- <div>
+      <h1>first</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore,
+        voluptas.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque, beatae!
+      </p>
+    </div>
+    <div style="color: yellow">
+      <h1>inline style</h1>
+      <p style="color: pink">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, at?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium,
+        blanditiis!
+      </p>
+    </div>
+    <div>
+      <h1>for overcome inline style we have id property in css</h1>
+      <p id="para1">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, at?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium,
+        bland
+      </p>
+    </div>
+    <p id="para1">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, at?
+    </p>
+
+    <div>
+      <h1>basic selectors</h1>
+      <section id="products">
+        <article class="product"></article>
+        <article class="product"></article>
+        <article class="product"></article>
+      </section>
+    </div>
+    <div>
+      <h1>anchor tag</h1>
+      <a href="http://google.com" target="_blank">Google</a>
+    </div>
+    <h1>Basic relation selector</h1>
+    <section id="products">
+      <p>Lorem ipsum dolor sit amet consecte</p>
+      <article>
+        <p>Lorem ipsum dolor sit amet.</p>
+      </article>
+    </section>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere, alias.
+    </p> -->
+
+    <h1>pseudo class selectors</h1>
+    <article>
+      <h1>Lorem, ipsum.</h1>
+      <p>Lorem ipsum dolor sit amet.</p>
+      <p>Lorem ipsum dolor sit amet.</p>
+      <a href="www.google.com">Link</a>
+
+      <ul>
+        <li>item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+        <li>item 4</li>
+        <li>item 5</li>
+      </ul>
+    </article>
+
+ <h1>Moni pls select to pink bc</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut non corrupti
+      eligendi distinctio asperiores quos cum dolorem consequatur ex, recusandae
+      molestias officiis doloremque consequuntur vel vitae tenetur sapiente a
+      voluptatum?
+    </p>
+
+
+     <p>selector specificity</p>
+    <article>
+      <h1 class="highlight">Heading</h1>
+    </article>
+
+
+    <p>selector specificity</p>
+    <article class="fetured">
+      <h1 id="products" class="highlight">Heading</h1>
+    </article>
+
+    <h1>Inheritance</h1>
+    <p>Lorem ipsum <strong>dolor</strong> sit amet consectetur adipisicing.</p>
+
+
+      <h1>Colors</h1>
+    <div class="box"></div>
+    
+    <h1>Gradients</h1>
+    <div class="box"></div>
+
+    <h1>Borders</h1>
+    <div class="box"></div>
+    

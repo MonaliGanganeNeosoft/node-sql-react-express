@@ -1,0 +1,39 @@
+
+create table trainer
+(trainer_id number(5) primary key, trainer_name varchar(20), 
+technology varchar2(50), experience number(5), department_code varchar2(20)) ;
+
+insert into trainer values(111, 'Presenjit', 'Java',10,'CSE');
+insert into trainer values(113, 'Ajit', 'CAD',10,'MECH');
+insert into trainer values(112, 'Veena', 'Java',12,'IT');
+insert into trainer values(114, 'Karuna', 'Java',12,'CSE');
+insert into trainer values(116, 'Kartiki', 'CAD',15,'CIVIL');
+insert into trainer values(115, 'Sujit', 'GRAPHICS',13,'CIVIL');
+insert into trainer values(117, 'Amey', 'Java',9,'IT');
+insert into trainer values(118, 'Arun', 'Python',9,'IT');
+insert into trainer values(119, 'Sudhakar', 'PHP',10,'CSE');
+insert into trainer values(121, 'Punit', 'Dynamics',10,'MECH');
+insert into trainer values(120, 'Abhijeet', 'CAD',11,'MECH');
+insert into trainer values(123, 'Avani', 'Java',14,'CSE');
+
+show trainers having experience between 9 to 12
+select * from trainer where experience=9 or experience=12
+
+show trainers having experience below 9 or above 12
+select * from trainer where experience=9 or experience>12
+
+show trainers from IT, CSE and MECH deparment
+select * from trainer where department_code='IT' or department_code='CSE' or department_code='MECH'
+
+show trainers whose name starts with A or S or P
+select * from trainer where trainer_name  like 'P%' 
+
+Show trainers with name length=5
+select * from trainers where trainer_name like '-----';
+
+Show trainers having letter 'a' at 2nd position in name
+select * from trainers 
+
+show trainers having letter 'n' at 2nd last position in name
+select * from trainers
+

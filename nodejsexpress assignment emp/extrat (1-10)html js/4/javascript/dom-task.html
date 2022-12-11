@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function abc() {
+        var ele = document.getElementById("dom");
+        alert("Hello how r u");
+      }
+      function abc1() {
+        var ele = document.getElementById("dom");
+        ele.innerHTML = "i am fine | What about you";
+        ele.style.textAlign = "center";
+        ele.style.border = "2px solid red";
+      }
+    </script>
+  </head>
+  <body>
+    <p id="dom"></p>
+    <button onclick="abc()">read here</button>
+    <button onclick="abc1()">update here</button>
+  </body>
+</html>

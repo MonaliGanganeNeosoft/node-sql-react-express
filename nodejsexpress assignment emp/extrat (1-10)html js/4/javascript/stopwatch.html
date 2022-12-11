@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            count=0;
+            function counter(){
+                count++;
+                document.getElementById("timer").innerHTML=count;
+            }
+           function start(){
+              interval=setInterval(counter,1000);
+           }
+           function stop(){
+               clearInterval(interval);
+               count=0;
+           }
+        </script>
+    </head>
+    <body>
+        <h2> Stop Watch</h2>
+        <p id="timer"></p>
+        <button onclick="start()"> Start</button>
+        <button onclick="stop()"> Stop</button>
+    </body>
+</html>

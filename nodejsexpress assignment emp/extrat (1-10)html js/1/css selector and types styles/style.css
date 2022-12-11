@@ -1,0 +1,4 @@
+h2{color:red; text-align: center;}
+p{color:green; font-family: monospace;}
+a{text-decoration:none; color:black}
+a:hover{color:red;text-decoration: underline;}

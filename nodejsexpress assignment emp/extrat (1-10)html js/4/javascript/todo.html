@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function add() {
+        var ul = document.getElementById("list");
+        var node = document.getElementById("field").value;
+        var li = document.createElement("li");
+        li.appendChild(document.createTextNode(node));
+        ul.appendChild(li);
+      }
+    </script>
+  </head>
+  <body>
+    <input type="text" id="field" /><br />
+    <input type="button" onclick="add()" value="add" /><br />
+    <h2>List</h2>
+    <ul id="list"></ul>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+
+create table trainer
+(trainer_id number(5) primary key, trainer_name varchar(20), 
+technology varchar2(50), experience number(5), department_code varchar2(20)) ;
+
+insert into trainer values(111, 'presenjit', 'Java',10,'CSE');
+insert into trainer values(113, 'Ajit', 'CAD',10,'MECH');
+insert into trainer values(112, 'veena', 'java',12,'IT');
+insert into trainer values(114, 'Karuna', 'Java',12,'CSE');
+insert into trainer values(116, 'Kartiki', 'CAD',15,'CIVIL');
+insert into trainer values(115, 'Sujit', 'GRAPHICS',13,'CIVIL');
+insert into trainer values(117, 'Amey', 'JAVA',9,'IT');
+insert into trainer values(118, 'Arun', 'Python',9,'IT');
+insert into trainer values(119, 'Sudhakar', 'PHP',10,'CSE');
+insert into trainer values(121, 'punit', 'Dynamics',10,'MECH');
+insert into trainer values(120, 'Abhijeet', 'CAD',11,'MECH');
+insert into trainer values(123, 'Avani', 'java',14,'CSE');
+
+Q.1. Show Trainer name and length
+
+select first_name, length(first_name) "length", last_name, length(last_name) "length" from employee;
+
+Q.2. Show trainers with their deparment codes like
+	Presenjit is from deparment CSE
+	Ajit is from deparment MECH
+     Trainer name should be 1st letter capital and department code should be all letter capital
+
+select trainer_name|| ' ' ||'is from department' ||' '||department_code "name" from trainer
+
+Q.3. Trim all occurances of t or a or i from right side of trainer name
+
+select trainer_name, rtrim(trainer_name, 'tai') from trainer; 

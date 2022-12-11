@@ -1,0 +1,360 @@
+--> Javascript :- It is an client side scripting language used to apply some dynamic contents in our web page like some animations , event handling , validations , dom manupulation etc.
+  -> client side language :- execute are execute by the browser 
+  -> scripting language :- interpriting language (line by line)
+   -> It is known as ECMAScript (ES) standard 
+   -> Old Javascript (Es 5)
+   -> New features (Es6/Es7..)
+     -> Javascript (Es 5)
+       -> It is a case senstive language 
+       -> extension is .js 
+       -> js code is write on script tag 
+       -> How we implement Javascript in a page 
+         home.html 
+         <!doctype html>
+         <html>
+            <head>
+               <script>
+                 Javascript 
+               </script>
+                 or 
+               <script src="first.js"></script>
+            </head>
+         </html>
+         -> comments :- used to describe the code 
+         single :- //
+         multiple :- /*  */
+         html :- <!-- -->
+         -> concatenation : +
+         -> output | display 
+           document.write("--");//in top of browser 
+           console.log("--");//display in console | debug 
+           ** all Javascript errors are display in console 
+    -> How is Javascript executed ?
+      The source code Javascript is passed through a program called a compilar(engine).
+        -> In every browser there is an Javascript Engine(compiler)
+          -> Chrome :- V8
+          -> Mozilla :- Spider Monkey 
+          -> IE :- chakra 
+    -> Javascript is a programming 
+       -> variables :- temp. memory location which hold input data 
+         syntex : 
+           var varname=value;
+           -> Rules for define varname 
+             -> start with alphabate[A-Za-z]
+             -> after it combination of [a-zA-Z0-9_]
+             eg:
+             var empName="anuj";
+             var emp_name="anuj";
+        -> Dataypes :- type declaration of varaible. But in Javascript it allocate at runtime as per the variable value.
+          -> types of datatype 
+            -> string 
+            -> number 
+            -> bigint : long integer 
+            -> boolean 
+            -> undefined 
+            -> null 
+            -> object 
+            -> How we check the datatype of a variable 
+            typeof varname 
+        -> Operators :- to perform some operations 
+         -> Arthematic 
+           + , - ,/ ,* ,% ,++ , -- 
+         -> Assignment 
+          = , += , -= , *= , /= ,%= 
+            eg:
+              var sum=0;
+              for(i=1;i<=10;i++){
+                  sum+=i;
+              }
+        -> Relational 
+          > , < , >=, <= 
+        -> Comparison operator 
+          == :-compares the equality of values not the type.
+            eg:
+            var a=10;
+            var b="10";
+            if(a==b) // true 
+            if(a===b)//false
+         === :- compares the equality of values and type both 
+         !== 
+         !=
+        -> Logical Operators 
+          && :- when all the conditions are correct 
+          || :- when anyone condition is correct then it true.
+          ! :-   It reverse the boolean result the operand.
+          eg:
+          var a=5;
+          var b=10;
+          (a!=b) && (a<b);//return true 
+          (a>b) || (a==b);//return false 
+          (a<b) || (a==b);//return true
+          !(a<b);//returns false 
+          !(a>b);//returns true 
+        -> ** Ternary Operator (conditional operator) (:?)
+          -> Subsitute of if else 
+          syntex : 
+          <condition> ? <value1> :<value2>
+          var a=5;
+          var b=10;
+          var res= a>b ?a :b;//10 
+          var res=a>b ?b:a;//5
+        -> Conditions | Selection (return boolean)
+         if else 
+         if(a>b){
+             //a 
+         }
+         else {
+             //b
+         }
+        -> if else if else 
+          if(conditin){ ---}
+          else if(condition) {---}
+          ---
+          ---
+          else { ---}
+        -> nested if :- if within another if is known as nested if.if all the if conditions are correct then true.
+           if(condition){
+               if(conditin)
+               {
+                   ///return true
+               }
+               else {
+
+               }
+           }
+           else {
+
+           }
+           -> Popup (BOM :- Browser Object Model)
+           -> alert():- to display a dialoge box with message 
+           -> prompt() :- to input data at runtime.But accept the value string , if we want to convert string into number 
+             -> parseInt()
+             -> Number()
+            -> confirm() :- confirmation box 
+            -> switch :- multi-decision making.performance is fast 
+              switch(expression){
+                  case val : statement;
+                      break;
+                  ---
+                  ----
+                  default : statement
+              }
+      -> Task 
+        -> Marksheet 
+        input 5 subject marks in 5 variables , and find the total , percentage and grade : 
+         per >80 - A 
+         per >60 <80 - B 
+         per > 45 <60 - C 
+         FAIL 
+        -> Looping (Iteration)
+          -> for 
+           for(initilization;condition;inc/dec){
+               statement;
+           }
+          -> while :-
+          while(condition){
+              statement
+          }
+          -> do-while 
+           do{
+               statement
+           }while(condition);
+           -> task look 
+            task 
+              -> input a number 
+                reverse it also find the sum of a digit of a number 
+                eg:
+                num=1234;
+                rev=4321;
+                sum=10;
+     -> Array :- array is an group of element which is used to store multiple values in a single variable of any type.(hetrogenous)
+       eg:
+         var arrname=new Array(val,val,val)
+           or 
+         var arrname=[val,val,val] (prefer)
+         eg:
+         var arr=[23,"anuj",45.67,true];
+           arr[1]
+        -> to find the array size 
+            arrname.length 
+        eg:
+        for(i=0; i<arr.length;i++){
+            console.log(arr[i])
+        }
+        -> Task 
+          -> assign 10 values in an array , display all values and also find the sum and the largest value from an array.
+        -> Task 
+          -> assign 5 values in an array and also assign a single value in a variable and find that single value is present in array or not 
+
+  -> Function :- reusability 
+     -> define 
+     function abc(){
+         //code
+     }
+     -> Call 
+      abc();
+      abc()
+      -> with argument 
+      function add(a,b) //define
+      {
+          return (a+b);
+      }
+      var sum=add(4,5);//call
+--> Events :- to perform some specific task 
+  Events        Event Handler 
+  click         onclick
+  dblclick 
+  mouseover 
+  mouseout 
+  keyup 
+  keydown 
+  keypress 
+  blur 
+  focus 
+  change 
+  load 
+  reload 
+  submit
+  scroll
+
+--> Task 
+   Button (click fire function)
+     star (function)
+       -> prompt (input number )
+         4
+        *
+       * * 
+      * *  *
+     * *  *  *
+     -> Task 
+       button :- abc method 
+          prompt a number , then display the table 
+          5*1=5 
+          5*10=50
+    -> DOM :- It stand for Document Object Model . It is an API for manupulating Html documents.
+      -> Dom represents a document as a tree of nodes.It allow us to add, remove, modify part of the document.
+        eg:
+         <html>
+            <head>
+               <title> Dom </title>
+            </head>
+            <body>
+               <p> Hello Javascript </p>
+            </body>
+         </html>
+         -> Tree representation 
+          Document 
+              html 
+                  head 
+                       title 
+                           text :Dom 
+                  body 
+                       p 
+                          text : Hello Javascript
+        -> Selecting elements 
+          -> ** getElementById() :- select an element by id 
+          -> getElementsByName() :- select elements by name (array)
+          -> getElementsByTagName() :- array 
+          -> getElementsByClassName() :- array 
+          -> querySelector() - select elements by Css selectors 
+        -> Manupulating Elements 
+           -> createElement() :- create a new element 
+           -> innerHTML :- get and set the Html content of an element 
+           -> innerText :- get and set the text content of an element 
+           -> append() :- after 
+           -> prepend() :- before
+        -> Manupulationg styles 
+        .style.property=value;
+        -> form 
+          .value 
+   Task :- 
+      
+         DOM Manupulation 
+         <p> Hello How r u </p> 
+          Read Data      Update Data 
+            -> read data button click 
+               i want to get the data from paragraph and display in alert box.
+            -> update data button click 
+              set data of paragraph (I am , fine ! Whats about you!)
+              -> apply styles to change color, border, and background
+          -> task 
+           <ul id="menu">
+              <li>Home </li>
+           </ul>
+             -> create lists at runtime 
+               add list item 
+                 Products 
+                 Gallery 
+                   after Home 
+   -> Form Task 
+    Marksheet 
+  English  textbox 
+  Hindi    textbox 
+  Science 
+  Sst 
+  Maths 
+  Total 
+  Percentage 
+  Grade 
+       Button 
+    -> Client Side Validation 
+      -> Regular Expression 
+       start :- /^ 
+       end  :- $/
+       pattern :- []
+       range :- { }
+       compulsary :- + 
+       or :- | 
+        eg:
+        var expName=/^[a-zA-Z ]{2,100}$/;
+        var expMobile=/^[6-9][0-9]{9}$/;
+        var emailReg=/^[a-zA-Z0-9-_]+@+$/;
+
+          Task 
+          Validation 
+          Name : 
+          Mobile : 
+          Email :
+          Feedback : textarea (min 20 max 200)
+             Submit 
+        -> Intervals :- 
+          -> setInterval() :- to call a method or expression regurally as we mentioned the time interval.
+            eg:
+            interval=setInterval(abc,3000);
+          -> clearInterval(interval) :- stop the interval 
+          -> setTimeout(abc,4000);//call only 1 time 
+          
+     Task 
+       -> create a banner , image change after 5 seconds 
+        5 images in a folder 
+          by default 1st image in render in the dom , after 5 seconds image change with one.
+      -> Javascript is all about object 
+      Object :- collection of data in the form of properties and methods.
+        -> key value pair 
+       -> 1st way (Object Literal)(prefer)
+         var obj={
+           fname:'anuj',
+           lname:'singh',
+        fullname:function(){
+          return fname+" "+lname;
+        }
+         }
+         console.log(obj.fname);//anuj 
+         console.log(obj.fullname());//not defined
+        -> 2nd way (Object Constructor)
+        var obj=new Object();
+        obj.fname="anuj";
+        obj.lname="singh";
+        obj.fullname=function(){
+          return this.fname+" "+this.lname;
+        }
+        -> There are predefined methods
+         array 
+         string 
+         math 
+         date :- 
+         var d=new Date();
+            d.getHours() 
+            d.getMinutes() 
+            d.getSeconds()
+            -> create a clock in Javascript to render the current time in the paragraph

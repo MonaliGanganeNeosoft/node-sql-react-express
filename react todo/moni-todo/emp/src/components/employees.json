@@ -1,0 +1,25 @@
+{
+  "employees": [
+    {
+      "name": "sushantk",
+      "gender": "m",
+      "salary": "90009999",
+      "profile": "lolaa",
+      "id": 13
+    },
+    {
+      "name": "Sushant KaDAM",
+      "gender": "male",
+      "salary": "100",
+      "profile": "ok",
+      "id": 14
+    },
+    {
+      "name": "moni",
+      "gender": "female",
+      "salary": "88",
+      "profile": "moni",
+      "id": 15
+    }
+  ]
+}

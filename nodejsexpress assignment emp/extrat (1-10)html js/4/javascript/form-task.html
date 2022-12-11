@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function valid() {
+        var name = document.getElementById("t1").value;
+        var number = document.getElementById("t2").value;
+        var email = document.getElementById("t3").value;
+
+        var cname = /^[a-zA-z]{2,30}$/;
+        var cnumber = /^[6-9][0-9]{9}$/;
+        var cemail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!cname.test(name)) {
+          alert("only alphabet");
+        } else if (!cnumber.test(number)) {
+          alert("only 10 digit number");
+        } else if (!cemail.test(email)) {
+          alert("enter correct email");
+        } else {
+          alert("form submitted");
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <form action="#">
+      name: <input type="text" id="t1" /><br /><br />
+      mobile: <input type="text" id="t2" /><br /><br />
+      email: <input type="text" id="t3" /><br /><br />
+
+      <input type="button" value="submit" onclick="valid()" />
+    </form>
+  </body>
+</html>

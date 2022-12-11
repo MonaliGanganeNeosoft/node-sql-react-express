@@ -1,0 +1,191 @@
+--> Callback ,promises , async , await 
+   -> Difference between Sync(blocking) and Async (non-blocking)
+     -> callback : It is a function that is passed to another function.When the first function is run , it will run the second.
+      eg:
+      function abc(){
+          console.log("Start");
+          setTimeout(()=>{ console.log("Event Call")},3000);
+          console.log("End");
+      }
+      abc();
+      Output 
+      Start 
+      End 
+      Event Call 
+    -> Promises :When we define a promise , it will be resolved when the time comes or it will get rejected.
+      -> A promise is used to handle the asynchronous operations.
+        -> State of Promises 
+          -> Pending : Initial State , begore the Promise succeeds or fails 
+          -> Resolve :- completed 
+          -> Rejected : Failed 
+        -> How we create a promise 
+        const myPromise=new Promise((resolve,reject)=>{
+            let age=17;
+            if(age>18){
+                setTimeout(()=>{
+                   resolve("Elligible")
+                },2000)
+            }
+            else {
+                reject("Not Elligible")
+            }
+        })
+     -> How we using Promise 
+       To use it we have then() for resolve and catch() for reject .
+       myPromise
+       .then(res=>{
+           console.log(res)
+       })
+       .catch(rej=>{
+           console.log(rej)
+       })
+       -> Promises Chaining
+
+       let pro=new Promise((resolve,reject)=>{
+           setTimeout(()=> resolve(20),2000)
+       })
+       pro.then(res=>{
+           console.log(res);//20
+           return res*2;//40
+       })
+       .then(res=>{
+           consle.log(res);//40
+           return res*5;//200
+       })
+       .then(res=>{
+           console.log(res);//200
+       })
+    -> Example of promise chaining is fetch() method 
+      fetch() :- inbuild method of javascript used to call a apis and return data in promises.
+      eg:
+      https://jsonplaceholder.typicode.com/
+      eg:
+      const URL="https://jsonplaceholder.typicode.com/posts";
+      fetch(URL)
+      .then(res=> res.json())
+      .then(data=>{
+          console.log(data)
+      })
+      -> Task 
+         Callback 
+         Promise 
+         Chaining 
+     -> Create a webpage 
+       User Details 
+       <button> Click here </button>
+        <ul id="target">
+        </ul>
+        -> when we click on button call the api with fetch method and render the all user email in the UL.
+    -> async | await 
+      -> if we put async keyword before any function so that function return promise.
+      async function xyz(){
+         return 10;
+       }
+     xyz().then(res=> console.log(res))
+     -> await :- It makes javascript wait until that promise settles and returns its result.
+       await is only used with async function.
+       eg:
+        async function fetchUser(){
+            try {
+            const URL="";
+            let response=await fetch(URL);
+            let userData=await response.json();
+            }
+            catch(err){
+                console.log(err);
+            }
+        }
+        -> with the help of async , await call the api and render the data in the div 
+          Name : 
+          Email :
+          Phone :
+          Username :
+          Website :
+
+-> Typescript :- It is a super set of javascript.
+    -> It builds on top of javascript. First we write the typescript code, the it compile the typescript code in plain javascript code(es5) using typescript compilar (tsc).
+    -> It is a case sensitive 
+    -> extension .ts 
+    typescript ---> compilar ---> javascript 
+      ->Features of typescript 
+        -> It is strongly type 
+        -> apply object oriented features like class , inheritance, interfaces etc.
+      -> Environmental setup 
+        Download and install node js 
+     -> npm install typescript --g 
+      -> How we run typescript program 
+         first.ts 
+         console.log("My typescript file");
+         tsc first.ts (compile and generate .js )
+         node first.js 
+           My typescript file 
+    -> Type Annotations 
+    let variablename:type;
+      -> Number 
+      let age:number=23;
+      -> string 
+      let name:string="anuj";
+      -> boolean 
+      let status:boolean=false;
+      -> array 
+      let names:string[]=["a","b","c"];
+      -> object 
+      let person:{
+          name:string;
+          age:number
+      }
+      -> tuple 
+      let skill:[string,number,string];
+      -> any type 
+      let formData:any;
+      -> void :- use with function 
+      function abc():void{
+
+      }
+      -> union 
+      let uid:(number|string)
+
+      --> Access Modifiers 
+        public : anywhere
+        private : within a class 
+        protected : within a class and derived class
+     --> readonly modifier 
+       readonly dob:Date;
+    --> interfaces:- It defines the contracts within our code. It is just like a skelaton where we can declare the variables and methods not the defination. We can define it where it implements .
+      eg:
+      interface Person {
+          fname:string;
+          lname:string;
+      }
+
+      function getFullName(person:Person)
+      {
+          return `${person.fname} ${person.lname}`;
+      }
+      let sumit={
+          fname:"Sumit",
+          lname:"Joshi"
+      }
+      console.log(getFullName(sumit))
+     -> class type 
+     interface JsonConvert{
+    toJSON():string;
+}
+class SUmit implements JsonConvert 
+{
+    constructor(private fname,private lname){
+
+    }
+    toJSON():string{
+        return JSON.stringify(this)
+    }
+}
+let obj=new SUmit("Sumit","Joshi");
+console.log(obj.toJSON())
+-> Modules (import | exports )
+
+
+
+
+
+

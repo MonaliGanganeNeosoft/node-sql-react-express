@@ -1,0 +1,109 @@
+-> Jquery :- It is a fast,lightweight, open-source javascript library.
+  -> Write less , do more 
+  -> It is used for DOM Manupulation, event handling, animations effects, ajax call etc.
+  -> How we use jQuery :- 
+    either you download the jquery file or directally link the cdn (online link).
+    eg:
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <script src="jquery-cdn"></script>
+        <script>
+           write the jquery code 
+        </script>
+      </head>
+    </html>
+    -> jQuery Syntext
+      $(document).ready(function(){
+          alert("Hello jQuery")
+      });
+      $ :- alias for jQuery
+      -> jQuery Selectors :- 
+        -> By id 
+         $("#idname")
+        -> By class 
+        $(".classname")
+        -> By elementname 
+         $("element")
+        -> Attribue 
+        $('input[type="text"]')
+        -> Custom Selectors 
+         $("tr:odd")
+         $("p:first")
+         $("form:password")
+        -> jQuery Events 
+         $("#btn").click(function(){
+
+         })
+         -> Show hide effect 
+           .hide() :- fast , slow , timeinterval 
+           .show()
+           .toggle()
+        -> Fade Effects 
+           fadeIn() , fadeOut()
+        -> slideUp(),slideDown()
+        -> animate() 
+        -> To stop animation :- stop()
+        -> jQuery Chaining 
+         $("h2").html("Hello").addClass('heading');
+         -> Getter and setter 
+           text() :- get or set text content 
+           html() :- get or set html content 
+           attr() :- to get or set the attribute value of the element 
+           val() :- use to get or set the value of the form elements 
+        -> 
+          Task 
+        Marksheet 
+    Eng 
+    Hindi 
+    Maths 
+    Science 
+    SSt 
+    Total 
+    Percentage 
+    Grade 
+        Click Here 
+-->Insert new content 
+  -> append() :- It is used to insert content to the end of the selected elements.
+  -> prepend() :- It is used to insert content to the start of the selected elements.
+  -> before() :- It is used to insert content before the selected elements.
+  -> after() :- It is used to insert content after the selected elements.
+-> remove elements or contents 
+  -> empty() :- it remove all the child elements as well as the content within the selected elements from the DOM
+  -> remove() :- removes the selected elements from the DOM as well as everythng inside it.
+  -> removeAttr() :- to remove a attribute 
+  $("a").removeAttr("href");
+  -> Add or remove class
+  $("h1").addClass("heading");
+  $("p").addClass("para");
+
+   $("p").removeClass("para");
+
+   $("p").click(function(){
+       $(this).toggleClass("para")
+   })
+   -> Traversing :- we need to select a parent or ancestor elements ,we have a DOM traversal methods.
+        body 
+        div
+h1       p       ul 
+         em    li  li 
+         -> parent() : it is used to get the direct parent of the selected element 
+           $("li").parent().addClass('classname')
+        -> parents() :- It is used to get the ancestors of the selected element 
+        -> children() :- it is used to get a direct children of the elements 
+        -> find() :-used to get the descendant elements of the selected elements 
+        -> siblings() :- It is used to get the sibling elements of the selected element
+        -> next() :- used to get the immediately following sibling 
+        -> prev():-
+        -> jQuery Filtering :- 
+        first():- return the first element after filter
+        last() 
+        filter() 
+        slice() 
+        has() 
+        not() 
+        eq()
+        -> Task Jquery
+          -> Validation 
+          -> Accordion 
+          -> Autocomplete 

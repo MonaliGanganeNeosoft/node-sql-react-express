@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            *{
+                margin:0;
+                padding:0;
+            }
+            body{
+                font-family: Arial, Helvetica;
+                background: slategrey;
+            }
+          #wrapper{
+              border: 1px solid black;
+              width:1000px;
+              background: white;
+              margin:0px auto;
+          }
+          #header{
+              background: crimson;
+              height: 100px;
+              color: white;
+          }
+          #header h1{
+              padding:40px 0 0 20px;
+          }
+          #menu{
+              background: lightsalmon;
+          }
+          #menu ul{
+              margin:0;
+              padding:0;
+          }
+          #menu li{display: inline-block;}
+          #menu li a{
+              display: block;
+              padding:10px 12px;
+              text-decoration: none;
+              color:black
+          }
+          #content{
+              width:800px;
+              float:left;
+              padding:15px;
+              box-sizing: border-box;
+              min-height: 400px;
+          }
+          #sidebar{
+              background: lightblue;
+              width:200px;
+              float:right;
+              min-height: 400px;
+          }
+          #sidebar ul{
+              list-style: none;
+          }
+          #sidebar li a{
+              text-decoration: none;
+              padding:10px 12px;
+          }
+          #footer{
+              background: lightsalmon;
+              padding:5px 10px;
+              text-align: center;
+              clear:both;
+          }
+         /* media query */
+     @media screen and (max-width:1020px)
+       {
+           #header{
+               color:blue
+           }
+         #wrapper{
+             width:800px;
+         }
+         #content{
+             width:80%
+         }
+         #sidebar{
+             width:18%
+         }
+       }
+       @media screen and (max-width:810px)
+       {
+           #header{
+               color:chartreuse
+           }
+         #wrapper{
+             width:500px;
+         }
+         #content{
+             width:65%
+         }
+         #sidebar{
+             width:34%
+         }
+       }
+       @media screen and (max-width:510px)
+       {
+           #header{
+               color:chartreuse;
+               text-align: center;
+           }
+         #wrapper{
+             width:auto;
+         }
+         #content{
+             width:100%;
+             float:none
+         }
+         #sidebar{
+            width:100%;
+             float:none;
+             min-height: 100px;
+         }
+       }
+        </style>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="header">
+                <h1>Careerera</h1>
+            </div>
+            <div id="menu">
+                 <ul>
+                     <li><a href="">Home</a></li>
+                     <li><a href="">About Us</a></li>
+                     <li><a href="">Services</a></li>
+                     <li><a href="">Gallery</a></li>
+                     <li><a href="">Contact Us</a></li>
+                 </ul>
+            </div>
+            <div id="content">
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur vitae ducimus inventore excepturi totam esse harum quibusdam voluptate tempora cupiditate, pariatur voluptatem, ut ullam tempore sit magni eligendi consequuntur veritatis.</p>
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur vitae ducimus inventore excepturi totam esse harum quibusdam voluptate tempora cupiditate, pariatur voluptatem, ut ullam tempore sit magni eligendi consequuntur veritatis.</p>
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur vitae ducimus inventore excepturi totam esse harum quibusdam voluptate tempora cupiditate, pariatur voluptatem, ut ullam tempore sit magni eligendi consequuntur veritatis.</p>
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur vitae ducimus inventore excepturi totam esse harum quibusdam voluptate tempora cupiditate, pariatur voluptatem, ut ullam tempore sit magni eligendi consequuntur veritatis.</p>
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur vitae ducimus inventore excepturi totam esse harum quibusdam voluptate tempora cupiditate, pariatur voluptatem, ut ullam tempore sit magni eligendi consequuntur veritatis.</p>
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur vitae ducimus inventore excepturi totam esse harum quibusdam voluptate tempora cupiditate, pariatur voluptatem, ut ullam tempore sit magni eligendi consequuntur veritatis.</p>
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur vitae ducimus inventore excepturi totam esse harum quibusdam voluptate tempora cupiditate, pariatur voluptatem, ut ullam tempore sit magni eligendi consequuntur veritatis.</p>
+                
+            </div>
+            <div id="sidebar">
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">About Us</a></li>
+                    <li><a href="">Services</a></li>
+                    <li><a href="">Gallery</a></li>
+                    <li><a href="">Contact Us</a></li>
+                </ul>
+            </div>
+            <div id="footer">
+                Careerera &copy; 2021. All Right Reserved
+            </div>
+        </div>
+    </body>
+</html>

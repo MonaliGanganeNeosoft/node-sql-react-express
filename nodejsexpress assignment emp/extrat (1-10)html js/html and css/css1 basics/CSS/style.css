@@ -1,0 +1,103 @@
+body {
+  margin: 10px;
+}
+/*
+p {
+  color: orange;
+}
+
+a[href^="https"] [href$=".com"] {
+  color: black;
+} */
+
+/* #products ~ p {
+  color: orange;
+} */
+
+/* article p:first-of-type {
+  font-size: 140%;
+  font-style: italic;
+}
+
+article :last-child {
+  font-weight: bold;
+}
+
+ul li:nth-child(3n) {
+  color: deeppink;
+}
+
+a:visited,
+a:link {
+  color: dodgerblue;
+}
+
+a:hover,
+a:focus {
+  color: deeppink;
+} */
+
+/* .first-letter {
+  font-size: 140%;
+  font-weight: bold;
+} */
+
+/* p::first-line {
+  font-size: 140%;
+  font-weight: bold;
+}
+
+::selection {
+  background-color: pink;
+}
+
+p::after {
+  content: "...";
+  display: block;
+} */
+
+/* h1 {
+  color: dodgerblue;
+}
+.highlight {
+  color: deeppink;
+}
+#products {
+  color: green;
+}
+
+#products {
+  color: brown;
+}
+
+.fetured #products {
+  color: dodgerblue;
+} */
+
+/* p {
+  color: dodgerblue;
+  border: 1px solid black;
+}
+
+strong {
+  color: initial;
+  border: inherit;
+} */
+
+/* .box {
+  width: 200px;
+  height: 200px;
+  background-color: hsl(358deg 37% 64%);
+} */
+
+.box {
+  width: 200px;
+  height: 200px;
+  background: dodgerblue;
+  box-shadow: 0 0 30px gray;
+}
+
+h1 {
+  color: white;
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+}

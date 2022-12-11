@@ -1,0 +1,93 @@
+
+create table sample (aadharid number(15), empid number(10) unique, voterid number(30) unique, primary key(aadharid) ); 
+desc sample;
+drop table sample;
+create table sample (aadharid number(15), empid number(10), voterid number(30) unique, primary key(aadharid), unique(empid) );
+create table sample (aadharid number(15), 
+empid number(10), voterid number(30), 
+primary key(aadharid), unique(empid), not null(voterid)); // wrong query bcz 'not null' constraint is always column level
+
+create table sample (aadharid number(15), 
+empid number(10), voterid number(30) unique not null, 
+primary key(aadharid), unique(empid));
+
+// when u use foreign key constraint at table level then 'foreign key' keyword is needed
+
+create table student (sid number(10) primary key , stdname varchar(30), stdstandard varchar (50));
+create table marks3( studid  number(10), 
+phmarks number(5) not null, chmarks number(5) not null, foreign key(studid) references student(sid) on delete set null);
+
+// we can give identification to the constraints so that later we can drop them when not needed, we can search the constriants also
+
+create table marks4( studid  number(10), 
+phmarks number(5) not null, chmarks number(5) not null, CONSTRAINT fk_marks  foreign key(studid) references student(sid) on delete set null);
+
+alter table marks4 drop constraint fk_marks; // we can drop constraint using id
+
+
+alter command :
+add new columns, remove existing columns
+modify exiting columns : rename, change data type, size, add or drop constraints
+rename table
+
+create table student (sid number(10) primary key , stdname varchar(30), stdstandard varchar (50));
+1. add columns  : 1 col, more than 1 col
+alter table student add stdcontact number(12);
+alter table student add (stdaddress varchar(50), parentcontact number(12) not null);
+desc student;
+2. drop columns
+alter table student drop column stdaddress;
+
+alter table student drop primary key;  // used in marks3, marks4 : not allowing to drop
+
+create table test (test_col number(5) primary key);
+alter table test drop primary key;  // now we can drop
+
+create table sample (aadharid number(15), empid number(10) unique, voterid number(30) unique, primary key(aadharid) ); 
+insert into sample values (111,222,444);
+insert into sample values (555,666,444);
+
+alter table sample drop unique(empid);
+alter table sample drop unique(voterid);  
+
+alter table student drop primary key;  // used in marks3, marks4 : not allowing to drop
+we can not drop the constraint if they are refered in another table
+Solution : keyword CASCADE while droping
+if we drop pk constraint then automatically fk constraint from another table will get dropped
+alter table student drop primary key CASCADE;
+
+modify the columns:
+1. data type, size : increase any time, decrease : it will check the values
+
+name : varchar(10)  : Krutika : 7
+name : varchar(5) :
+
+2. we can rename columns also
+desc student;
+
+select * from student;
+desc student;
+insert into student values(123,'Komal','2nd',9090909090,9999999999);
+alter table student modify (STDCONTACT varchar(15));  // not modify bcz data present
+update student set stdcontact=null;
+alter table student modify (STDCONTACT varchar(15));  // modified
+alter table student modify (STDCONTACT varchar(10)); // size decrease allowed : no data present
+
+update student set stdcontact=8888888888 where sid=123;
+select length(stdcontact) from student;
+
+alter table student modify (STDCONTACT varchar(8));  // can not decrease bcz big value present
+
+if no data present with length more than 8 then decrase in size allowed? : YES
+
+alter table student modify (STDCONTACT varchar(10) not null);  // adding constraints 
+
+alter table student rename column stdcontact to stdmobileno; // rename column
+
+rename  student to neostudent;
+desc neostudent;
+
+
+
+
+

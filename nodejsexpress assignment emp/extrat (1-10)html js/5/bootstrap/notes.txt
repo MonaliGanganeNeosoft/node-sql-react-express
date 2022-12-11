@@ -1,0 +1,67 @@
+--> Bootstrap :- It is the most popular and powerful front-end  framework for faster and easier responsive web development.(HTML,CSS,Javascript)
+ -> It includes HTML and CSS based design templates for creating UI like forms , navigations, alerts , modals , carousels etc.
+  -> It gives us ability to create flexible and responsive web layouts with much less efforts.
+  > It works on 12 column grid system
+  -> It is an open source
+  -> Getting started with bootstrap 
+    -> First set the environment for Bootstrap 
+      -> either we can download the files or we link CDN (online link)
+         -> css files :- bootstrap.min.css 
+         -> Javascript 
+            jquery 
+            popper 
+            bootstrap
+            https://getbootstrap.com/docs/4.0/getting-started/introduction/
+            eg:
+      home.html 
+      <!doctype html>
+      <html>
+        <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        </head>
+        <body>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        </body>
+     </html>
+    -> Bootstrap Containers 
+      -> They are required when we using the grid system.
+      -> They are basically used to wrap content with some padding.
+      -> To align the content horizontally center on the page in case of fixed width layout 
+         -> .container 
+         -> .container-fluid , which has 100% width at all breakpoints 
+    -> Bootstrap Grid System 
+    It is the fastest and easy way to create responsive web page.
+     -> It have mobile-first flexbox grid system work on 12 columns as the device .
+     -> predefined grid classes for quickly making grid layouts for different types of devices like phones , tablets,laptops, desktops etc.
+       -> .col-*
+          .col-sm-* :-small screens (mobiles)
+          .col-md-* :- medium screen (tablets)
+          .col-lg-* :- large device (desktop)
+          .col-xl-* :- extra large desktop screens 
+          -> extra small :- <576px 
+          -> small :- >=576px 
+          -> medium :- >=768px 
+          -> large :- >=992px 
+          -> extra :- >=1200px
+          ->
+          create 2 column layout 
+          <div class="container">
+            <!-- row with two column -->
+             <div class="row">
+                <div class="col-md-6"> Left </div>
+                <div class="col-md-6"> Right </div>
+             </dov>
+          </div>
+          -> Create fixed with layout 
+
+          Task 
+            nav 
+            header 
+            content (divide in 3 parts (4,8,6))
+            footer
+
+            -> Task 
+              create a layout with table and use list 

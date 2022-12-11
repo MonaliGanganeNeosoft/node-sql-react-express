@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      function abc() {
+        //access para
+        var elem = document.getElementById("tar");
+        //set data in paragraph
+        elem.innerHTML = "<h4> This is innerHTML property </h4>";
+        //change src of img tag
+        document.getElementById("im").src = "images/2.jpg";
+        //apply styles
+        elem.style.border = "2px solid green";
+        elem.style.textAlign = "center";
+        elem.style.borderRadius = "5px";
+        //get attribute value
+        alert(document.getElementById("im").getAttribute("src"));
+      }
+    </script>
+  </head>
+  <body>
+    <p id="tar"></p>
+    <img src="images/1.jpg" id="im" /><br />
+    <button onclick="abc()">Click Here</button>
+  </body>
+</html>

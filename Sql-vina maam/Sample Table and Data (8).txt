@@ -1,0 +1,109 @@
+
+drop table employee;
+drop table student;
+drop table department;
+drop table stateinfo;
+drop table products;
+drop table colors;
+create table department (d_code varchar(10) primary key, d_name varchar(100),
+d_budget number(20), d_role varchar(100));
+
+insert into department values ('SM', 'Sales and Marketing', 900000, 'selling and marketing services and products');
+insert into department values ('HR', 'Human Resource', 500000,'managing resources from all departments');
+insert into department values ('JV', 'Java Development', 800000, 'Developing Back End applications with Java, Adv Java and Frameworks');
+insert into department values ('LD', 'Learning and Development', 600000,'dealing with trainings and new learning trends');
+insert into department values ('WD', 'Web Development', 500000, 'Developing Web applications with different technologies');
+insert into department values ('DN', 'DotNet Development', 960000, 'Developing Back End applications with C#, DotNet Framework');
+
+create table stateinfo(state_code varchar(10) primary key, state_name varchar(80));
+
+insert into stateinfo values('MH','Maharashtra');
+insert into stateinfo values('KL','Kerala');
+insert into stateinfo values('WB','West Bengol');
+insert into stateinfo values('DL','Delhi');
+insert into stateinfo values('RJ','Rajasthan');
+
+create table employee (employee_id number(5) primary key, 
+first_name varchar2(20), 
+last_name varchar2(20), 
+city varchar2(20), 
+state_code varchar2(80) references stateinfo(state_code) on delete set null,
+age number(4), salary number(7), commission number(7), dept_code varchar(10) references department(d_code) on delete set null);  
+
+
+insert into employee values(111,'Kishor' ,'Pawar', 'Mumbai', 'MH',56, 80000, 2000,'WD');
+insert into employee values(121,'Kamal' ,'Chopra', null,null, 40,70000,null,'HR');
+insert into employee values(112,'Rupa' ,'Wagh', 'Pune', 'MH',56,75000,5000,'WD');
+insert into employee values(131,'karuna' ,'Trivedi', 'Solapur', 'MH',46,65000,3000,'LD');
+insert into employee values(115,'rupali' ,'Patil', 'pune','MH', 45,75000,null,'SM');
+insert into employee values(114,'Kaival' ,'triveni', 'Delhi','DL', 40,60000,2000,'SM');
+insert into employee values(101,'Kishor' ,'Pawar', 'Solapur','MH', 44,65000,2000,'HR');
+insert into employee values(155,'Yash' ,'Chopra', 'Delhi','DL', 40,73000,null,'LD');
+insert into employee values(255,'Pavan' ,'Kumar', 'Mumbai', 'MH',40,70000,4000,'LD');
+insert into employee values(102,'Sonu' ,'Chaturvedi', 'Kolkata', 'WB', 46,80000,5000,'WD');
+insert into employee values(109,'Amar' ,'Jadhav', 'PUNE', 'MH',43,95000,4000,'WD');
+insert into employee values(110,'Amit' ,'Jagdale', 'Delhi', 'DL',44,92000,5000,'HR');
+insert into employee values(555,'Hari','Kumar','pune','MH',50,92000,2000,'HR');
+insert into employee values (333,'Kish', 'Kumar' ,'Pune','MH',58,75000,null,'SM');
+insert into employee values(545,'Lata','Jain','Satara','MH',66,90000,6000,null);
+insert into employee values (323,'Kishori' ,'Kumar' ,'Mumbai','MH',59,92000,null,'SM');
+insert into employee values (132,'Manohar' ,'Trivedi' ,'Delhi','DL',59,50000,2000,'LD');
+insert into employee values (122,'Ishwari' ,'Trivedi' ,'Delhi','DL',59,50000,4000,'LD');
+insert into employee values(189,'Aasha','Kumari','Delhi','DL',67,80000,4000,null);
+insert into employee(employee_id,first_name,age,salary,dept_code) values (242,'Poonam',59,80000,'WD');
+insert into employee values(224,'Anu','Chopra','Kolhapur','MH',58,85000,3000,'SM');
+insert into employee values(225,'A','Kapoor','Kolhapur','MH',59,87000,3000,'HR');
+insert into employee values (301, 'Raja','Vani','Satara','MH',40,60000,4000,'SM');
+insert into employee(employee_id,first_name,age,salary,dept_code) values(105,'Ravi',60,80000,'WD');
+insert into employee values (344,'   Kishor',' Kishor  ','   Satara ','MH',66,98000,4000,'HR');   
+insert into employee values(182,'Gauresh','Patil','Delhi','DL',56,48000,null,'SM');
+insert into employee values(677,'Veena','Patil','Mumbai','MH',66,90000,6000,'LD');
+
+create table student(std_id number(8) primary key, ph_marks number(5), ch_marks number(5), maths_marks number(5), bio_marks number(5));
+insert into student values (222,78,90,null,89);
+insert into student values (223,null,92,98,82);
+insert into student values (224,85,null,78,91);
+insert into student values (225,70,75,86,70);
+insert into student values (226,72,80,84,null);
+insert into student values (227,null,95,77,85);
+
+create table products(toy_id number(5) primary key, toy_name varchar(20));
+insert into products values(666,'heartpillow');
+insert into products values(777,'teddy bear');
+insert into products values(444,'furrycat');
+
+create table colors (color_code varchar(10) primary key, color_name varchar(20));
+insert into colors values ('FF0000', 'red');
+insert into colors values ('00FF00', 'green');
+insert into colors values ('0000FF', 'blue');
+
+drop table employee1;
+create table employee1 (employee_id number(5) primary key, 
+first_name varchar2(20), 
+last_name varchar2(20), 
+city varchar2(20), 
+join_date DATE,
+manager_id number(5), dept_code varchar(10) references department(d_code) on delete set null);  
+insert into employee1 values(111,'Kishor' ,'Pawar', 'Mumbai', to_date('14-JUN-2000 10:30:00','DD-MON-YYYY HH24-MI-SS'), null, 'WD');
+insert into employee1 values(121,'Kamal' ,'Chopra', 'Kolkata',to_date('1-MAY-1990 12:30:00','DD-MON-YYYY HH24-MI-SS'), null,'SM');
+insert into employee1 values(112,'Rupa' ,'Wagh', 'Pune', '12-JUN-2000', 111, 'HR');
+insert into employee1 values(131,'karuna' ,'Trivedi', 'Mumbai',to_date('14-JUN-2002 15:00:00','DD-MON-YYYY HH24-MI-SS'), 121,'LD');
+insert into employee1 values(115,'rupali' ,'Patil', 'pune',to_date('13-NOV-2002 15:30:30','DD-MON-YYYY HH24-MI-SS'), 121,'LD');
+insert into employee1 values(114,'Kaival' ,'triveni', 'Delhi',to_date('13-NOV-2002 16:15:30','DD-MON-YYYY HH24-MI-SS'),111,'WD');
+insert into employee1 values(101,'Kishor' ,'Pawar', 'Solapur',to_date('13-NOV-2002 16:15:30','DD-MON-YYYY HH24-MI-SS'),null,'SM');
+insert into employee1 values(155,'Yash' ,'Chopra', 'Delhi',to_date('11-OCT-2002 9:30:00','DD-MON-YYYY HH24-MI-SS'),null,'SM');
+insert into employee1 values(255,'Pavan' ,'Kumar', 'Mumbai',to_date('11-NOV-2000 10:30:00','DD-MON-YYYY HH24-MI-SS'),101,'HR');
+insert into employee1 values(102,'Sonu' ,'Chaturvedi', 'Kolkata',to_date('14-JUL-1990 14:00:00','DD-MON-YYYY HH24-MI-SS'),155,'WD');
+insert into employee1 values(109,'Amar' ,'Jadhav', 'PUNE', to_date('10-AUG-2003 9:30:00','DD-MON-YYYY HH24-MI-SS'),101,'WD');
+insert into employee1 values(110,'Amit' ,'Jagdale', 'Delhi',to_date('13-NOV-2002 10:30:00','DD-MON-YYYY HH24-MI-SS'),109,'HR');
+insert into employee1 values(555,'Hari','Kumar','pune',to_date('14-JUN-2000 9:00:00','DD-MON-YYYY HH24-MI-SS'),null,'HR');
+insert into employee1 values (333,'Kish', 'Kumar' ,'Pune',to_date('13-OCT-2002 13:30:00','DD-MON-YYYY HH24-MI-SS'),null,'LD');
+insert into employee1 values(545,'Lata','Jain','Satara',to_date('10-MAY-1990 11:30:00','DD-MON-YYYY HH24-MI-SS'),112,'SM');
+insert into employee1 values (323,'Kishori' ,'Kumar' ,'Mumbai',to_date('14-DEC-2001 11:30:00','DD-MON-YYYY HH24-MI-SS'),333,'LD');
+insert into employee1 values (444,'Kishori' ,'Jagri' ,'Mumbai',to_date('14-DEC-2001 9:30:00','DD-MON-YYYY HH24-MI-SS'),333,'SM');
+insert into employee1 values (888,'Ruman' ,'Soni' ,'Mumbai',to_date('25-JAN-2000 9:30:00','DD-MON-YYYY HH24-MI-SS'),333,'WD');
+insert into employee1 values(869,'Manisha' ,'Pawar', 'Pune', to_date('1-FEB-2022 10:30:00','DD-MON-YYYY HH24-MI-SS'), null,'HR');
+
+
+
+

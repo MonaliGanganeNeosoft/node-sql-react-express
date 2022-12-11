@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="clock"></h1>
+    <script>
+      var clock = document.getElementById("clock");
+      function time() {
+        var d = new Date();
+        hour = d.getHours();
+        min = d.getMinutes();
+        sec = d.getSeconds();
+        if (hour > 12) {
+          hour = hour - 12;
+          clock.innerHTML = hour + ":" + min + ":" + sec + " pm";
+        } else {
+          clock.innerHTML = hour + ":" + min + ":" + sec + " am";
+        }
+      }
+      setInterval(time, 1000);
+    </script>
+  </body>
+</html>

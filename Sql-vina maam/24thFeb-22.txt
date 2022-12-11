@@ -1,0 +1,49 @@
+SQL Functions
+Scalar Functions
+String Functions
+lower, upper, initcap, length, concat, all trimming and padding functions, instr, replace, soundex, substr
+select * from employee;
+Q. display first name, its length, last name , its length of all employees
+select first_name, length(first_name) "length", last_name, length(last_name) "length" from employee;
+select length('Neosoft Technologies') from dual;
+dual is virtual table used to get result from scalar functions on random values.
+in mysql if we do not add 'from dual' clause then it also it will work  . https://mysqltutorial.org/tryit/ 
+desc dual; // wont work
+select * from dual; // it workds dummy column, X value
+Q. Show employees whose length of first name and last name is same order them according to length
+select * from employee where length(first_name)=length(last_name);
+select first_name, last_name, length(first_name) "length" from employee where length(first_name)=length(last_name) order by 3;
+update employee set city='pune' where employee_id in(115,555) ;
+update employee set city='PUNE' where employee_id=109;
+
+Q. Display all cities from table, cities in upper case, cities in lower case, cities as initial letter capital
+select distinct city from employee;
+select distinct city,  upper(city), lower(city), initcap(city) from employee;
+10 rows, 10 rows, 10 rows, 10 rows
+select distinct upper(city) from employee;   Pune, pune, PUNE ----> upper ----> PUNE, PUNE, PUNE ---> distinct ---> PUNE
+8 rows
+
+Q. Show which employees live in city 'pUNe';
+
+select * from employee where city='pUNe';  // no data found   
+select * from employee where lower(city)=lower('pUNe');  Pune -> pune, PUNE-> pune, pune->pune
+Q. display first and last name of employee with concatenation
+select concat(first_name, last_name) from employee;
+select concat(first_name, ' ',last_name) from employee;  concat takes only 2 arguments. so this query wont work
+select concat(concat(first_name,' '), last_name) "name" from employee;  Kishor +Pawar => Kishor Pawar
+// simple solution : || operator
+select first_name || ' ' || last_name "name" from employee;
+Q. Show the employees like following
+Kishor Pawar lives in Mumbai
+select first_name || ' ' || last_name||' lives in '|| city "name and city" from employee;
+
+ all trimming and padding functions, instr, replace, soundex, substring
+ trim function: trimming leading or trailing characters/spaces : rtrim, ltrim, trim
+ if 2nd argument is not passed the bydefault spaces are removed.
+select last_name, rtrim(last_name, 'ni') from employee; // i, ni, in, n
+select last_name, rtrim(last_name, 'r') from employee; 
+select first_name, ltrim(first_name, 'K') from employee; 
+select first_name, ltrim(lower(first_name), lower('K')) from employee; 
+select rtrim('     neosoft      ') "trimm" from employee;
+select ltrim('     neosoft      ') "trimm" from employee;
+select trim('     neosoft      ') "trimm" from employee;

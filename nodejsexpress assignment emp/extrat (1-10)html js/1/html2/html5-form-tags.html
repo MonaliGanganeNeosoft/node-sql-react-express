@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> New Form Fields</title>
+    </head>
+    <body>
+        <h2> New Html 5 Form Tags</h2>
+        <form method="get">
+            <fieldset>
+                <legend> Application Form</legend>
+           <!-- email -->
+           Name : <input type="text" value="sumit" readonly/> <br/>
+           Email : <input type="email" name="email" required/> <br/>
+           Age : <input type="number" name="age" required/><br/>
+           FullName : <input type="text" name="fullname" required pattern="[a-z ]+" autofocus/><br/>
+           Mobile : <input type="text" name="mobile" required pattern="[6-9][0-9]{9}"/><br/>
+           Color : <input type="color"/><br/>
+           DOB : <input type="date"/><br/>
+           Time : <input type="time"/><br/>
+           Url : <input type="url" /><br/>
+           Week : <input type="week"/><br/>
+           search :- <input type="search"/><br/>
+           <!-- combo box fields-->
+           ComboBox : <input type="text" list="comboList"/>
+            <datalist id="comboList">
+                <option> Anuj </option>
+                <option> Sunil</option> 
+                <option>Rahul </option> 
+            </datalist> <br/>
+           <input type="submit" value="Submit" />
+           <input type="reset" value="Reset"/>
+        </fieldset>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,47 @@
+
+create table trainer
+(trainer_id number(5) primary key, trainer_name varchar(20), 
+technology varchar2(50), experience number(5), department_code varchar2(20)) ;
+
+insert into trainer values(111, 'Presenjit', 'Java',10,'CSE');
+insert into trainer values(113, 'Ajit', 'CAD',10,'MECH');
+insert into trainer values(112, 'Veena', 'Java',12,'IT');
+insert into trainer values(114, 'Karuna', 'Java',12,'CSE');
+insert into trainer values(116, 'Kartiki', 'CAD',15,'CIVIL');
+insert into trainer values(115, 'Sujit', 'GRAPHICS',13,'CIVIL');
+insert into trainer values(117, 'Amey', 'Java',9,'IT');
+insert into trainer values(118, 'Arun', 'Python',9,'IT');
+insert into trainer values(119, 'Sudhakar', 'PHP',10,'CSE');
+insert into trainer values(121, 'Punit', 'Dynamics',10,'MECH');
+insert into trainer values(120, 'Abhijeet', 'CAD',11,'MECH');
+insert into trainer values(123, 'Avani', 'Java',14,'CSE');
+
+
+show employees in ascending order of their ids
+select * from employee order by employee_id asc ;
+
+select * from employee order by employee_id asc ;
+
+show employeenames and department in ascending order of their department
+
+show employees in descending order of their name
+select * from employee order by first_name desc ;
+
+select * from employee order by 2 desc ;
+
+show employees in ascending order of their deparment and then desc order of their name
+select *  from employee order by first_name desc, dept_code
+
+select *  from employee order by first_name,last_name desc, dept_code
+select *  from employee order by 2,3 desc, 6
+
+
+Repeat all above queries by using column number in order by clause instead of column name
+Display sum of experience
+select sum(experience) from department;=>invalid experience
+
+select sum(experience) from trainer;
+
+Display technology and number of characters in technology
+select technology from trainer
+
